@@ -1,0 +1,34 @@
+DELIMITER $$
+CREATE PROCEDURE exer(IN orderNumber INT, IN customerNumber INT)
+BEGIN
+DECLARE checkNull INT;
+ IF (orderNumber = 0 AND customerNumber != 0) THEN
+	 SELECT o.orderDate, o.requiredDate, o.shippedDate 
+	 FROM orders o
+	 WHERE o.customerNumber = customerNumber;
+ END IF;
+ IF (orderNumber != 0 AND customerNumber = 0) THEN
+	 SELECT o.orderDate, o.requiredDate, o.shippedDate 
+	 FROM orders o
+	 WHERE o.orderNumber = orderNumber;
+ END IF;
+ IF (orderNumber != 0 AND customerNumber != 0) THEN
+  
+  SELECT o.customerNumber INTO checkNull
+  FROM orders o
+  WHERE o.orderNumber = orderNumber;
+
+    IF isNull(checkNull) then
+      select "Khong dap ung";
+    ELSE 
+      SELECT o.orderDate, o.requiredDate, o.shippedDate, IF(o.requiredDate = o.shippedDate, "Dap ung tot", "Dap ung cham")
+      From orders o
+      WHERE o.orderNumber = orderNumber AND o.customerNumber = customerNumber;
+   END IF;
+  end if; 
+END $$
+DELIMITER ;
+Call exer(10100, 363);
+    
+
+ 
