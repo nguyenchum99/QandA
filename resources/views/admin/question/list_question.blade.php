@@ -13,6 +13,7 @@
     @endif
     
     <table class="table table-striped">
+        <h2>Danh sách câu hỏi</h2>
         <tr id="tbl-first-row">
             <td width="5%">id</td>
             <td width="10%">user_id</td>

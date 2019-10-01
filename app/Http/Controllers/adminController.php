@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+
 use App\Question;
 use App\Answer;
 use App\User;
 
-use  Illuminate\Support\Facades\Auth;
+use DB;
+
+use Illuminate\Support\Facades\Auth;
 
 class adminController extends Controller
 {
@@ -17,6 +20,7 @@ class adminController extends Controller
 
         return view('admin.login');
     }
+
 
     public function postAdminLogin(Request $request){
 
@@ -31,15 +35,25 @@ class adminController extends Controller
 
         ]);
 
-        if(Auth::attempt(['name' => $request->name, 'password' => $request->password]))
+        $credentials = [
+            'name' => $request['name'],
+            'password' => $request['password']
+            
+        ];
+
+
+        if(Auth::attempt($credentials))
         {
-            return redirect('admin/user/listuser');
+            return redirect('admin/question/listquestion');
+          
         }
         else{
+
             return redirect('admin/login') ->with('thongbao','Đăng nhập không thành công');
         }
     }
     
+
     //lấy danh sách  câu hỏi
     public function getListQuestion(){
         $list = Question::all();
@@ -93,7 +107,7 @@ class adminController extends Controller
     }
 
 
-    //lấy dữ liệu từ dc truyền vào view
+    //lấy dữ liệu từ db truyền vào view
     public function getListAnswer(){
 
         $list = Answer::all();
@@ -147,7 +161,7 @@ class adminController extends Controller
 
 
 
-
+    // hiển thị danh sách user
     public function getListUser(){
 
         $user = User::all();
@@ -155,12 +169,15 @@ class adminController extends Controller
         return view('admin.user.list_user',['user'=>$user]);
     }
 
+    
     public function getAddUser(){
 
 
         return view('admin.user.add_user');
     }
 
+
+    //Thêm user mới
     public function postAddUser(Request $request){
 
         $this->validate($request,
@@ -198,6 +215,7 @@ class adminController extends Controller
     }
 
 
+    //Sửa thông tin user
     public function getEditUser($id){
 
         $user = User::find($id);
@@ -230,11 +248,27 @@ class adminController extends Controller
     }
 
 
+    //Xóa user
     public function deleteUser($id){
 
         $user = User::find($id);
-        $user->delete();
 
+        $question = DB::table('questions')
+                    ->join('users','users'.$id,'=','questions.user_id')
+                    ->select('questions.id')
+                    ->get();
+
+
+        $answer = DB::table('answers')
+                ->join('users',$id,'=','questions.user_id')
+                ->select('answers.id')
+                ->get();
+
+
+        $user->delete();
+        $question->delete();
+       
+        echo $question;
         return redirect('admin/user/listuser')->with('thongbao','Xóa người dùng thành công');
     }
 }

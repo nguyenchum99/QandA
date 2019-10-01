@@ -18,8 +18,9 @@ Route::get('/', function () {
 Route::get('getView','MyController@getView');
 
 
-Route::group(['prefix' => 'admin'], function () {
+// Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
 
+Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'user'], function () {
         Route::get('listuser','adminController@getListUser');
 

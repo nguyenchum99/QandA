@@ -8,6 +8,7 @@
     </style>
 </head>
 <body>
+    
     {{-- thông báo lỗi --}}
     @if(count($errors) > 0)
     <div class="alert alert-danger">
@@ -21,10 +22,13 @@
 
     {{-- hiện thị sửa thành công --}}
     @if(session('thongbao'))
+
+    <div class="alert alert-success">
         {{session('thongbao')}}
     </div>
-
+    
     @endif
+
     <div class="wrap">
         <form role="form" class="login-form" action="{{url("admin/login")}}" method="post">
             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
