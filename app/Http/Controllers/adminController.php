@@ -54,6 +54,11 @@ class adminController extends Controller
     }
     
 
+    public function adminLogout(){
+        Auth::logout();
+        return redirect('admin/login');
+    }
+
     //lấy danh sách  câu hỏi
     public function getListQuestion(){
         $list = Question::all();
@@ -231,14 +236,18 @@ class adminController extends Controller
 
             [
                 'name' => 'required|min:3',
+                'password'=>'required|min:3'
             ],
             [
                 'name.required' => 'Bạn chưa nhập tên người dùng',
                 'name.min' => 'Tên người dùng phải ít nhất 3 kí tự',
+                'password.required' =>'Bạn chưa nhập mật khẩu',
+                'password.min'=>'Mật khẩu phải ít nhất 3 kí tự'
 
             ]);
 
             $user -> name = $request -> name;
+            $user -> password = bcrypt($request -> password);
             $user -> level = $request -> level;
 
             $user->save();
@@ -253,22 +262,8 @@ class adminController extends Controller
 
         $user = User::find($id);
 
-        $question = DB::table('questions')
-                    ->join('users','users'.$id,'=','questions.user_id')
-                    ->select('questions.id')
-                    ->get();
-
-
-        $answer = DB::table('answers')
-                ->join('users',$id,'=','questions.user_id')
-                ->select('answers.id')
-                ->get();
-
-
         $user->delete();
-        $question->delete();
-       
-        echo $question;
+        
         return redirect('admin/user/listuser')->with('thongbao','Xóa người dùng thành công');
     }
 }

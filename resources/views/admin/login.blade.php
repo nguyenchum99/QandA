@@ -3,6 +3,10 @@
 <head>
     <title>The Login Form</title>
     <link rel="stylesheet" href="{{asset('css/login_admin_style.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <base href="{{asset('')}}" >
     <style>
     </style>
@@ -35,21 +39,19 @@
             <div class="form-header">
                 <h3>Admin</h3>
             </div>
-            <!--Email Input-->
-            <div class="form-group">
-                <input type="text" class="form-input" placeholder="Admin" name="name" value="">
-            </div>
-            <!--Password Input-->
-            <div class="form-group">
-                <input type="password" class="form-input" placeholder="Mật khẩu" name="password">
-            </div>
-            <!--Login Button-->
-            <div class="form-group">
-                <button class="form-button" type="submit">Đăng nhập</button>
-            </div>
-            {{-- <div class="form-footer">
-            Don't have an account? <a href="#">Sign Up</a>
-            </div> --}}
+            
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Admin" name="name" value="">
+                    </div>
+                
+                    <div class="form-group">
+                        <input type="password" class="form-input" placeholder="Mật khẩu" name="password">
+                    </div>
+                
+                    <div class="form-group">
+                        <button class="form-button" type="submit">Đăng nhập</button>
+                    </div>
+        
         </form>
     </div>
 </body>

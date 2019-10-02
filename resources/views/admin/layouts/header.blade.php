@@ -17,18 +17,17 @@
             
           
             <ul class="dropdown-menu dropdown-user">
-
-             
+              
                 <li><a href="#"><i class="fa fa-user fa-fw" ></i></a>
                 </li>
-                <li><a href="#"><i class="fa fa-gear fa-fw" ></i> Cài đặt</a>
+                <li><a href=""><i class="fa fa-gear fa-fw" ></i> Cài đặt</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="{{url("admin/login")}}"><i class="fa fa-sign-out fa-fw" ></i>Đăng xuất</a>
+                <li><a href="{{url("admin/logout")}}"><i class="fa fa-sign-out fa-fw" ></i>Đăng xuất</a>
                 </li>
-              
-          </ul>
-
+             
+            </ul>
+         
         </li>
       </ul>
     </div>

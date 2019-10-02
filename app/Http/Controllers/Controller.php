@@ -21,7 +21,8 @@ class Controller extends BaseController
          $this->checkAdminLogin();
     }
 
-    //kiem tra co dang dang nhap hay khong
+
+    //kiểm tra có đăng nhập không       
     function checkAdminLogin(){
 
         if(Auth::check()){
