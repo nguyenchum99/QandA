@@ -1,6 +1,6 @@
 
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" >
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Admin</a>
@@ -17,6 +17,7 @@
             
           
             <ul class="dropdown-menu dropdown-user">
+              
               
                 <li><a href="#"><i class="fa fa-user fa-fw" ></i></a>
                 </li>

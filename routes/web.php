@@ -20,6 +20,7 @@ Route::get('getView','MyController@getView');
 
 Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
+
     Route::group(['prefix' => 'user'], function () {
         Route::get('listuser','adminController@getListUser');
 
@@ -31,6 +32,7 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         
         Route::get('delete/{id}','adminController@deleteUser'); 
     });
+
 
 
     Route::group(['prefix' => 'question'], function () {
@@ -46,6 +48,7 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
     });
 
 
+    
     Route::group(['prefix' => 'answer'], function () {
         Route::get('listanswer','adminController@getListAnswer');
         

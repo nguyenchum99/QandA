@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 class adminController extends Controller
 {
 
+    //đăng nhập admin
     public function getAdminLogin(){
 
         return view('admin.login');
