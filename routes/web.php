@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('getView','MyController@getView');
+Route::get('getview','MyController@getView');
 
 
 Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
     });
 
 
-    
+
     Route::group(['prefix' => 'answer'], function () {
         Route::get('listanswer','adminController@getListAnswer');
         
@@ -64,4 +64,17 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 Route::get('admin/login','adminController@getAdminLogin');
 Route::post('admin/login','adminController@postAdminLogin');
 Route::get('admin/logout','adminController@adminLogout');
+
+
+
+
+Route::get('user/login','userController@getUserLogin');
+Route::post('user/login','userController@postUserLogin');
+
+Route::get('user/register','userController@getUserRegister');
+Route::post('user/register','userController@postUserRegister');
+
+
+Route::get('user/page','userController@getPage');
+
 ?>

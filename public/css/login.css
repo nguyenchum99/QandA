@@ -1,0 +1,47 @@
+.navbar-nav{
+    float: right !important;   
+}
+.container-fluid{
+    background-color:#365899;
+    padding: 10px 58px;
+    
+}
+.active{
+
+    /* background-color: red !important; */
+    
+}
+.navbar-default .navbar-nav>.active>a{
+    background-color: #1a75ff !important;
+    border-radius: 10px;
+}
+a{
+    color: #f9fdfe !important;
+}
+.login{margin-top: 60px;}
+span{
+    border-top:5px solid white;
+}
+form{
+    height: 300px;
+    padding-top: 20px;
+    background-color: #ffffff;
+}
+.main-head{
+    width: 500px;
+    background-color:  #365899;
+    height: 380px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+.form-group{
+   padding: 5px 100px;
+}
+button{
+    float: right;
+}
+.head{
+    
+    text-align: center;
+    padding: 12px 0 12px 15px;
+}

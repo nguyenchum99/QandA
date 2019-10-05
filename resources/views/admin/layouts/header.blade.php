@@ -1,6 +1,6 @@
 
 
-<nav class="navbar navbar-inverse" >
+<nav class="navbar navbar-inverse" style="background-color: #365899" >
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Admin</a>

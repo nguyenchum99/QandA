@@ -9,7 +9,7 @@ class MyController extends Controller
     //
     public function getView(){
         
-        return view('admin\question\edit_question');
+        return view('home\user_register');
     }
 
     

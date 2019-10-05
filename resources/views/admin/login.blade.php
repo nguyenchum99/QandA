@@ -33,7 +33,7 @@
     
     @endif
 
-    <div class="wrap">
+    <div class="wrap" style="background-color: #E9EBEE">
         <form role="form" class="login-form" action="{{url("admin/login")}}" method="post">
             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
             <div class="form-header">
