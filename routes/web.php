@@ -70,11 +70,11 @@ Route::get('admin/logout','adminController@adminLogout');
 
 Route::get('user/login','userController@getUserLogin');
 Route::post('user/login','userController@postUserLogin');
+Route::get('user/logout','userController@userLogout');
 
 Route::get('user/register','userController@getUserRegister');
 Route::post('user/register','userController@postUserRegister');
 
-
-Route::get('user/page','userController@getPage');
+Route::get('user/home','userController@getview');
 
 ?>

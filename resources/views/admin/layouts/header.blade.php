@@ -18,15 +18,16 @@
           
             <ul class="dropdown-menu dropdown-user">
               
-              
-                <li><a href="#"><i class="fa fa-user fa-fw" ></i></a>
+             @if(Auth::check())
+                <li><a href="#"><i class="fa fa-user fa-fw" ></i> {{Auth::user()->name}}</a>
                 </li>
-                <li><a href=""><i class="fa fa-gear fa-fw" ></i> Cài đặt</a>
+                <li><a href="{{url('/admin/user/edit/'.Auth::user()->id)}}"><i class="fa fa-gear fa-fw" ></i> Cài đặt</a>
                 </li>
                 <li class="divider"></li>
                 <li><a href="{{url("admin/logout")}}"><i class="fa fa-sign-out fa-fw" ></i>Đăng xuất</a>
                 </li>
-             
+             @endif
+
             </ul>
          
         </li>

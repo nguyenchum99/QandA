@@ -38,8 +38,9 @@
     </div>
 
     <ul class="nav navbar-nav">
-      <li><a href="{{url("user/login")}}">ĐĂNG NHẬP</a></li>
-      <li><a href="{{url("user/register")}}">ĐĂNG KÍ</a></li>
+
+        <li><a href="{{url("user/login")}}">ĐĂNG NHẬP</a></li>
+        <li><a href="{{url("user/register")}}">ĐĂNG KÍ</a></li>
       
     </ul>
   </div>
@@ -57,6 +58,7 @@
             <div class="head">
                 <h3>ĐĂNG NHẬP</h3>
             </div>
+            
                 <form action="{{url("user/login")}}"  method="post">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                     <div class="form-group">

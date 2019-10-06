@@ -16,13 +16,24 @@ use Illuminate\Support\Facades\Auth;
 
 class userController extends Controller
 {
-    //
+    
+    public function __construct(){
+        
+        if(Auth::check()){
+            view()->share('user_login',Auth::user());
+        }
+        
+    }
 
+
+    //chuyển đến trang chủ
     public function getUserLogin(){
-
+        
         return view('home.user_login');
     }
 
+
+    //đăng nhập người dùng
     public function postUserLogin(Request $request){
 
         $this->validate($request,
@@ -45,7 +56,7 @@ class userController extends Controller
 
         if(Auth::attempt($credentials))
         {
-           echo $request -> name;
+            return redirect('user/home');
           
         }
         else{
@@ -56,11 +67,31 @@ class userController extends Controller
     }
 
 
+    //đăng xuất
+    public function userLogout(){
+
+        Auth::logout();
+        return redirect('user/login');
+    }
+
+
+
+
+    public function getview(){
+        return view('home.layouts.index_page');
+    }
+
+
+
+    //chuyển đến trang đăng kí người dùng
     public function getUserRegister(){
 
         return view('home.user_register');
     }
 
+
+
+    //đăng kí người dùng
     public function postUserRegister(Request $request){
 
         $this->validate($request,
@@ -97,9 +128,8 @@ class userController extends Controller
     }
 
 
-    public function getPage(){
 
-        return view('home.page');
-    }
+
+   
 
 }

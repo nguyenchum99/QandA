@@ -60,6 +60,7 @@ class adminController extends Controller
         return redirect('admin/login');
     }
 
+    
     //lấy danh sách  câu hỏi
     public function getListQuestion(){
         $list = Question::all();
