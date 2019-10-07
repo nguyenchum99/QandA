@@ -77,4 +77,9 @@ Route::post('user/register','userController@postUserRegister');
 
 Route::get('user/home','userController@getview');
 
+
+
+Route::get('user/edit/{id}','userController@getEdit');
+Route::post('user/edit/{id}','userController@postEdit');
+
 ?>

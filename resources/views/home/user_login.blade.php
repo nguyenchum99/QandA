@@ -11,25 +11,25 @@
 </head>
 <body>
 
-  {{-- thông báo lỗi --}}
-  @if(count($errors) > 0)
-  <div class="alert alert-danger">
-      
-          @foreach ($errors -> all() as $err)
-              {{$err}}<br>
-          @endforeach
-      
-  </div>
-  @endif
+    {{-- thông báo lỗi --}}
+    @if(count($errors) > 0)
+    <div class="alert alert-danger">
+        
+            @foreach ($errors -> all() as $err)
+                {{$err}}<br>
+            @endforeach
+        
+    </div>
+    @endif
 
-  {{-- hiện thị sửa thành công --}}
-  @if(session('thongbao'))
+    {{-- hiện thị sửa thành công --}}
+    @if(session('thongbao'))
 
-  <div class="alert alert-success">
-      {{session('thongbao')}}
-  </div>
-  
-  @endif
+    <div class="alert alert-success">
+        {{session('thongbao')}}
+    </div>
+    
+    @endif
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">

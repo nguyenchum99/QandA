@@ -17,14 +17,7 @@ use Illuminate\Support\Facades\Auth;
 class userController extends Controller
 {
     
-    public function __construct(){
-        
-        if(Auth::check()){
-            view()->share('user_login',Auth::user());
-        }
-        
-    }
-
+    
 
     //chuyển đến trang chủ
     public function getUserLogin(){
@@ -81,8 +74,6 @@ class userController extends Controller
         return view('home.layouts.index_page');
     }
 
-
-
     //chuyển đến trang đăng kí người dùng
     public function getUserRegister(){
 
@@ -129,7 +120,45 @@ class userController extends Controller
 
 
 
+    
+    public function getEdit($id){
 
+        $user = User::find($id);
+
+        return view('home.page.edit_info',['user'=>$user]);
+    }
+
+
+    public function postEdit(Request $request,$id){
+
+        $user = User::find($id);
+
+        $this->validate($request,
+
+        [
+            'name' => 'required|min:3',
+            'password'=> 'required|min:3|max:30',
+            'passAgain' => 'required|same:password'
+
+        ],
+        [
+            'name.required' => 'Bạn chưa nhập tên người dùng',
+            'name.min' => 'Tên người dùng phải ít nhất 3 kí tự',
+            'password.required'=> 'Bạn chưa nhập mật khẩu',
+            'password.min' => 'Mật khẩu có ít nhất 3 kí tự',
+            'password.max' => 'Mât khẩu có nhiều nhất 30 kí tự',
+            'passAgain.required'=> 'Bạn chưa nhập mật khẩu',
+            'passAgain.same' => 'Mật khẩu bạn nhập lại chưa khớp'
+
+        ]);
+
+            $user -> name = $request -> name;
+            $user -> password = bcrypt($request -> password);
+
+            $user->save();
+            
+            return redirect('user/login') -> with('thongbao','Sửa thành công');
+    }
    
 
 }

@@ -9,6 +9,8 @@
 
             <form method="post" action="{{$user->id}}">
 
+                
+
                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
 
                 <div class="form-group">
@@ -18,7 +20,7 @@
 
                 <div class="form-group">
                 	<label>Mật khẩu</label>
-                    <input type="password" name="password" class="form-control" value="{{$user->password}}"  />
+                    <input type="password" name="password" class="form-control" value="{{$user->password}}" readonly="" />
                 </div>
 
                 <div class="form-group">

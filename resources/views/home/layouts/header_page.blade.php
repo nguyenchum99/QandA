@@ -17,17 +17,16 @@
               
               <ul class="dropdown-menu dropdown-user">
                 
-                  {{-- @if(isset($user_login)) --}}
-
-                    <li><a href="#"><i class="fa fa-user fa-fw" ></i></a>
+                  
+                @if(Auth::check())
+                    <li><a href="#"><i class="fa fa-user fa-fw" ></i> {{Auth::user()->name}}</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw" ></i> Cài đặt</a>
+                    <li><a href="{{url('/user/edit/'.Auth::user()->id)}}"><i class="fa fa-gear fa-fw" ></i> Thông tin</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="{{url("user/logout")}}"><i class="fa fa-sign-out fa-fw" ></i>Đăng xuất</a>
                     </li>
-                    
-                  {{-- @endif --}}
+                @endif    
 
               </ul>
           </li>
