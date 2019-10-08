@@ -89,5 +89,4 @@ Route::get('search_user',[
 //     'uses'=>'adminController@getSearch_question'
 // ]);
 
-
 ?>

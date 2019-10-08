@@ -8,7 +8,6 @@ use App\Http\Requests;
 use App\Question;
 use App\Answer;
 use App\User;
-
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -170,10 +169,10 @@ class adminController extends Controller
 
     // hiển thị danh sách user
     public function getListUser(){
-
-        $user = User::all();
-
-        return view('admin.user.list_user',['user'=>$user]);
+        $data['user'] = DB::table('users')->paginate(2);
+        // $user = User::all();
+        //['user'=>$user]
+        return view('admin.user.list_user',$data);
     }
 
     
