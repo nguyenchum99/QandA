@@ -67,7 +67,6 @@ Route::get('admin/logout','adminController@adminLogout');
 
 
 
-
 Route::get('user/login','userController@getUserLogin');
 Route::post('user/login','userController@postUserLogin');
 Route::get('user/logout','userController@userLogout');
@@ -77,9 +76,18 @@ Route::post('user/register','userController@postUserRegister');
 
 Route::get('user/home','userController@getview');
 
-
-
 Route::get('user/edit/{id}','userController@getEdit');
 Route::post('user/edit/{id}','userController@postEdit');
+
+Route::get('search_user',[
+    'as'=>'search',
+    'uses'=>'adminController@getSearch_user'
+]);
+
+// Route::get('search_question',[
+//     'as'=>'search',
+//     'uses'=>'adminController@getSearch_question'
+// ]);
+
 
 ?>

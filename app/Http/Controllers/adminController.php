@@ -268,4 +268,38 @@ class adminController extends Controller
         
         return redirect('admin/user/listuser')->with('thongbao','Xóa người dùng thành công');
     }
+
+    //Tìm kiếm user trong admin
+    public function getSearch_user(Request $req)
+    {
+        $tukhoa = $req->tukhoa;
+        $user = User::where('name', 'like', '%'.$req->tukhoa.'%')
+                   ->orWhere('id',$req->tukhoa)
+                   ->orWhere('email',$req->tukhoa)
+                   ->get();
+        return view('admin.user.search_user', compact('user'),['user'=>$user,'tukhoa'=>$tukhoa]);
+    }
+
+    // Tìm kiếm câu hỏi trong admin
+    // public function getSearch_question(Request $request)
+    // {
+    //     $tukhoa = $request->tukhoa;
+    //     $question = Question::where('user_id', 'like', '%'.$request->tukhoa.'%')
+    //                ->orWhere('id',$request->tukhoa)
+    //                ->orWhere('question',$request->tukhoa)
+    //                ->get();
+    //     return view('admin.question.search_question', compact('question'),['question'=>$question,'tukhoa'=>$tukhoa]);
+    // }
+
+    // //Tìm kiếm bình luận trong admin
+    // public function getSearch(Request $req)
+    // {
+    //     $tukhoa = $req->tukhoa;
+    //     $answer = Answer::where('name', 'like', '%'.$req->tukhoa.'%')
+    //                ->orWhere('id',$req->tukhoa)
+    //                ->orWhere('email',$req->tukhoa)
+    //                ->get();
+    //     return view('admin.answer.search_answer', compact('answer'),['answer'=>$answer,'tukhoa'=>$tukhoa]);
+    // }
+
 }
