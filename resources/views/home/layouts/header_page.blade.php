@@ -21,7 +21,7 @@
                 @if(Auth::check())
                     <li><a href="#"><i class="fa fa-user fa-fw" ></i> {{Auth::user()->name}}</a>
                     </li>
-                    <li><a href="{{url('/user/edit/'.Auth::user()->id)}}"><i class="fa fa-gear fa-fw" ></i> Thông tin</a>
+                    <li><a href="{{url('/user/edit/'.Auth::user()->id)}}"><i class="fa fa-gear fa-fw" ></i> Cập nhật thông tin</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="{{url("user/logout")}}"><i class="fa fa-sign-out fa-fw" ></i>Đăng xuất</a>

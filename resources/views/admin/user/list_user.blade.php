@@ -35,7 +35,7 @@
         </tr>
 
         
-        @foreach($user as $u)
+        @foreach($list_user as $u)
             <tr>
                 <td>{{$u->id}}</td>
                 <td>{{$u->name}}</td>
@@ -56,7 +56,7 @@
     </table>
     
     <div aria-label="Page navigation">
-        {{$user->links()}}
+        {{$list_user->links()}}
     </div>
 
 @endsection

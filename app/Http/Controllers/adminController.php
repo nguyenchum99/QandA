@@ -62,9 +62,9 @@ class adminController extends Controller
     
     //lấy danh sách  câu hỏi
     public function getListQuestion(){
-        $list = Question::all();
+        $data['list_question'] = DB::table('questions')->paginate(5);
         //truyền dữ liệu sang view
-        return view('admin.question.list_question',['list'=> $list]);
+        return view('admin.question.list_question',$data);
     }
 
 
@@ -115,10 +115,9 @@ class adminController extends Controller
 
     //lấy dữ liệu từ db truyền vào view
     public function getListAnswer(){
-
-        $list = Answer::all();
+        $data['list_answer'] = DB::table('answers')->paginate(5);
         //truyền dữ liệu sang view
-        return view('admin.answer.list_answer',['list'=> $list]);
+        return view('admin.answer.list_answer',$data);
     }
 
 
@@ -169,9 +168,7 @@ class adminController extends Controller
 
     // hiển thị danh sách user
     public function getListUser(){
-        $data['user'] = DB::table('users')->paginate(5);
-        // $user = User::all();
-        //['user'=>$user]
+        $data['list_user'] = DB::table('users')->paginate(5);
         return view('admin.user.list_user',$data);
     }
 
@@ -271,11 +268,13 @@ class adminController extends Controller
     //Tìm kiếm user trong admin
     public function getSearch_user(Request $req)
     {
+        // $data = DB::table('users')->paginate(5);
         $tukhoa = $req->tukhoa;
         $user = User::where('name', 'like', '%'.$req->tukhoa.'%')
                    ->orWhere('id',$req->tukhoa)
                    ->orWhere('email',$req->tukhoa)
                    ->get();
+
         return view('admin.user.search_user', compact('user'),['user'=>$user,'tukhoa'=>$tukhoa]);
     }
 
