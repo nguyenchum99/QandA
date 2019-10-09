@@ -25,7 +25,8 @@
                             {{"User"}}
                         @endif
                 </td>
-                
+                <td><a href="{{url("admin/user/edit/{$u->id}")}}">Sửa</a></td>
+                <td><a href="{{url("admin/user/delete/{$u->id}")}}">Xóa</a></td>
             </tr>
        @endforeach
        

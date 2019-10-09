@@ -169,7 +169,7 @@ class adminController extends Controller
 
     // hiển thị danh sách user
     public function getListUser(){
-        $data['user'] = DB::table('users')->paginate(2);
+        $data['user'] = DB::table('users')->paginate(5);
         // $user = User::all();
         //['user'=>$user]
         return view('admin.user.list_user',$data);
