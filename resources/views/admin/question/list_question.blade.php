@@ -24,7 +24,7 @@
         </tr>
 
         {{-- lấy dữ liệu từ database hiện thị lên view --}}
-        @foreach ($list as $l)
+        {{-- @foreach ($list as $l)
             <tr>
                 <td>{{$l->id}}</td>
                 <td>{{$l->user_id}}</td>
@@ -33,29 +33,23 @@
                 <td><a href="{{url("admin/question/edit/{$l->id}")}}">Sửa</a></td>
                 <td><a href="{{url("admin/question/delete/{$l->id}")}}">Xóa</a></td>
             </tr>
-        @endforeach
+        @endforeach --}}
+        @foreach ($list_question as $l)
+        <tr>
+            <td>{{$l->id}}</td>
+            <td>{{$l->user_id}}</td>
+            <td>{{$l->question}}</td>
+            <td>{{$l->level}}</td>
+            <td><a href="{{url("admin/question/edit/{$l->id}")}}">Sửa</a></td>
+            <td><a href="{{url("admin/question/delete/{$l->id}")}}">Xóa</a></td>
+        </tr>
+    @endforeach
         
     </table>
     
     <div aria-label="Page navigation">
-        <ul class="pagination">
-            <li>
-                <a aria-label="Previous" href="#">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
+        {{$list_question->links()}}
     </div>
+
 
 @endsection

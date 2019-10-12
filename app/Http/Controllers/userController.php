@@ -74,6 +74,7 @@ class userController extends Controller
         return view('home.layouts.index_page');
     }
 
+    
     //chuyển đến trang đăng kí người dùng
     public function getUserRegister(){
 
@@ -121,6 +122,7 @@ class userController extends Controller
 
 
     
+    //cập nhật thông tin người dùng
     public function getEdit($id){
 
         $user = User::find($id);
@@ -129,6 +131,7 @@ class userController extends Controller
     }
 
 
+    
     public function postEdit(Request $request,$id){
 
         $user = User::find($id);
@@ -158,6 +161,13 @@ class userController extends Controller
             $user->save();
             
             return redirect('user/login') -> with('thongbao','Sửa thành công');
+    }
+
+    public function getInfo($id){
+
+        $user = User::find($id);
+
+        return view('home.page.user_info',['user'=>$user]);
     }
    
 

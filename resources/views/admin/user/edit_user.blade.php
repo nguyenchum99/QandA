@@ -20,7 +20,7 @@
 
                 <div class="form-group">
                 	<label>Mật khẩu</label>
-                    <input type="password" name="password" class="form-control" value="{{$user->password}}" readonly="" />
+                    <input type="password" name="password" class="form-control" value="{{$user->password}}"  />
                 </div>
 
                 <div class="form-group">

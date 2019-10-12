@@ -79,14 +79,14 @@ Route::get('user/home','userController@getview');
 Route::get('user/edit/{id}','userController@getEdit');
 Route::post('user/edit/{id}','userController@postEdit');
 
+Route::get('user/info/{id}','userController@getInfo');
+
+
 Route::get('search_user',[
     'as'=>'search',
     'uses'=>'adminController@getSearch_user'
 ]);
 
-// Route::get('search_question',[
-//     'as'=>'search',
-//     'uses'=>'adminController@getSearch_question'
-// ]);
+
 
 ?>

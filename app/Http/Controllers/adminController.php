@@ -62,9 +62,12 @@ class adminController extends Controller
     
     //lấy danh sách  câu hỏi
     public function getListQuestion(){
-        $list = Question::all();
-        //truyền dữ liệu sang view
-        return view('admin.question.list_question',['list'=> $list]);
+        // $list = Question::all();
+        $data['list_question'] = DB::table('questions')->paginate(10);
+         //truyền dữ liệu sang view
+        return view('admin.question.list_question',$data);
+        // return view('admin.question.list_question',['list'=> $list]);
+        
     }
 
 
@@ -116,9 +119,11 @@ class adminController extends Controller
     //lấy dữ liệu từ db truyền vào view
     public function getListAnswer(){
 
-        $list = Answer::all();
+        // $list = Answer::all();
+        $data['list_answer'] = DB::table('answers')->paginate(10);
         //truyền dữ liệu sang view
-        return view('admin.answer.list_answer',['list'=> $list]);
+        // return view('admin.answer.list_answer',['list'=> $list]);
+        return view('admin.answer.list_answer',$data);
     }
 
 
@@ -169,7 +174,7 @@ class adminController extends Controller
 
     // hiển thị danh sách user
     public function getListUser(){
-        $data['user'] = DB::table('users')->paginate(2);
+        $data['user'] = DB::table('users')->paginate(10);
         // $user = User::all();
         //['user'=>$user]
         return view('admin.user.list_user',$data);

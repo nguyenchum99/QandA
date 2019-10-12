@@ -1,5 +1,7 @@
+
+
 <form method = "get" action= "{{route('search')}}" id="searchForm" role="search" class ="navbar-formnavbar-left">
-        <input type="hidden" name="_token" value ="{{csrf_token()}}";></input>
+        <input type="hidden" name="_token" value ="{{csrf_token()}}";>
         <div class="input-group" style="margin: 10px 0 29px 0;"> 
             <input  type="text" class="form-control"  name="tukhoa" placeholder="Tìm kiếm..." >
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
