@@ -24,7 +24,11 @@
         </tr>
 
         {{-- lấy dữ liệu từ database hiện thị lên view --}}
+<<<<<<< HEAD
         {{-- @foreach ($list as $l)
+=======
+        @foreach ($list_question as $l)
+>>>>>>> b132c4b2432ecf2d75ceef5e460f2880f049c105
             <tr>
                 <td>{{$l->id}}</td>
                 <td>{{$l->user_id}}</td>

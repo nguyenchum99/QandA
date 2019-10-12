@@ -7,7 +7,7 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
             
         </div>
-    </form>
+</form>
     
     <ul class="list-group nav-bar">
 
@@ -21,7 +21,6 @@
             <ul class="list-group" id="menu">
                     <li class="list-group-item"><a href="{{url('admin/user/listuser')}}" >Danh sách</a></li>
                     <li class="list-group-item"><a href="{{url('admin/user/adduser')}}" >Thêm mới</a></li>
-                    
             </ul>
         </li>
     </ul>
