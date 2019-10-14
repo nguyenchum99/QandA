@@ -127,7 +127,7 @@ class userController extends Controller
 
         $user = User::find($id);
 
-        return view('home.page.edit_info',['user'=>$user]);
+        return view('home.user.edit_info',['user'=>$user]);
     }
 
 
@@ -163,12 +163,24 @@ class userController extends Controller
             return redirect('user/login') -> with('thongbao','Sửa thành công');
     }
 
+    
+
     public function getInfo($id){
 
         $user = User::find($id);
 
-        return view('home.page.user_info',['user'=>$user]);
+        return view('home.user.user_info',['user'=>$user]);
+    }
+
+
+    public function getListQuestion(){
+
+        return view('home.page.all_question');
     }
    
+
+    public function getContentQuestion(){
+        return view('home.page.content_question');
+    }
 
 }

@@ -18,6 +18,8 @@ class Update extends Migration
             $table->integer('level');
             
         });
+
+       
     }
 
     /**

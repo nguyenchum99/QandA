@@ -23,7 +23,6 @@
                     </li>
 
                     <li><a href="{{url('/user/edit/'.Auth::user()->id)}}"><i class="fa fa-gear fa-fw" ></i> Cập nhật thông tin</a>
-                    <li><a href="{{url('/user/edit/'.Auth::user()->id)}}"><i class="fa fa-gear fa-fw" ></i> Cập nhật thông tin</a>
 
                     </li>
                     <li class="divider"></li>

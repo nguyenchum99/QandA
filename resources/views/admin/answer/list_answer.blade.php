@@ -24,11 +24,7 @@
         </tr>
 
         {{-- lấy dữ liệu từ database truyền vào view --}}
-<<<<<<< HEAD
-         {{-- @foreach ($list as $l)
-=======
          @foreach ($list_answer as $l)
->>>>>>> b132c4b2432ecf2d75ceef5e460f2880f049c105
             <tr>
                 <td>{{$l->id}}</td>
                 <td>{{$l->user_id}}</td>
@@ -37,28 +33,12 @@
                 <td><a href="{{url("admin/answer/edit/{$l->id}")}}">Sửa</a></td>
                 <td><a href="{{url("admin/answer/delete/{$l->id}")}}">Xóa</a></td>
             </tr>
-        @endforeach --}}
-        @foreach ($list_answer as $l)
-        <tr>
-            <td>{{$l->id}}</td>
-            <td>{{$l->user_id}}</td>
-            <td>{{$l->question_id}}</td>
-            <td>{{$l->answer}}</td>
-            <td><a href="{{url("admin/answer/edit/{$l->id}")}}">Sửa</a></td>
-            <td><a href="{{url("admin/answer/delete/{$l->id}")}}">Xóa</a></td>
-        </tr>
-    @endforeach
-       
+        @endforeach 
+    
     </table>
     
     <div aria-label="Page navigation">
-<<<<<<< HEAD
-        {{$list_answer->links()}}
-     </div>
-    
-=======
        {{$list_answer->links()}}
     </div>
 
->>>>>>> b132c4b2432ecf2d75ceef5e460f2880f049c105
 @endsection

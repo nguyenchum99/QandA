@@ -57,6 +57,8 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
         Route::get('delete/{id}','adminController@getDeleteAnswer');
     });
+
+ 
 });
 
 
@@ -80,6 +82,11 @@ Route::get('user/edit/{id}','userController@getEdit');
 Route::post('user/edit/{id}','userController@postEdit');
 
 Route::get('user/info/{id}','userController@getInfo');
+
+Route::get('user/allquestion','userController@getListQuestion');
+Route::get('user/questionandanswer','userController@getContentQuestion');
+
+
 
 
 Route::get('search_user',[

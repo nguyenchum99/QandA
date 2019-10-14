@@ -62,7 +62,7 @@ class adminController extends Controller
     
     //lấy danh sách  câu hỏi
     public function getListQuestion(){
-        $data['list_question'] = DB::table('questions')->paginate(5);
+        $data['list_question'] = DB::table('questions')->paginate(10);
         //truyền dữ liệu sang view
         return view('admin.question.list_question',$data);
     }
@@ -115,7 +115,7 @@ class adminController extends Controller
 
     //lấy dữ liệu từ db truyền vào view
     public function getListAnswer(){
-        $data['list_answer'] = DB::table('answers')->paginate(5);
+        $data['list_answer'] = DB::table('answers')->paginate(10);
         //truyền dữ liệu sang view
         return view('admin.answer.list_answer',$data);
     }
@@ -168,7 +168,7 @@ class adminController extends Controller
 
     // hiển thị danh sách user
     public function getListUser(){
-        $data['list_user'] = DB::table('users')->paginate(5);
+        $data['list_user'] = DB::table('users')->paginate(10);
         return view('admin.user.list_user',$data);
     }
 

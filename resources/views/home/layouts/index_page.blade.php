@@ -6,48 +6,12 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{asset('css/home_page.css')}}">
     <style>
-        /* li{
-            list-style: none;
-        }
-        .navbar-inverse {
-            background-color: #dddddd;
-            border-color: #dddddd;
-        }
-        #menu{
-            display: none;
-        }
-        ul .slide:hover #menu{ 
-            display: block;
-        }
-        .list-group {
-            margin-bottom: 0;
-        } */
-        li{
-            list-style: none;
-        }
-        .navbar-inverse {
-            background-color: #dddddd;
-            border-color: #dddddd;
-        }
-        #menu{
-            display: none;
-        }
-        ul .slide:hover #menu{ 
-            display: block;
-        }
-        .list-group {
-            margin-bottom: 0;
-        }
-        .right
-        {padding: 11px 0 0 55px;}
-        .right span{float: left; padding:3.5px 10px 0 0}
-        .right img{width: 200px;}
-        .name{font-size:20px; color: blue;}
-        .nut{    width: 200px;
-            margin: 15px 0;}
+
     </style>
 </head>
 
@@ -71,7 +35,7 @@
 
                 <div class="col-sm-9 right">
 
-                    @yield('content');
+                    @yield('content')
                     
                 </div>
 

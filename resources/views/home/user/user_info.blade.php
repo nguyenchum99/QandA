@@ -7,7 +7,7 @@
                             
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <center></center> <img src="{{URL::asset('/img/image.jpg')}}" alt="user">
-            <button type="button" class="btn nut">Thay ảnh đại diện</button>
+            <input type="submit" class="btn nut" value="Thay ảnh đại diện">
         </center></div>
         
         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
@@ -27,7 +27,7 @@
             <span class="fa fa-hourglass-half" ></span>
             <p class="number">Câu hỏi chưa được trả lời: 0</p>
             <span class="fa fa-history" ></span>
-            <p class="reload">lần cuối đặt câu hỏi: N/A</p>
+            <p class="reload">Lần cuối đặt câu hỏi: N/A</p>
         </div>
         
     </div>

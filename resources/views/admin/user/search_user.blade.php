@@ -27,21 +27,10 @@
                 </td>
                 <td><a href="{{url("admin/user/edit/{$u->id}")}}">Sửa</a></td>
                 <td><a href="{{url("admin/user/delete/{$u->id}")}}">Xóa</a></td>
-<<<<<<< HEAD
-                
-=======
->>>>>>> b132c4b2432ecf2d75ceef5e460f2880f049c105
             </tr>
        @endforeach
        
     </table>
     
-<<<<<<< HEAD
-
-=======
-    <div aria-label="Page navigation">
-      
-    </div>
->>>>>>> b132c4b2432ecf2d75ceef5e460f2880f049c105
-
+   
 @endsection
