@@ -7,8 +7,8 @@
 
     <div class="w3-sidebar w3-light-grey w3-bar-block " style="width:23%">
             <h4 class="w3-bar-item">Thông tin tài khoản</h4>
-            <a href="{{url('/user/info/'.Auth::user()->id)}}" class="w3-bar-item w3-button">Thông tin của tôi</a>
-            <a href="{{url('/user/edit/'.Auth::user()->id)}}" class="w3-bar-item w3-button">Thay đổi thông tin</a>
+            <a href="{{url('/user/page/info/'.Auth::user()->id)}}" class="w3-bar-item w3-button">Thông tin của tôi</a>
+            <a href="{{url('/user/page/edit/'.Auth::user()->id)}}" class="w3-bar-item w3-button">Thay đổi thông tin</a>
             <h4 class="w3-bar-item">Quản lý</h4>
             <a href="#" class="w3-bar-item w3-button">Câu hỏi của tôi</a>
             <a href="#" class="w3-bar-item w3-button">Câu trả lời của tôi</a> 

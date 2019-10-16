@@ -22,7 +22,7 @@
                     <li><a href="#"><i class="fa fa-user fa-fw" ></i> {{Auth::user()->name}}</a>
                     </li>
 
-                    <li><a href="{{url('/user/edit/'.Auth::user()->id)}}"><i class="fa fa-gear fa-fw" ></i> Cập nhật thông tin</a>
+                    <li><a href="{{url('/user/page/edit/'.Auth::user()->id)}}"><i class="fa fa-gear fa-fw" ></i> Cập nhật thông tin</a>
 
                     </li>
                     <li class="divider"></li>
@@ -31,6 +31,7 @@
                     
                 @endif    
 
+                
               </ul>
           </li>
         </ul>

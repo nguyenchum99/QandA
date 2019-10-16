@@ -76,12 +76,28 @@ Route::get('user/logout','userController@userLogout');
 Route::get('user/register','userController@getUserRegister');
 Route::post('user/register','userController@postUserRegister');
 
+
+Route::group(['prefix' => 'user'], function () {
+
+    Route::group(['prefix' => 'page'], function () {
+        Route::get('info/{id}','pageController@getInfo');
+
+        Route::get('edit/{id}','pageController@getEdit');
+        Route::post('edit/{id}','pageController@postEdit');
+
+    });
+
+    
+
+});
+
+
 Route::get('user/home','userController@getview');
 
-Route::get('user/edit/{id}','userController@getEdit');
-Route::post('user/edit/{id}','userController@postEdit');
+// Route::get('user/edit/{id}','userController@getEdit');
+// Route::post('user/edit/{id}','userController@postEdit');
 
-Route::get('user/info/{id}','userController@getInfo');
+// Route::get('user/info/{id}','userController@getInfo');
 
 Route::get('user/allquestion','userController@getListQuestion');
 Route::get('user/questionandanswer','userController@getContentQuestion');

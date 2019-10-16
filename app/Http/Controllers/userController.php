@@ -127,55 +127,55 @@ class userController extends Controller
 
 
     
-    //cập nhật thông tin người dùng
-    public function getEdit($id){
+    // //cập nhật thông tin người dùng
+    // public function getEdit($id){
 
-        $user = User::find($id);
+    //     $user = User::find($id);
 
-        return view('home.user.edit_info',['user'=>$user]);
-    }
+    //     return view('home.user.edit_info',['user'=>$user]);
+    // }
 
 
     
-    public function postEdit(Request $request,$id){
+    // public function postEdit(Request $request,$id){
 
-        $user = User::find($id);
+    //     $user = User::find($id);
 
-        $this->validate($request,
+    //     $this->validate($request,
 
-        [
-            'name' => 'required|min:3',
-            'password'=> 'required|min:3|max:30',
-            'passAgain' => 'required|same:password'
+    //     [
+    //         'name' => 'required|min:3',
+    //         'password'=> 'required|min:3|max:30',
+    //         'passAgain' => 'required|same:password'
 
-        ],
-        [
-            'name.required' => 'Bạn chưa nhập tên người dùng',
-            'name.min' => 'Tên người dùng phải ít nhất 3 kí tự',
-            'password.required'=> 'Bạn chưa nhập mật khẩu',
-            'password.min' => 'Mật khẩu có ít nhất 3 kí tự',
-            'password.max' => 'Mât khẩu có nhiều nhất 30 kí tự',
-            'passAgain.required'=> 'Bạn chưa nhập mật khẩu',
-            'passAgain.same' => 'Mật khẩu bạn nhập lại chưa khớp'
+    //     ],
+    //     [
+    //         'name.required' => 'Bạn chưa nhập tên người dùng',
+    //         'name.min' => 'Tên người dùng phải ít nhất 3 kí tự',
+    //         'password.required'=> 'Bạn chưa nhập mật khẩu',
+    //         'password.min' => 'Mật khẩu có ít nhất 3 kí tự',
+    //         'password.max' => 'Mât khẩu có nhiều nhất 30 kí tự',
+    //         'passAgain.required'=> 'Bạn chưa nhập mật khẩu',
+    //         'passAgain.same' => 'Mật khẩu bạn nhập lại chưa khớp'
 
-        ]);
+    //     ]);
 
-            $user -> name = $request -> name;
-            $user -> password = bcrypt($request -> password);
+    //         $user -> name = $request -> name;
+    //         $user -> password = bcrypt($request -> password);
 
-            $user->save();
+    //         $user->save();
             
-            return redirect('user/login') -> with('thongbao','Sửa thành công');
-    }
+    //         return redirect('user/login') -> with('thongbao','Sửa thành công');
+    // }
 
     
 
-    public function getInfo($id){
+    // public function getInfo($id){
 
-        $user = User::find($id);
+    //     $user = User::find($id);
 
-        return view('home.user.user_info',['user'=>$user]);
-    }
+    //     return view('home.user.user_info',['user'=>$user]);
+    // }
 
 
     public function getListQuestion(){
