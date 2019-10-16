@@ -18,6 +18,11 @@ class userController extends Controller
 {
     
     
+    function __construct(){
+        if(Auth::check()){
+            view() -> share('user_login',Auth::user());
+        }
+    }
 
     //chuyển đến trang chủ
     public function getUserLogin(){

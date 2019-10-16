@@ -109,6 +109,8 @@ class adminController extends Controller
 
         $question -> delete();
 
+        $answer = Answer::where('question_id',$id)->delete();
+
         return redirect('admin/question/listquestion') -> with('thongbao','Bạn đã xóa thành công');
     }
 
@@ -125,6 +127,8 @@ class adminController extends Controller
     public function editAnswer($id){
 
         $answer = Answer::find($id);
+
+
 
         return view('admin.answer.edit_answer',['answer'=>$answer]);
 
@@ -261,7 +265,10 @@ class adminController extends Controller
         $user = User::find($id);
 
         $user->delete();
-        
+
+        $question = Question::where('user_id',$id)->delete();
+        $answer = Answer::where('user_id',$id)->delete();
+       
         return redirect('admin/user/listuser')->with('thongbao','Xóa người dùng thành công');
     }
 

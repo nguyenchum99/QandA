@@ -20,7 +20,7 @@
 
     <div class="head">
 
-        @include('home.layouts.header_page');
+        @include('home.layouts.header_page')
            
     </div>
 
@@ -29,7 +29,7 @@
             <div class="row">
                 
                 <div class="left col-sm-3">
-                    @include('home.layouts.sidebar_page');
+                    @include('home.layouts.sidebar_page')
                 </div>
 
 

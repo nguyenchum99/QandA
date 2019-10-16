@@ -4,18 +4,15 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQnaSchema extends Migration
+class CreateQna extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-
-    //tajo database 3 bảng user, answer, question
     public function up()
     {
-
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -23,6 +20,7 @@ class CreateQnaSchema extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('level');
         });
 
 
@@ -34,7 +32,7 @@ class CreateQnaSchema extends Migration
             $table->boolean('solved')->default(false);
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
 
@@ -46,10 +44,8 @@ class CreateQnaSchema extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('question_id')->references('id')->on('questions');
+            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
         });
-
-
     }
 
     /**
@@ -62,6 +58,5 @@ class CreateQnaSchema extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('questions');
         Schema::dropIfExists('answers');
-
     }
 }

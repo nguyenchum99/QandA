@@ -5,22 +5,21 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        //
+        DB::table('users')->insert([
 
-        // DB::table('users')->insert([
+            'name' => 'nguyen',
+            'email'=> 'nguyen@gmail.com',
+            'password'=>bcrypt('111'),
+            'level'=> 1
+        ]);
 
-        //     'name' => 'nguyen',
-        //     'email'=> 'nguyen710@gmail.com',
-        //     'password'=>bcrypt('123'),
-        //     'level'=> 1
-        // ]);
-        
         DB::table('users')->insert([
 
             'name' => 'hoang',
@@ -42,6 +41,5 @@ class DatabaseSeeder extends Seeder
             'password'=>bcrypt('123'),
             'level'=> 1
         ]);
-
     }
 }

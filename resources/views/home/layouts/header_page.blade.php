@@ -7,7 +7,6 @@
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          {{-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Đăng xuất</a></li> --}}
   
           <li class="dropdown">
   
@@ -19,6 +18,7 @@
                 
                   
                 @if(Auth::check())
+
                     <li><a href="#"><i class="fa fa-user fa-fw" ></i> {{Auth::user()->name}}</a>
                     </li>
 
@@ -28,6 +28,7 @@
                     <li class="divider"></li>
                     <li><a href="{{url("user/logout")}}"><i class="fa fa-sign-out fa-fw" ></i>Đăng xuất</a>
                     </li>
+                    
                 @endif    
 
               </ul>
