@@ -23,7 +23,7 @@
                 @endif
             </p>
             <span class="fa fa-question-circle-o" ></span>
-            <p class="number">Tổng số câu hỏi: 0</p>
+            <p class="number">Tổng số câu hỏi: {{$question}}</p>
             <span class="fa fa-hourglass-half" ></span>
             <p class="number">Câu hỏi chưa được trả lời: 0</p>
             <span class="fa fa-history" ></span>
