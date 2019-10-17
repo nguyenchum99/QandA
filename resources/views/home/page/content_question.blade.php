@@ -7,31 +7,32 @@
         <p class="time">22 ngày trước</p>
     </div>
     <div class="main-right">
-        <div class="chevron">
-            <p><span class="fa fa-chevron-left"style="padding-right:5px;"></span>TRỞ VÈ TRẢ LỜI CÂU HỎI</p>
-        </div>
+       
         <div class="content">
 
             <div class="noidung">
                 <ul>
-                    <li >Nội dung câu hỏi</li>
-                    <li>hỏi đáp</li>
+                    <li >Nội dung câu hỏi:{{$list_question->user_id}}</li>
+                    <li>{{$list_question->question}}</li>
                     <li>3 lượt thích</li>
                 </ul>
 
             </div>
 
-
             <p><i class="fa fa-thumbs-o-up"></i> Thích</p>
-            <div class="tra-loi">
-                <ul>
-                    <li style="background: #1a88d652"><p></p><span class="fa fa-user">Nguyễn việt anh</span></p>
-                    <p class="time">22 ngày trước</p></li>
-                    <li>nội dung trả lời</li>
-                    <li> trả lời</li>
-                    <li>3 lợt thivhs</li>
-                </ul>
-            </div>
+            @foreach($list_answer as $l)
+
+                <div class="tra-loi">
+                    <ul>
+                        <li style="background: #1a88d652"><p></p><span class="fa fa-user"> Người dùng: {{$l->user_id}}</span></p>
+                        <br>
+                        <p class="time">22 ngày trước</p></li>
+                        
+                        <li>{{$l->answer}}</li>
+                    </ul>
+                </div>
+
+            @endforeach
         </div>
     </div>
 

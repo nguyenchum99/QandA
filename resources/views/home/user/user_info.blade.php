@@ -16,11 +16,13 @@
             
             <span class="fa fa-graduation-cap" ></span>
             <p class="number">
+
                 @if($user->level == 1)
                     {{"Chức vụ: Admin"}}
                 @else 
                     {{"Chức vụ: Thành viên"}}
                 @endif
+                
             </p>
             <span class="fa fa-question-circle-o" ></span>
             <p class="number">Tổng số câu hỏi: {{$question}}</p>

@@ -85,6 +85,10 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('edit/{id}','pageController@getEdit');
         Route::post('edit/{id}','pageController@postEdit');
 
+        Route::get('listquestion','pageController@getListQuestion');
+
+        Route::get('question_answer/{id}','pageController@getListQuestionAnswer');
+
     });
 
     

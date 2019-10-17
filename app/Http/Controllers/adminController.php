@@ -62,9 +62,11 @@ class adminController extends Controller
     
     //lấy danh sách  câu hỏi
     public function getListQuestion(){
+
         $data['list_question'] = DB::table('questions')->paginate(10);
         //truyền dữ liệu sang view
         return view('admin.question.list_question',$data);
+        
     }
 
 

@@ -28,7 +28,7 @@ class pageController extends Controller
     }
 
 
-    
+    // cập nhật thông tin người dùng
     public function postEdit(Request $request,$id){
 
         $user = User::find($id);
@@ -68,9 +68,31 @@ class pageController extends Controller
 
         $user = User::find($id);
 
+        //đếm số câu hỏi
         $question = Question::where('user_id',$id)->get();
         $count_question = $question->count();
 
         return view('home.user.user_info',['user'=>$user,'question'=>$count_question]);
+    }
+
+
+    public function getListQuestion(){
+
+        $data['list'] = DB::table('questions')->paginate(10);
+        //truyền dữ liệu sang view
+        return view('home.page.all_question',$data);
+
+    }
+    
+
+    public function getListQuestionAnswer($id){
+
+        $question = DB::table('questions')->find($id);
+
+        $answer = DB::table('answers')->where('question_id',$id)->get();
+
+        //truyền dữ liệu sang view
+        return view('home.page.content_question',['list_question'=>$question, 'list_answer'=> $answer]);
+
     }
 }

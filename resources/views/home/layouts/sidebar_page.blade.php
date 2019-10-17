@@ -15,7 +15,7 @@
             <h4 class="w3-bar-item">Phiên hỏi dáp</h4>
             <a href="#" class="w3-bar-item w3-button">Phiên hỏi đáp hoạt động</a>
             <a href="#" class="w3-bar-item w3-button">Phiên hỏi đáp đã đóng</a> 
-            <a href="{{url("user/allquestion")}}" class="w3-bar-item w3-button">Tất cả câu hỏi</a>
+            <a href="{{url("user/page/listquestion")}}" class="w3-bar-item w3-button">Tất cả câu hỏi</a>
             
     </div>
 
