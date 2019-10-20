@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Question;
 use App\Answer;
 use App\User;
+use App\Session;
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +45,7 @@ class adminController extends Controller
 
         if(Auth::attempt($credentials))
         {
-            return redirect('admin/question/listquestion');
+            return redirect('admin/user/listuser');
           
         }
         else{
@@ -268,6 +269,7 @@ class adminController extends Controller
 
         $user->delete();
 
+        $session = Session::where('user_id',$id)->delete();
         $question = Question::where('user_id',$id)->delete();
         $answer = Answer::where('user_id',$id)->delete();
        
@@ -288,5 +290,50 @@ class adminController extends Controller
     }
 
    
+    public function getListSession(){
+
+        $data['list_session'] = DB::table('session')->paginate(10);
+        return view('admin.session.list_session',$data);
+    }
+
+    public function deleteSession($id){
+
+        $session = Session::find($id);
+
+        $session ->delete();
+
+        $question = Question::where('session_id',$id)->delete();
+
+        return redirect('admin/session/list_session')->with('thongbao','Xóa phiên thành công');
+    }
+
+
+    public function getAddSession(){
+
+        return view('admin.session.add_session');
+
+    }
+
+    public function postAddSession(Request $request){
+
+        $this->validate($request,
+
+            [
+                'name' => 'required|min:3',
+
+            ],
+            [
+                'name.required' => 'Bạn chưa nhập tên phiên',
+                'name.min' => 'Tên phiên phải ít nhất 3 kí tự',
+
+            ]);
+
+            $session = new Session;
+            $session -> name_session = $request -> name;
+         
+            $session->save();
+
+            return redirect('admin/session/list_session') -> with('thongbao','Thêm thành công');
+    }
 
 }

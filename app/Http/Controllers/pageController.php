@@ -76,6 +76,7 @@ class pageController extends Controller
     }
 
 
+    //hiện thị tất cả câu hỏi
     public function getListQuestion(){
 
         $data['list'] = DB::table('questions')->paginate(10);
@@ -85,14 +86,20 @@ class pageController extends Controller
     }
     
 
+    //lấy dữ liệu hiện thị câu trả lời của câu hỏi
     public function getListQuestionAnswer($id){
 
         $question = DB::table('questions')->find($id);
 
         $answer = DB::table('answers')->where('question_id',$id)->get();
 
+        $user_ques = DB::table('users')->rightJoin('questions','users.id','=','questions.user_id')
+                                       ->where('questions.id',$id)
+                                       ->get();
+
         //truyền dữ liệu sang view
-        return view('home.page.content_question',['list_question'=>$question, 'list_answer'=> $answer]);
+        return view('home.page.content_question',
+        ['list_question'=>$question, 'list_answer'=> $answer, 'user'=>$user_ques]);
 
     }
 }

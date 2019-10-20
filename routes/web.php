@@ -33,7 +33,15 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         Route::get('delete/{id}','adminController@deleteUser'); 
     });
 
+    Route::group(['prefix' => 'session'], function () {
+        Route::get('list_session','adminController@getListSession');
 
+        Route::get('delete_session/{id}','adminController@deleteSession'); 
+
+        Route::get('add_session','adminController@getAddSession'); 
+        Route::post('add_session','adminController@postAddSession');
+    
+    });
 
     Route::group(['prefix' => 'question'], function () {
 
@@ -77,7 +85,7 @@ Route::get('user/register','userController@getUserRegister');
 Route::post('user/register','userController@postUserRegister');
 
 
-Route::group(['prefix' => 'user'], function () {
+Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
 
     Route::group(['prefix' => 'page'], function () {
         Route::get('info/{id}','pageController@getInfo');
@@ -91,7 +99,11 @@ Route::group(['prefix' => 'user'], function () {
 
     });
 
-    
+    Route::group(['prefix' => 'session'], function () {
+        
+        Route::get('list_session_close','sessionController@getListSession');
+    });
+
 
 });
 

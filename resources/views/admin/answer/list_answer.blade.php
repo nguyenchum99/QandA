@@ -15,9 +15,9 @@
     <table class="table table-striped">
         <h2>Danh sách câu trả lời</h2>
         <tr id="tbl-first-row">
-            <td width="5%">id</td>
-            <td width="10%">user_id</td>
-            <td width="5%">question_id</td>
+            <td width="12%">ID câu trả lời</td>
+            <td width="12%">ID người dùng</td>
+            <td width="12%">ID câu hỏi</td>
             <td width="60%">Bình luận</td>
             <td width="5%">Sửa</td>
             <td width="5%">Xóa</td>

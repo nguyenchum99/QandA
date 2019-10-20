@@ -7,12 +7,12 @@
                             
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <center></center> <img src="{{URL::asset('/img/image.jpg')}}" alt="user">
-            <input type="submit" class="btn nut" value="Thay ảnh đại diện">
+            <input type="submit" class="btn nut" value="Thay ảnh đại diện" style="background-color: #365899;color:white">
         </center></div>
         
         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
             <span class="fa fa-user name" ></span>
-            <p class="name">{{$user->name}}</p>
+            <p class="name"> {{$user->name}}</p>
             
             <span class="fa fa-graduation-cap" ></span>
             <p class="number">
@@ -25,11 +25,11 @@
                 
             </p>
             <span class="fa fa-question-circle-o" ></span>
-            <p class="number">Tổng số câu hỏi: {{$question}}</p>
+            <p class="number"> Tổng số câu hỏi: {{$question}}</p>
             <span class="fa fa-hourglass-half" ></span>
-            <p class="number">Câu hỏi chưa được trả lời: 0</p>
+            <p class="number"> Câu hỏi chưa được trả lời: 0</p>
             <span class="fa fa-history" ></span>
-            <p class="reload">Lần cuối đặt câu hỏi: N/A</p>
+            <p class="reload"> Lần cuối đặt câu hỏi: N/A</p>
         </div>
         
     </div>

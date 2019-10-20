@@ -25,11 +25,11 @@
     <table class="table table-striped">
         <h2>Danh sách người dùng</h2>
         <tr id="tbl-first-row">
-            <td width="5%">id</td>
+            <td width="12%">ID</td>
             <td width="30%" style="white-space: nowrap ;">Tên đăng nhập</td>
             <td width="30%">E-mail</td>
             <td width="20%">Mật khẩu</td>
-            <td width="5%">Level</td>
+            <td width="5%">Quyền</td>
             <td width="5%">Sửa</td>
             <td width="5%">Xóa</td>
         </tr>
