@@ -11,9 +11,17 @@
         </div>
 
     @endif
-    
+    <h2>Danh sách phiên hỏi đáp</h2>
+    <form method = "get" action= "{{route('search_session')}}" id="searchForm" role="search">
+            <input type="hidden" name="_token" value ="{{csrf_token()}}";>
+            <div class="input-group" style="margin: 10px 0 29px 0; width: 40%"> 
+                <input  type="text" class="form-control"  name="tukhoa" placeholder="Tìm kiếm..." >
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                
+            </div>
+    </form>
     <table class="table table-striped">
-        <h2>Danh sách phiên hỏi đáp</h2>
+      
         <tr id="tbl-first-row">
             <td width="12%">ID phiên</td>
             <td width="12%">ID người dùng</td>

@@ -122,10 +122,24 @@ Route::get('user/questionandanswer','userController@getContentQuestion');
 
 
 Route::get('search_user',[
-    'as'=>'search',
+    'as'=>'search_user',
     'uses'=>'adminController@getSearch_user'
 ]);
 
+Route::get('search_question',[
+    'as'=>'search_question',
+    'uses'=>'adminController@getSearchQuestion'
+]);
+
+Route::get('search_session',[
+    'as'=>'search_session',
+    'uses'=>'adminController@getSearchSession'
+]);
+
+Route::get('search_answer',[
+    'as'=>'search_answer',
+    'uses'=>'adminController@getSearchAnswer'
+]);
 
 
 ?>

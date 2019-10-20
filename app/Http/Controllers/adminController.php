@@ -131,8 +131,6 @@ class adminController extends Controller
 
         $answer = Answer::find($id);
 
-
-
         return view('admin.answer.edit_answer',['answer'=>$answer]);
 
     }
@@ -240,14 +238,16 @@ class adminController extends Controller
         $this->validate($request,
 
             [
-                'name' => 'required|min:3',
-                'password'=>'required|min:3'
+                'name' => 'required|min:3|max:50',
+                'password'=>'required|min:3|max:50'
             ],
             [
                 'name.required' => 'Bạn chưa nhập tên người dùng',
                 'name.min' => 'Tên người dùng phải ít nhất 3 kí tự',
+                'name.max' => 'Tên người dùng phải từ 3 kí tự đến 50 kí tự',
                 'password.required' =>'Bạn chưa nhập mật khẩu',
-                'password.min'=>'Mật khẩu phải ít nhất 3 kí tự'
+                'password.min'=>'Mật khẩu phải ít nhất 3 kí tự',
+                'password.max' => 'Mật khẩu phải từ 3 kí tự đến 50 kí tự',
 
             ]);
 
@@ -282,14 +282,45 @@ class adminController extends Controller
         // $data = DB::table('users')->paginate(5);
         $tukhoa = $req->tukhoa;
         $user = User::where('name', 'like', '%'.$req->tukhoa.'%')
-                   ->orWhere('id',$req->tukhoa)
                    ->orWhere('email',$req->tukhoa)
                    ->get();
 
         return view('admin.user.search_user', compact('user'),['user'=>$user,'tukhoa'=>$tukhoa]);
     }
 
-   
+   //
+   public function getSearchQuestion(Request $req)
+   {
+       // $data = DB::table('users')->paginate(5);
+       $tukhoa = $req->tukhoa;
+       $question = Question::where('question', 'like', '%'.$req->tukhoa.'%')
+                  ->get();
+
+       return view('admin.question.search_question', compact('question'),['question'=>$question,'tukhoa'=>$tukhoa]);
+   }
+
+   //Tìm kiếm user trong admin
+   public function getSearchSession(Request $req)
+   {
+       // $data = DB::table('users')->paginate(5);
+       $tukhoa = $req->tukhoa;
+       $session = Session::where('name_session', 'like', '%'.$req->tukhoa.'%')
+                  ->get();
+
+       return view('admin.session.search_session', compact('session'),['session'=>$session,'tukhoa'=>$tukhoa]);
+   }
+
+
+    public function getSearchAnswer(Request $req)
+   {
+       // $data = DB::table('users')->paginate(5);
+       $tukhoa = $req->tukhoa;
+       $answer = Answer::where('answer', 'like', '%'.$req->tukhoa.'%')
+                  ->get();
+
+       return view('admin.answer.search_answer', compact('answer'),['answer'=>$answer,'tukhoa'=>$tukhoa]);
+   }
+
     public function getListSession(){
 
         $data['list_session'] = DB::table('session')->paginate(10);
@@ -319,18 +350,19 @@ class adminController extends Controller
         $this->validate($request,
 
             [
-                'name' => 'required|min:3',
+                'name' => 'required|min:3|max:100',
 
             ],
             [
                 'name.required' => 'Bạn chưa nhập tên phiên',
                 'name.min' => 'Tên phiên phải ít nhất 3 kí tự',
+                'name.max' => 'Tên phiên phải từ 3 đến 100 kí tự'
 
             ]);
 
             $session = new Session;
             $session -> name_session = $request -> name;
-         
+            $session -> user_id = 
             $session->save();
 
             return redirect('admin/session/list_session') -> with('thongbao','Thêm thành công');
