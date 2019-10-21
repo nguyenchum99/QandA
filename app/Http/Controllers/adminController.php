@@ -288,7 +288,7 @@ class adminController extends Controller
         return view('admin.user.search_user', compact('user'),['user'=>$user,'tukhoa'=>$tukhoa]);
     }
 
-   //
+   //tìm kiếm câu hỏi
    public function getSearchQuestion(Request $req)
    {
        // $data = DB::table('users')->paginate(5);
@@ -299,7 +299,7 @@ class adminController extends Controller
        return view('admin.question.search_question', compact('question'),['question'=>$question,'tukhoa'=>$tukhoa]);
    }
 
-   //Tìm kiếm user trong admin
+   //Tìm kiếm phiên trong admin
    public function getSearchSession(Request $req)
    {
        // $data = DB::table('users')->paginate(5);
@@ -311,6 +311,7 @@ class adminController extends Controller
    }
 
 
+   //tìm kiếm câu trả lời
     public function getSearchAnswer(Request $req)
    {
        // $data = DB::table('users')->paginate(5);
@@ -321,12 +322,15 @@ class adminController extends Controller
        return view('admin.answer.search_answer', compact('answer'),['answer'=>$answer,'tukhoa'=>$tukhoa]);
    }
 
+
+   //hiển thị danh sách  phiên
     public function getListSession(){
 
         $data['list_session'] = DB::table('session')->paginate(10);
         return view('admin.session.list_session',$data);
     }
 
+    //xóa phiên
     public function deleteSession($id){
 
         $session = Session::find($id);
@@ -338,7 +342,7 @@ class adminController extends Controller
         return redirect('admin/session/list_session')->with('thongbao','Xóa phiên thành công');
     }
 
-
+    //thêm phiên hỏi đáp
     public function getAddSession(){
 
         return view('admin.session.add_session');
@@ -362,7 +366,7 @@ class adminController extends Controller
 
             $session = new Session;
             $session -> name_session = $request -> name;
-            $session -> user_id = 
+            $session -> user_id = Auth::user()->id;
             $session->save();
 
             return redirect('admin/session/list_session') -> with('thongbao','Thêm thành công');
