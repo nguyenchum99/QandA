@@ -25,7 +25,8 @@
         <tr id="tbl-first-row">
             <td width="12%">ID phiên</td>
             <td width="12%">ID người dùng</td>
-            <td width="68%">Tên phiên</td>
+            <td width="50%">Tên phiên</td>
+            <td width="10%">Tạo câu hỏi</td>
             <td width="5%">Sửa</td>
             <td width="5%">Xóa</td>
         </tr>
@@ -36,6 +37,7 @@
                 <td>{{$l->id}}</td>
                 <td>{{$l->user_id}}</td>
                 <td>{{$l->name_session}}</td>
+                <td><a href="{{url("admin/session/add_question/{$l->id}")}}">Tạo</a></td>
                 <td><a href="{{url("admin/session/edit/{$l->id}")}}">Sửa</a></td>
                 <td><a href="{{url("admin/session/delete_session/{$l->id}")}}">Xóa</a></td>
             </tr>

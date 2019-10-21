@@ -43,6 +43,9 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
         Route::get('edit/{id}','manageSessionController@getEditSession');
         Route::post('edit/{id}','manageSessionController@postEditSession');
+
+        Route::get('add_question/{id}','manageSessionController@getAddQuestion'); 
+        Route::post('add_question/{id}','manageSessionController@postAddQuestion');
     
     });
 
@@ -55,7 +58,7 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
         Route::get('delete/{id}','manageQuestionController@getDeleteQuestion');
         
-
+        
     });
 
 

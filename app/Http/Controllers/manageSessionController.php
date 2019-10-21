@@ -107,4 +107,37 @@ class manageSessionController extends Controller
        return view('admin.session.search_session', compact('session'),['session'=>$session,'tukhoa'=>$tukhoa]);
    }
 
+   //thêm câu hỏi của admin trong phiên admin
+   public function getAddQuestion($id){
+
+        $session = Session::find($id);
+        return view('admin.session.add_question',['session'=>$session]);
+
+    }
+
+
+    public function postAddQuestion(Request $request,$id){
+
+        $this->validate($request,
+        [
+            'question' => 'required|min:10|max:100',
+
+        ],
+        [
+            'question.required' => 'Bạn chưa nhập nội dung câu hỏi',
+            'question.min' => 'Câu hỏi phải ít nhất 10 kí tự',
+            'question.max' => 'Câu hỏi  phải từ 10 đến 100 kí tự'
+
+        ]);
+
+        $question = new Question;
+        $question -> question = $request -> question;
+        $question -> user_id = Auth::user()->id;
+        $question -> session_id = $id;
+        $question-> save();
+
+        return redirect('admin/question/listquestion') -> with('thongbao','Thêm thành công');
+    }
+
+  
 }
