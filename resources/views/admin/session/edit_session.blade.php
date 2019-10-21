@@ -24,12 +24,12 @@
             @endif
 
 
-            <h2>Sửa nội dung câu hỏi</h2>
-            <form method="post" action="{{$question->id}}">
+            <h2>Sửa tên phiên hỏi đáp</h2>
+            <form method="post" action="{{$session->id}}">
                 <div class="form-group">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
-                    <input type="text" name="question" 
-                    class="form-control" placeholder="Edit question" value="{{$question->question}}"  />
+                    <input type="text" name="session" 
+                    class="form-control" placeholder="Edit question" value="{{$session->name_session}}"  />
                 </div>
 
                 <input type="submit" name="submit" value="Sửa" class="btn btn-primary" />

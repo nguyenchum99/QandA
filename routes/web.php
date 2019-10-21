@@ -22,35 +22,38 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
 
     Route::group(['prefix' => 'user'], function () {
-        Route::get('listuser','adminController@getListUser');
+        Route::get('listuser','manageUserController@getListUser');
 
-        Route::get('edit/{id}','adminController@getEditUser');
-        Route::post('edit/{id}','adminController@postEditUser');
+        Route::get('edit/{id}','manageUserController@getEditUser');
+        Route::post('edit/{id}','manageUserController@postEditUser');
 
-        Route::get('adduser','adminController@getAddUser'); 
-        Route::post('adduser','adminController@postAddUser'); 
+        Route::get('adduser','manageUserController@getAddUser'); 
+        Route::post('adduser','manageUserController@postAddUser'); 
         
-        Route::get('delete/{id}','adminController@deleteUser'); 
+        Route::get('delete/{id}','manageUserController@deleteUser'); 
     });
 
     Route::group(['prefix' => 'session'], function () {
-        Route::get('list_session','adminController@getListSession');
+        Route::get('list_session','manageSessionController@getListSession');
 
-        Route::get('delete_session/{id}','adminController@deleteSession'); 
+        Route::get('delete_session/{id}','manageSessionController@deleteSession'); 
 
-        Route::get('add_session','adminController@getAddSession'); 
-        Route::post('add_session','adminController@postAddSession');
+        Route::get('add_session','manageSessionController@getAddSession'); 
+        Route::post('add_session','manageSessionController@postAddSession');
+
+        Route::get('edit/{id}','manageSessionController@getEditSession');
+        Route::post('edit/{id}','manageSessionController@postEditSession');
     
     });
 
     Route::group(['prefix' => 'question'], function () {
 
-        Route::get('listquestion','adminController@getListQuestion');
+        Route::get('listquestion','manageQuestionController@getListQuestion');
 
-        Route::get('edit/{id}','adminController@editQuestion');
-        Route::post('edit/{id}','adminController@postQuestion');
+        Route::get('edit/{id}','manageQuestionController@editQuestion');
+        Route::post('edit/{id}','manageQuestionController@postQuestion');
 
-        Route::get('delete/{id}','adminController@getDeleteQuestion');
+        Route::get('delete/{id}','manageQuestionController@getDeleteQuestion');
         
 
     });
@@ -58,12 +61,12 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
 
     Route::group(['prefix' => 'answer'], function () {
-        Route::get('listanswer','adminController@getListAnswer');
+        Route::get('listanswer','manageAnswerController@getListAnswer');
         
-        Route::get('edit/{id}','adminController@editAnswer');
-        Route::post('edit/{id}','adminController@postAnswer');
+        Route::get('edit/{id}','manageAnswerController@editAnswer');
+        Route::post('edit/{id}','manageAnswerController@postAnswer');
 
-        Route::get('delete/{id}','adminController@getDeleteAnswer');
+        Route::get('delete/{id}','manageAnswerController@getDeleteAnswer');
     });
 
  
@@ -123,22 +126,22 @@ Route::get('user/questionandanswer','userController@getContentQuestion');
 
 Route::get('search_user',[
     'as'=>'search_user',
-    'uses'=>'adminController@getSearch_user'
+    'uses'=>'manageUserController@getSearch_user'
 ]);
 
 Route::get('search_question',[
     'as'=>'search_question',
-    'uses'=>'adminController@getSearchQuestion'
+    'uses'=>'manageQuestionController@getSearchQuestion'
 ]);
 
 Route::get('search_session',[
     'as'=>'search_session',
-    'uses'=>'adminController@getSearchSession'
+    'uses'=>'manageSessionController@getSearchSession'
 ]);
 
 Route::get('search_answer',[
     'as'=>'search_answer',
-    'uses'=>'adminController@getSearchAnswer'
+    'uses'=>'manageAnswerController@getSearchAnswer'
 ]);
 
 

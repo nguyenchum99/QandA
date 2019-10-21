@@ -36,7 +36,7 @@
                 <td>{{$l->id}}</td>
                 <td>{{$l->user_id}}</td>
                 <td>{{$l->name_session}}</td>
-                <td><a href="#">Sửa</a></td>
+                <td><a href="{{url("admin/session/edit/{$l->id}")}}">Sửa</a></td>
                 <td><a href="{{url("admin/session/delete_session/{$l->id}")}}">Xóa</a></td>
             </tr>
         @endforeach

@@ -24,7 +24,7 @@
             @endif
 
 
-            <h2>Edit answer</h2>
+            <h2>Sửa nội  dung câu trả lời</h2>
             <form method="post" action="{{$answer->id}}">
                 <div class="form-group">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
