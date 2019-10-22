@@ -86,7 +86,7 @@ class pageController extends Controller
     }
     
 
-    //lấy dữ liệu hiện thị câu trả lời của câu hỏi
+    //lấy dữ liệu hiển thị câu trả lời của câu hỏi
     public function getListQuestionAnswer($id){
 
         $question = DB::table('questions')->find($id);

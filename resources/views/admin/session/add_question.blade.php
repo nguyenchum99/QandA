@@ -32,7 +32,7 @@
                  class="form-control" placeholder="Nội dung câu hỏi"   />
              </div>
 
-             <input type="submit" name="submit" value="Sửa" class="btn btn-primary" />
+             <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary" />
          </form>
         </div>
     <div>

@@ -22,10 +22,11 @@ class sessionController extends Controller
 
         $session['list'] = DB::table('session')->paginate(10);
 
-        // $user['name_user'] = DB::table('users')
-
+        $name_user['name'] = DB::table('users')->join('session','users.id','=','session.user_id')
+                                                ->get();
+                                                
         //truyền dữ liệu sang view
-        return view('home.session.list_session_close',$session);
+        return view('home.session.list_session_close',$session,$name_user);
 
     }
 
