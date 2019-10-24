@@ -108,6 +108,8 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
     Route::group(['prefix' => 'session'], function () {
         
         Route::get('list_session_close','sessionController@getListSession');
+
+        Route::get('list_question/{id}','sessionController@getListQuestionOnSession');
     });
 
 

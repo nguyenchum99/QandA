@@ -81,19 +81,20 @@ class manageUserController extends Controller
 
         $this->validate($request,
 
-            [
-                'name' => 'required|min:3|max:50',
-                'password'=>'required|min:3|max:50'
-            ],
-            [
-                'name.required' => 'Bạn chưa nhập tên người dùng',
-                'name.min' => 'Tên người dùng phải ít nhất 3 kí tự',
-                'name.max' => 'Tên người dùng phải từ 3 kí tự đến 50 kí tự',
-                'password.required' =>'Bạn chưa nhập mật khẩu',
-                'password.min'=>'Mật khẩu phải ít nhất 3 kí tự',
-                'password.max' => 'Mật khẩu phải từ 3 kí tự đến 50 kí tự',
+        [
+            'name' => 'required|min:3',
+            'password'=> 'required|min:3|max:30',
+            
+        ],
+        [
+            'name.required' => 'Bạn chưa nhập tên người dùng',
+            'name.min' => 'Tên người dùng phải ít nhất 3 kí tự',
+            'password.required'=> 'Bạn chưa nhập mật khẩu',
+            'password.min' => 'Mật khẩu có ít nhất 3 kí tự',
+            'password.max' => 'Mât khẩu có nhiều nhất 30 kí tự'
+            
 
-            ]);
+        ]);
 
             $user -> name = $request -> name;
             $user -> password = bcrypt($request -> password);

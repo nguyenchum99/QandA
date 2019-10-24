@@ -10,7 +10,7 @@ use App\Http\Requests;
 use App\Question;
 use App\Answer;
 use App\User;
-
+use App\Session;
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -79,27 +79,39 @@ class pageController extends Controller
     //hiện thị tất cả câu hỏi
     public function getListQuestion(){
 
-        $data['list'] = DB::table('questions')->paginate(10);
+        // $data['list'] = DB::table('questions')->get();
+
+        $data['list'] = DB::table('questions')->join('session','session.id','=','questions.session_id')
+                                              ->select('questions.id','questions.question','session.name_session')
+                                              ->get();
+
         //truyền dữ liệu sang view
         return view('home.page.all_question',$data);
 
     }
+
+
     
 
     //lấy dữ liệu hiển thị câu trả lời của câu hỏi
     public function getListQuestionAnswer($id){
 
         $question = DB::table('questions')->find($id);
-
         $answer = DB::table('answers')->where('question_id',$id)->get();
 
-        $user_ques = DB::table('users')->rightJoin('questions','users.id','=','questions.user_id')
-                                       ->where('questions.id',$id)
-                                       ->get();
+        // $session= DB::table('session')->first();
+        
+        $session = DB::table('questions')
+        ->join('session','session.id','=','questions.session_id')
+        ->select('questions.id','questions.question','session.name_session')                                    
+        ->where('questions.id',$id)                                     
+        ->get();
+
 
         //truyền dữ liệu sang view
         return view('home.page.content_question',
-        ['list_question'=>$question, 'list_answer'=> $answer, 'user'=>$user_ques]);
-
+        ['list_question'=>$question, 'list_answer'=> $answer, 'session'=>$session]);
     }
+
+
 }

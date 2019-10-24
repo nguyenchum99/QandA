@@ -20,4 +20,9 @@ class Question extends Model
     public function answer(){
         return $this->hasMany('App\Answer');
     }
+
+    public function session(){
+         return $this->belongsTo('App\Session');
+      
+    }
 }

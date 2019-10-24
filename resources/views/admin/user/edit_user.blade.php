@@ -6,16 +6,22 @@
         <div style ="width: 40%">
 
             <h2>Sửa thông tin người dùng</h2>
+            @if(count($errors) > 0)
+            <div class="alert alert-danger">
+            
+                @foreach ($errors -> all() as $err)
+                    {{$err}}<br>
+                @endforeach
+            
+            </div>
+         @endif
 
             <form method="post" action="{{$user->id}}">
-
-                
-
                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
 
                 <div class="form-group">
                 	<label>Tên đăng nhập</label>
-                    <input type="text" name="name" class="form-control" value="{{$user->name}}"  />
+                    <input type="text" name="name" class="form-control" value="{{$user->name}}"/>
                 </div>
 
                 <div class="form-group">
@@ -43,12 +49,9 @@
                             @if($user->level == 1)
                                 {{"checked"}}
                             @endif
-                        type="radio">Admin
+                        type="radio">Quản trị viên
                     </label>
-                    {{-- <select name="level" class="form-control">
-                    	<option value="1" >Admin</option>
-                        <option value="0" selected="selected">User</option>
-                    </select> --}}
+                    
                 </div>
 
                 <input type="submit" name="submit" value="Sửa" class="btn btn-primary" />

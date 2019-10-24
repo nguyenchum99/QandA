@@ -18,7 +18,7 @@
             <p class="number">
 
                 @if($user->level == 1)
-                    {{"Chức vụ: Admin"}}
+                    {{"Chức vụ: Quản trị viên"}}
                 @else 
                     {{"Chức vụ: Thành viên"}}
                 @endif

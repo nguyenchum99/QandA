@@ -2,17 +2,17 @@
 @section('content')
 
 <div class="top">
-        <div class="row"> <center>
+        <div class="row"> 
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                 <img src="{{URL::asset('/img/q-and-a.jpg')}}">
-            </div></center>
+            </div>
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                 <p style="color: red;font-size: 18px;"><span class="fa fa-lock">
-                </span>Phiên hỏi đáp</p>
+                </span></p>
                 <p><span class="fa fa-lock">
-                </span>Mô tả: Phiên hỏi đáp thử nghiệm</p>
+                </span>Mô tả: </p>
                 <p><span class="fa fa-lock">
-                </span>Đăng bới: </p>
+                </span>Đăng bởi: </p>
                 <p><span class="fa fa-lock">
                 </span>Thời gian tạo:22 ngày trước</p>
             </div>
@@ -21,7 +21,7 @@
 
 <div class="botton">
     <div class="header">
-        <p class="title">Đăng bới: Thành viên ẩn danh</p>
+        <p class="title">Đăng bởi: Thành viên ẩn danh</p>
         <p class="time">22 ngày trước</p>
     </div>
     <div class="main-right">
@@ -44,7 +44,7 @@
 
                 <div class="tra-loi">
                     <ul>
-                        <li style="background: #1a88d652"><p></p><span class="fa fa-user"> Người dùng: {{$l->user_id}}</span></p>
+                        <li style="background: #1a88d652"><p></p><span class="fa fa-user"> Người dùng:{{$l->user_id}}</span></p>
                         <br>
                         <p class="time">22 ngày trước</p></li>
                         <li>{{$l->answer}}</li>
