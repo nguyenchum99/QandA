@@ -34,9 +34,6 @@
                 <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary" />
             </form>
 
-            <p><i class="fa fa-thumbs-o-up"></i> Thích</p>
-
-
         </div>
     </div>
 
