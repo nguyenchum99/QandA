@@ -45,7 +45,7 @@ class sessionController extends Controller
        
         $data['list'] = DB::table('questions')
         ->join('session','session.id','=','questions.session_id')
-        ->select('questions.id','questions.question','session.name_session')                                    
+        ->select('questions.id','questions.question','session.name_session','questions.created_at')                                    
         ->where('session.id',$id)                                     
         ->get();
 

@@ -22,7 +22,7 @@
         <li class="slide"><a href="{{url('admin/question/listquestion')}}" class="list-group-item ">Quản lý câu hỏi</a>
         </li>
 
-        <li class="slide"><a href="{{url('admin/answer/listanswer')}}" class="list-group-item">Quản lý bình luận</a>
+        <li class="slide"><a href="{{url('admin/answer/listanswer')}}" class="list-group-item">Quản lý câu trả lời</a>
         </li>
 
 
