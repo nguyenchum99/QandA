@@ -4,7 +4,8 @@
 @section('content')
 
         <div style ="width: 40%">
-            <h2>Tạo câu hỏi của người dùng</h2>
+            <h2 style="color: blue">Tạo câu hỏi của người dùng</h2>
+            <h3>Phiên hỏi đáp:  {{$session->name_session}}<h3>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)
              <div class="alert alert-danger">
@@ -28,8 +29,8 @@
          <form method="post" action="{{$session->id}}">
              <div class="form-group">
                  <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
-                 <input type="text" name="question" 
-                 class="form-control" placeholder="Nội dung câu hỏi"   />
+                 <textarea type="text" name="question" rows="3"
+                 class="form-control" placeholder="Nội dung câu hỏi" ></textarea>
              </div>
 
              <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary" />

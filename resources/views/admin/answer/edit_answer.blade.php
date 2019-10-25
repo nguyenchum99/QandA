@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
                     <input type="text" name="answer" 
-                    class="form-control" placeholder="Edit answer" value="{{$answer->answer}}"  />
+                    class="form-control" placeholder="Sửa câu trả lời" value="{{$answer->answer}}"  />
                 </div>
 
                 <input type="submit" name="submit" value="Sửa" class="btn btn-primary" />

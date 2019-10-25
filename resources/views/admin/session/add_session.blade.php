@@ -31,7 +31,6 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
 
                 <div class="form-group">
-                	<label>Tên phiên</label>
                     <input type="text" name="name" class="form-control" placeholder="Tên phiên"  />
                 </div>
 

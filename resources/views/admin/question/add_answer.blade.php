@@ -4,8 +4,8 @@
 @section('content')
 
         <div style ="width: 40%">
-            <h2>Tạo câu trả lời</h2>
-            <h3>{{$question ->question}}</h3>
+            <h2 style="color: blue">Tạo câu trả lời</h2>
+            <h3>Câu hỏi: {{$question ->question}}</h3>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)
              <div class="alert alert-danger">
@@ -20,7 +20,7 @@
          <form method="post" action="{{$question->id}}">
              <div class="form-group">
                  <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
-                 <textarea type="text" name="answer" 
+                 <textarea type="text" name="answer" rows="3"
                   class="form-control" placeholder="Nội dung câu trả lời"></textarea>
              </div>
 
