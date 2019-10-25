@@ -78,4 +78,37 @@ class manageAnswerController extends Controller
        return view('admin.answer.search_answer', compact('answer'),['answer'=>$answer,'tukhoa'=>$tukhoa]);
    }
 
+
+   //tạo câu trả lời của admin
+   public function getAddAnswer($id){
+
+    $question = Question::find($id);
+    return view('admin.question.add_answer',['question'=>$question]);
+
+}
+
+
+    public function postAddAnswer(Request $request,$id){
+
+        $this->validate($request,
+        [
+            'answer' => 'required|min:10|max:100',
+
+        ],
+        [
+            'answer.required' => 'Bạn chưa nhập nội dung câu hỏi',
+            'answer.min' => 'Câu hỏi phải ít nhất 10 kí tự',
+            'answer.max' => 'Câu hỏi  phải từ 10 đến 100 kí tự'
+
+        ]);
+
+        $answer = new Answer;
+        $answer -> answer = $request -> answer;
+        $answer -> user_id = Auth::user()->id;
+        $answer -> question_id = $id;
+        $answer -> save();
+
+        return redirect('admin/answer/listanswer') -> with('thongbao','Thêm thành công');
+    }
+
 }

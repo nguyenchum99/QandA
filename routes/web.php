@@ -57,6 +57,9 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         Route::post('edit/{id}','manageQuestionController@postQuestion');
 
         Route::get('delete/{id}','manageQuestionController@getDeleteQuestion');
+
+        Route::get('add_answer/{id}','manageAnswerController@getAddAnswer'); 
+        Route::post('add_answer/{id}','manageAnswerController@postAddAnswer');
         
         
     });

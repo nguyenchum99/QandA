@@ -48,18 +48,20 @@
 
             <p><i class="fa fa-thumbs-o-up"></i> Thích</p>
             {{-- hiển thị nội dung câu trả  lời của từng câu hỏi --}}
+
             @foreach($list_answer as $l)
 
                 <div class="tra-loi">
+
                     <ul>
                         <li style="background: #1a88d652"><p></p><span class="fa fa-user"> Người dùng:{{$l->user_id}}</span></p>
                         <br>
-                        <p class="time">22 ngày trước</p></li>
+                        <p class="time">Thời gian tạo: {{$l->created_at}}</p></li>
                         <li>{{$l->answer}}</li>
                     </ul>
+
                 </div>
                     
-
             @endforeach
 
         </div>
