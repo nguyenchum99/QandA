@@ -20,6 +20,14 @@
 </div>
 
 <div class="botton">
+     {{-- hiện thị sửa thành công --}}
+     @if(session('thongbao'))
+
+     <div class="alert alert-success">
+         {{session('thongbao')}}
+     </div>
+     @endif
+
     <div class="header">
         <p class="title">Đăng bởi: Thành viên ẩn danh</p>
         <p class="time">22 ngày trước</p>

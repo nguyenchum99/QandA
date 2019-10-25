@@ -79,6 +79,7 @@ class createSessionUser extends Controller
         return view('home.manage.create_question',['session'=>$session]);
     }
 
+
     public function postCreateQuestionOnSession(Request $request,$id){
 
         
@@ -88,7 +89,7 @@ class createSessionUser extends Controller
         $question -> session_id = $id;
         $question-> save();
 
-        return redirect('user/page/listquestion') ;
+        return redirect("user/page/question_answer/".$question->id) ->with('thongbao','Tạo câu hỏi thành công') ;
 
     }
 

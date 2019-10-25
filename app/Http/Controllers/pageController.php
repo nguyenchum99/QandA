@@ -99,17 +99,13 @@ class pageController extends Controller
         $question = DB::table('questions')->find($id);
         $answer = DB::table('answers')->where('question_id',$id)->get();
 
-        // $session= DB::table('session')->first();
-
         $user = DB::table('users')
         ->join('questions','questions.user_id','=','users.id')
         ->get();
         
-        $session = DB::table('questions')
-        ->join('session','session.id','=','questions.session_id')
-        ->join('users','users.id','=','session.user_id')
-        ->select('users.name','session.name_session')                                    
-        ->where('questions.id',$id)                                     
+        $session = DB::table('session')
+        ->join('questions','session.id','=','questions.session_id')
+        ->select('session.name_session')                                                                        
         ->get();
 
 
