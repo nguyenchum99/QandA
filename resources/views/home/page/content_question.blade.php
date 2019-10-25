@@ -31,7 +31,7 @@
             <div class="noidung">
                 <ul>
                     <li >Nội dung câu hỏi:</li>
-                    <li>{{$list_question->question}}</li>
+                    <li>{{$question->question}}</li>
                     <li>3 lượt thích</li>
                 </ul>
 

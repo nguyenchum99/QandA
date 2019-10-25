@@ -10,7 +10,7 @@
             <a href="{{url('/user/page/info/'.Auth::user()->id)}}" class="w3-bar-item w3-button">Thông tin của tôi</a>
             <a href="{{url('/user/page/edit/'.Auth::user()->id)}}" class="w3-bar-item w3-button">Thay đổi thông tin</a>
             <h4 class="w3-bar-item">Quản lý</h4>
-            <a href="#" class="w3-bar-item w3-button">Câu hỏi của tôi</a>
+            <a href="{{url("user/manage/createsession")}}" class="w3-bar-item w3-button">Câu hỏi của tôi</a>
             <a href="#" class="w3-bar-item w3-button">Câu trả lời của tôi</a> 
             <h4 class="w3-bar-item">Phiên hỏi dáp</h4>
             <a href="#" class="w3-bar-item w3-button">Phiên hỏi đáp hoạt động</a>

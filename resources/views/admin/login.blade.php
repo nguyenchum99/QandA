@@ -37,11 +37,11 @@
         <form role="form" class="login-form" action="{{url("admin/login")}}" method="post">
             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
             <div class="form-header">
-                <h3>Admin</h3>
+                <h3>Chào mừng Quản trị viên</h3>
             </div>
             
                     <div class="form-group">
-                        <input type="text" class="form-input" placeholder="Admin" name="name" value="">
+                        <input type="text" class="form-input" placeholder="Tên đăng nhập" name="name" value="">
                     </div>
                 
                     <div class="form-group">

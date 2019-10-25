@@ -112,6 +112,14 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
         Route::get('list_question/{id}','sessionController@getListQuestionOnSession');
     });
 
+    Route::group(['prefix' => 'manage'], function () {
+        
+        Route::get('createsession','createSessionUser@getCreateSession');
+        Route::post('createsession','createSessionUser@postCreateSession');
+
+        
+    });
+
 
 });
 

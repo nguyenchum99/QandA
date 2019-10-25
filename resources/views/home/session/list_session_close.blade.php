@@ -5,10 +5,19 @@
 
 <div class="main-right">
     <h2>Danh sách phiên hỏi đáp đã đóng</h2>
+    @if(session('thongbao'))
+
+    <div class="alert alert-success">
+        {{session('thongbao')}}
+    </div>
+
+@endif
        
     @foreach($name as $l)
 
         <div class="box">
+
+             {{-- hiện thị thành công --}}
                 <div class="row">  
                     <div class="col-md-2">
                         <img src="{{URL::asset('/img/q-and-a.jpg')}}" alt="image" style="height: 75px;width:75px;margin-top:10px" >
