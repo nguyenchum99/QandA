@@ -32,7 +32,6 @@ class sessionController extends Controller
                                                 
                                                 ->get();
 
-       
                                                                                                                           
         //truyền dữ liệu sang view
         return view('home.session.list_session_close',$session,$name_user);

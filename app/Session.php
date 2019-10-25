@@ -11,7 +11,7 @@ class Session extends Model
 
     //Tạo quan hệ với  User
     public function user(){
-        return $this->hasMany('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function question(){

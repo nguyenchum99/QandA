@@ -18,6 +18,7 @@ class manageUserController extends Controller
 
     // hiển thị danh sách user
     public function getListUser(){
+        
         $data['list_user'] = DB::table('users')->paginate(10);
         return view('admin.user.list_user',$data);
     }

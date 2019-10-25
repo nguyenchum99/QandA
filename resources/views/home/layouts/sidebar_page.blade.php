@@ -10,9 +10,9 @@
             <a href="{{url('/user/page/info/'.Auth::user()->id)}}" class="w3-bar-item w3-button">Thông tin của tôi</a>
             <a href="{{url('/user/page/edit/'.Auth::user()->id)}}" class="w3-bar-item w3-button">Thay đổi thông tin</a>
             <h4 class="w3-bar-item">Quản lý</h4>
-            <a href="{{url("user/manage/createsession")}}" class="w3-bar-item w3-button">Câu hỏi của tôi</a>
-            <a href="#" class="w3-bar-item w3-button">Câu trả lời của tôi</a> 
-            <h4 class="w3-bar-item">Phiên hỏi dáp</h4>
+            <a href="{{url("user/manage/createsession")}}" class="w3-bar-item w3-button">Tạo phiên Hỏi-đáp</a>
+            <a href="{{url("user/manage/display_session")}}" class="w3-bar-item w3-button">Tạo câu hỏi</a> 
+            <h4 class="w3-bar-item">Phiên hỏi dáp</h4>  
             <a href="#" class="w3-bar-item w3-button">Phiên hỏi đáp hoạt động</a>
             <a href="{{url("user/session/list_session_close")}}" class="w3-bar-item w3-button">Phiên hỏi đáp đã đóng</a> 
             <a href="{{url("user/page/listquestion")}}" class="w3-bar-item w3-button">Tất cả câu hỏi</a>

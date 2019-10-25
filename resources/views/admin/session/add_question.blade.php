@@ -4,7 +4,7 @@
 @section('content')
 
         <div style ="width: 40%">
-            <h2>Tạo câu hỏi của admin</h2>
+            <h2>Tạo câu hỏi của người dùng</h2>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)
              <div class="alert alert-danger">

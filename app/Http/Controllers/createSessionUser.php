@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 class createSessionUser extends Controller
 {
     //
-
+    //tạo phiên hỏi đáp
     public function getCreateSession(){
 
         return view('home.manage.create_session');
@@ -44,6 +44,52 @@ class createSessionUser extends Controller
             $session->save();
 
             return redirect('user/session/list_session_close') -> with('thongbao','Thêm thành công');
+    }
+
+
+    
+    public function displaySessions(){
+
+        $name_user['name'] = DB::table('users')
+        ->join('session','users.id','=','session.user_id') 
+        ->get();
+
+        
+        return view('home.manage.sessions',$name_user);
+
+    }
+
+
+    //tạo câu hỏi trong phiên hỏi đáp
+    public function getCreateQuestionOnSession($id){
+        
+        $session = Session::find($id);
+
+        // // $user = User::join('session','session.user_id','=','users.id')
+        // // ->where('session.id',$id)
+        // // ->getQuery()
+        // // ->get();
+
+        // $session = DB::table('users')
+        // ->join('session','users.id','=','session.user_id') 
+        // ->select('session.name_session','users.name')
+        // ->where('session.id','6')
+        // ->get();
+
+        return view('home.manage.create_question',['session'=>$session]);
+    }
+
+    public function postCreateQuestionOnSession(Request $request,$id){
+
+        
+        $question = new Question;
+        $question -> question = $request -> question;
+        $question -> user_id = Auth::user()->id;
+        $question -> session_id = $id;
+        $question-> save();
+
+        return redirect('user/page/listquestion') ;
+
     }
 
     
