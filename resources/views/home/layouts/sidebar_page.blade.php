@@ -36,7 +36,7 @@
         </ul>
     </li>
 
-    <li class="slide"><a href="" class="list-group-item">Phiên hỏi dáp</a>
+    <li class="slide"><a href="" class="list-group-item">Phiên hỏi đáp</a>
         <ul class="list-group" id="menu">
                 <li class="list-group-item"><a href="#" >Phiên hỏi đáp hoạt động</a></li>
                 <li class="list-group-item"><a href="#" >Phiên hỏi đáp đã đóng</a></li>

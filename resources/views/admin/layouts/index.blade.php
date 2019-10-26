@@ -33,7 +33,7 @@
 
     <div class="head">
 
-        @include('admin.layouts.header');
+        @include('admin.layouts.header')
            
     </div>
 
@@ -42,14 +42,14 @@
             <div class="row">
                 <div class="left col-sm-3">
                     
-                    @include('admin.layouts.sidebar');
+                    @include('admin.layouts.sidebar')
 
                 </div>
 
 
                 <div class="col-sm-9 right">
 
-                    @yield('content');
+                    @yield('content')
                     
                 </div>
 

@@ -34,3 +34,4 @@ class AddQuestion extends Migration
         //
     }
 }
+?>

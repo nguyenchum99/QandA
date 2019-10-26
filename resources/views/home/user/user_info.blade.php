@@ -6,9 +6,13 @@
     <div class="row">
                             
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-        <center></center> <img src="{{URL::asset('/img/image.jpg')}}" alt="user">
-            <input type="submit" class="btn nut" value="Thay ảnh đại diện" style="background-color: #365899;color:white">
-        </center></div>
+            <center>
+                <img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" alt="avatar">
+                <a href="{{url("user/profile")}}">
+                <input type="submit" class="btn nut" value="Thay ảnh đại diện" style="background-color: #365899;color:white">
+                </a>
+            </center>
+        </div>
         
         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
             <span class="fa fa-user name" ></span>
@@ -33,5 +37,5 @@
         </div>
         
     </div>
-</form>       
+     
 @endsection

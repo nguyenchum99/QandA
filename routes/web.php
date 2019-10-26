@@ -166,4 +166,8 @@ Route::get('search_answer',[
 ]);
 
 
+Route::get('user/profile', 'userController@profile');
+Route::post('user/profile', 'userController@update_avatar');
+
+
 ?>

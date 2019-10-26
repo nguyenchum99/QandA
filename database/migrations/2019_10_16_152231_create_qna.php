@@ -18,9 +18,11 @@ class CreateQna extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('avatar')->default('image.jpg');
             $table->rememberToken();
             $table->timestamps();
             $table->integer('level');
+            
         });
 
 
@@ -60,3 +62,5 @@ class CreateQna extends Migration
         Schema::dropIfExists('answers');
     }
 }
+
+?>
