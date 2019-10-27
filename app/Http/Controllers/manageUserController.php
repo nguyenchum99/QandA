@@ -125,7 +125,7 @@ class manageUserController extends Controller
     //Tìm kiếm user trong admin
     public function getSearch_user(Request $req)
     {
-        // $data = DB::table('users')->paginate(5);
+
         $tukhoa = $req->tukhoa;
         $user = User::where('name', 'like', '%'.$req->tukhoa.'%')
                    ->orWhere('email',$req->tukhoa)

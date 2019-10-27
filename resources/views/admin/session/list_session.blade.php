@@ -39,7 +39,7 @@
                 <td>{{$l->name_session}}</td>
                 <td><a href="{{url("admin/session/add_question/{$l->id}")}}">Tạo</a></td>
                 <td><a href="{{url("admin/session/edit/{$l->id}")}}">Sửa</a></td>
-                <td><a href="{{url("admin/session/delete_session/{$l->id}")}}">Xóa</a></td>
+                <td><a onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không?')" href="{{url("admin/session/delete_session/{$l->id}")}}">Xóa</a></td>
             </tr>
         @endforeach
         

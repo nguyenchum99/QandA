@@ -40,7 +40,7 @@
                 <td>{{$l->question_id}}</td>
                 <td>{{$l->answer}}</td>
                 <td><a href="{{url("admin/answer/edit/{$l->id}")}}">Sửa</a></td>
-                <td><a href="{{url("admin/answer/delete/{$l->id}")}}">Xóa</a></td>
+                <td><a onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không?')" href="{{url("admin/answer/delete/{$l->id}")}}">Xóa</a></td>
             </tr>
         @endforeach 
     

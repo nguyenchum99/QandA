@@ -63,7 +63,7 @@
                         @endif
                 </td>
                 <td><a href="{{url("admin/user/edit/{$u->id}")}}">Sửa</a></td>
-                <td><a href="{{url("admin/user/delete/{$u->id}")}}">Xóa</a></td>
+                <td><a onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không?')" href="{{url("admin/user/delete/{$u->id}")}}">Xóa</a></td>
             </tr>
        @endforeach
        

@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         Route::get('adduser','manageUserController@getAddUser'); 
         Route::post('adduser','manageUserController@postAddUser'); 
         
-        Route::get('delete/{id}','manageUserController@deleteUser'); 
+        Route::get('delete/{id}', 'manageUserController@deleteUser'); 
     });
 
     Route::group(['prefix' => 'session'], function () {
@@ -133,16 +133,6 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
 
 
 Route::get('user/home','userController@getview');
-
-// Route::get('user/edit/{id}','userController@getEdit');
-// Route::post('user/edit/{id}','userController@postEdit');
-
-// Route::get('user/info/{id}','userController@getInfo');
-
-// Route::get('user/allquestion','userController@getListQuestion');
-// Route::get('user/questionandanswer','userController@getContentQuestion');
-
-
 
 
 Route::get('search_user',[

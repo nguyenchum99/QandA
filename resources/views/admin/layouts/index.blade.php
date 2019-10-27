@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <style>
         li{
             list-style: none;
@@ -50,6 +51,7 @@
                 <div class="col-sm-9 right">
 
                     @yield('content')
+            
                     
                 </div>
 
@@ -58,6 +60,16 @@
     </div>
 </div>
 
+    <!-- Myscript -->
+    <script>
+        function xacnhanxoa (xoa){
+    
+            if (window.confirm(xoa)) {
+                return true;
+            }
+            return false;
+        }
+    </script>
 
 </body>
 </html>
