@@ -22,11 +22,11 @@
             </div>
     </form>
     
-    <table class="table table-striped">
+    <table border="2" class="table table-striped">
        
-        <tr id="tbl-first-row">
-            <td width="12%">ID câu hỏi</td>
-            <td width="12%">ID người dùng</td>
+        <tr id="tbl-first-row" style="font-weight: bold;">
+            <td width="10%">ID câu hỏi</td>
+            <td width="13%">ID người dùng</td>
             <td width="12%">ID phiên</td>
             <td width="45%">Câu hỏi</td>
             <td width="15%">Tạo câu trả lời</td>

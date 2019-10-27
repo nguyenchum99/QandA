@@ -3,11 +3,11 @@
 @extends('admin.layouts.index')
 @section('content')
     
-    <table class="table table-striped">
+    <table border="2" class="table table-striped">
         <h4>Tìm kiếm : {{$tukhoa}}</h4>
-        <tr id="tbl-first-row">
-                <td width="12%">ID phiên</td>
-                <td width="12%">ID người dùng</td>
+        <tr id="tbl-first-row" style="font-weight: bold;">
+                <td width="8%">ID phiên</td>
+                <td width="13%">ID người dùng</td>
                 <td width="68%">Tên phiên</td>
                 <td width="5%">Sửa</td>
                 <td width="5%">Xóa</td>

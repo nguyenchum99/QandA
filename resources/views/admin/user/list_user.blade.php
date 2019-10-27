@@ -31,16 +31,21 @@
                 </div>
         </form>
 
-    <table class="table table-striped">
-        <tr id="tbl-first-row">
+    <table border="2" class="table table-striped">
+        
+        <tr id="tbl-first-row" style="font-weight: bold;">
+
             <td width="12%">ID</td>
             <td width="30%" style="white-space: nowrap ;">Tên đăng nhập</td>
             <td width="30%">E-mail</td>
             <td width="20%">Mật khẩu</td>
+            <td width="20%">Avatar</td>
             <td width="5%">Quyền</td>
             <td width="5%">Sửa</td>
             <td width="5%">Xóa</td>
+
         </tr>
+        
 
         
         @foreach($list_user as $u)
@@ -49,6 +54,7 @@
                 <td>{{$u->name}}</td>
                 <td>{{$u->email}}</td>
                 <td>{{$u->password}}</td>
+                <td>{{$u->avatar}}</td>
                 <td>
                         @if($u->level == 1)
                             {{"Admin"}}
