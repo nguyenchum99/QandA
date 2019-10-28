@@ -15,8 +15,6 @@
      
 
     @foreach($name as $l)
-
-
         @if($l->active == 1)
             <div class="box">
 
@@ -26,11 +24,10 @@
                             <img src="{{URL::asset('/img/q-and-a.jpg')}}" alt="image" 
                             style="height: 75px;width:75px;margin-top:10px" >
                         </div>
-                        <div class="col-md-10 box-right"><a href="{{url("user/session/list_question/{$l->id}")}}" >
+                        <div class="col-md-10 box-right"><a href="{{url("user/session/list_question_active/{$l->id}")}}" >
                             <p class="title" style="color: red">{{$l->name_session}}</p>
                             <p>Chủ tọa: {{$l->name}}</p>
-                            <p class="time">Đã đóng: </p>
-                            <p>Số câu hỏi:</p>
+                            <p class="time">Đang mở </p>
                             </a>
                         </div>
                     </div>

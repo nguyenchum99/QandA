@@ -17,8 +17,7 @@
               </a>
 
               <ul class="dropdown-menu" role="menu">
-                <li><a href="{{url("user/profile")}}"><i class="fa fa-user fa-fw" ></i> Profile</a>
-                </li>
+                
                 <li><a href="{{url('/user/page/edit/'.Auth::user()->id)}}"><i class="fa fa-gear fa-fw" ></i> Cập nhật thông tin</a>
                 </li>
                 <li class="divider"></li>

@@ -4,7 +4,7 @@
 
 
 <div class="main-right">
-    <h2>Câu hỏi trong phiên</h2>
+    <h2>Câu hỏi trong phiên đã đóng</h2>
   
 
         @foreach($list as $l)
