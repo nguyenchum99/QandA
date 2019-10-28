@@ -20,7 +20,7 @@
                 
             </div>
     </form>
-    <table class="table table-striped">
+    <table border="2" class="table table-striped">
       
         <tr id="tbl-first-row">
             <td width="10%">ID phiên</td>
@@ -49,7 +49,7 @@
 
                 </td>
                 <td><a href="{{url("admin/session/edit/{$l->id}")}}">Sửa</a></td>
-                <td><a href="{{url("admin/session/delete_session/{$l->id}")}}">Xóa</a></td>
+                <td><a onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không?')" href="{{url("admin/session/delete_session/{$l->id}")}}">Xóa</a></td>
             </tr>
         @endforeach
         

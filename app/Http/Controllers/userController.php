@@ -9,10 +9,12 @@ use App\Http\Requests;
 use App\Question;
 use App\Answer;
 use App\User;
+use Image;
 
 use DB;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storege;
 
 class userController extends Controller
 {
@@ -136,4 +138,41 @@ class userController extends Controller
         return view('home.page.content_question');
     }
 
+
+    //profile
+    public function profile() {
+        return view('home.user.profile', array('user' => Auth::user()));
+    }
+
+    public function update_avatar(Request $request){
+
+        if($request->hasFile('avatar')){
+            
+            $this->validate($request, 
+                [
+                    //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 5M
+                    'avatar' => 'mimes:jpg,jpeg,png,gif|max:5000',
+                ],          
+                [
+                    //Tùy chỉnh hiển thị thông báo không thõa điều kiện
+                    'avatar.mimes' => 'Chỉ chấp nhận avatar với đuôi .jpg .jpeg .png .gif',
+                    'avatar.max' => 'Avatar giới hạn dung lượng không quá 5M',
+                ]
+            );
+            
+            //Lưu hình ảnh vào thư mục public/img/avatar
+            $file = $request->file('avatar');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $user = Auth::user();
+            $file->move('img/avatars/', $filename);
+            $user->avatar = $filename;
+        } else {
+            return $request;
+            $user->avatar = 'img/avatars/image.jpg';
+        }
+        
+        $user->save();
+        return redirect('user/profile')-> with('thongbao','Cập nhật avatar thành công');
+    }
 }
