@@ -23,10 +23,11 @@
     <table class="table table-striped">
       
         <tr id="tbl-first-row">
-            <td width="12%">ID phiên</td>
-            <td width="12%">ID người dùng</td>
+            <td width="10%">ID phiên</td>
+            <td width="10%">ID người dùng</td>
             <td width="50%">Tên phiên</td>
             <td width="10%">Tạo câu hỏi</td>
+            <td width="10%">Hoạt động</td>
             <td width="5%">Sửa</td>
             <td width="5%">Xóa</td>
         </tr>
@@ -38,6 +39,15 @@
                 <td>{{$l->user_id}}</td>
                 <td>{{$l->name_session}}</td>
                 <td><a href="{{url("admin/session/add_question/{$l->id}")}}">Tạo</a></td>
+                <td>
+                    <select id ="select" name="option" onchange="selectOption">
+
+                        <option {{old('option',$l->active)=="1"? 'selected':''}} value="{{$l->active}}">Mở</option>
+                        <option {{old('option',$l->active)=="0"? 'selected':''}} value="{{$l->active}}">Đóng</option>
+
+                    </select>
+
+                </td>
                 <td><a href="{{url("admin/session/edit/{$l->id}")}}">Sửa</a></td>
                 <td><a href="{{url("admin/session/delete_session/{$l->id}")}}">Xóa</a></td>
             </tr>
@@ -49,5 +59,5 @@
         {{$list_session->links()}}
     </div>
 
-
+    
 @endsection

@@ -23,6 +23,8 @@ class sessionController extends Controller
         $question = Question::all();
     }
 
+
+    //hiển thị danh sách phiên đã đóng
     public function getListSession(){
 
         $session['list'] = DB::table('session')->paginate(10);
@@ -39,6 +41,20 @@ class sessionController extends Controller
     }
 
 
+
+    //hiển thị danh sách phiên hoạt động
+    public function getListSessionActive(){
+        $session['list'] = DB::table('session')->paginate(10);
+        $name_user['name'] = DB::table('users')->join('session','users.id','=','session.user_id')
+                                                
+                                                ->get();
+                                                                                                           
+        //truyền dữ liệu sang view
+        return view('home.session.list_session_active',$session,$name_user);
+    }
+
+
+    
     //hiển thị các câu hỏi trong phiên hỏi đáp
     public function getListQuestionOnSession($id)
     {

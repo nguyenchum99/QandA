@@ -65,17 +65,7 @@ class createSessionUser extends Controller
         
         $session = Session::find($id);
 
-        // // $user = User::join('session','session.user_id','=','users.id')
-        // // ->where('session.id',$id)
-        // // ->getQuery()
-        // // ->get();
-
-        // $session = DB::table('users')
-        // ->join('session','users.id','=','session.user_id') 
-        // ->select('session.name_session','users.name')
-        // ->where('session.id','6')
-        // ->get();
-
+        
         return view('home.manage.create_question',['session'=>$session]);
     }
 

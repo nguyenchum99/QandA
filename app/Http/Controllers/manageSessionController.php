@@ -17,12 +17,14 @@ class manageSessionController extends Controller
 {
     //
 
+
     //hiển thị danh sách  phiên
     public function getListSession(){
 
         $data['list_session'] = DB::table('session')->paginate(10);
         return view('admin.session.list_session',$data);
     }
+
 
     //xóa phiên
     public function deleteSession($id){
@@ -35,6 +37,7 @@ class manageSessionController extends Controller
 
         return redirect('admin/session/list_session')->with('thongbao','Xóa phiên thành công');
     }
+
 
     //thêm phiên hỏi đáp
     public function getAddSession(){
@@ -61,11 +64,14 @@ class manageSessionController extends Controller
             $session = new Session;
             $session -> name_session = $request -> name;
             $session -> user_id = Auth::user()->id;
+            $session -> active = 1;
             $session->save();
 
             return redirect('admin/session/list_session') -> with('thongbao','Thêm thành công');
     }
 
+
+    //sửa phiên
     public function getEditSession($id){
         $session = Session::find($id);
 
@@ -96,6 +102,7 @@ class manageSessionController extends Controller
         return redirect('admin/session/edit/'.$id) -> with('thongbao','Sửa thành công');
     }
 
+
     //Tìm kiếm phiên trong admin
    public function getSearchSession(Request $req)
    {
@@ -106,6 +113,7 @@ class manageSessionController extends Controller
 
        return view('admin.session.search_session', compact('session'),['session'=>$session,'tukhoa'=>$tukhoa]);
    }
+   
 
    //thêm câu hỏi của admin trong phiên admin
    public function getAddQuestion($id){

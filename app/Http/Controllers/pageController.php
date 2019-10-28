@@ -72,6 +72,8 @@ class pageController extends Controller
         $question = Question::where('user_id',$id)->get();
         $count_question = $question->count();
 
+        
+
         return view('home.user.user_info',['user'=>$user,'question'=>$count_question]);
     }
 

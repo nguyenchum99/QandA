@@ -4,7 +4,7 @@
 
 
 <div class="main-right">
-    <h2>Danh sách phiên hỏi đáp đã đóng</h2>
+    <h2>Danh sách phiên hỏi đáp đang mở</h2>
     @if(session('thongbao'))
 
     <div class="alert alert-success">
@@ -17,7 +17,7 @@
     @foreach($name as $l)
 
 
-        @if($l->active == 0)
+        @if($l->active == 1)
             <div class="box">
 
                 {{-- hiện thị thành công --}}

@@ -10,7 +10,7 @@
                 <p style="color: red;font-size: 18px;"><span class="fa fa-lock">
                 </span>{{$session->name_session}}</p>
                 <p><span class="fa fa-lock">
-                </span>Đăng bởi: </p>
+                </span>Đăng bởi: {{$session ->name}}</p>
                 <p><span class="fa fa-lock">
                 </span>Thời gian tạo:  {{$session->created_at}}</p>
             </div>
