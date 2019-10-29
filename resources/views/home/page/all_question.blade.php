@@ -22,7 +22,7 @@
                         style="height: 75px;width:75px;margin-top:10px" >
                     </div>
                     
-                    <div class="col-md-10 box-right"><a href="{{url("user/page/question_answer/{$l->id}")}}" >
+                    <div class="col-md-10 box-right"><a href="{{url("user/page/question_answer/{$l->id}")}}" style="text-decoration: none;">
                         <p class="title">{{$l->question}}</p>
                         <p>Phiên hỏi-đáp: {{$l->name_session}}</p>
                         <p class="time">Thời gian tạo: {{$l->created_at}}</p>

@@ -26,7 +26,7 @@
                             <img src="{{URL::asset('/img/q-and-a.jpg')}}" alt="image" 
                             style="height: 75px;width:75px;margin-top:10px" >
                         </div>
-                        <div class="col-md-10 box-right"><a href="{{url("user/session/list_question/{$l->id}")}}" >
+                        <div class="col-md-10 box-right"><a href="{{url("user/session/list_question/{$l->id}")}}" style="text-decoration: none;">
                             <p class="title" style="color: red">{{$l->name_session}}</p>
                             <p>Chủ tọa: {{$l->name}}</p>
                             <p class="time">Đã đóng: </p>
