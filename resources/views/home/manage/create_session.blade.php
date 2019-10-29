@@ -3,7 +3,7 @@
 
 @section('content')
 
-        <div style ="width: 40%">
+        <div style ="width: 40%; padding-left: 30px">
             <h2>Tạo phiên hỏi đáp</h2>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)

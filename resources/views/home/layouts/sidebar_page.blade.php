@@ -5,7 +5,7 @@
 <ul class="list-group nav-bar">
     @if(Auth::check())
 
-    <div class="w3-sidebar w3-light-grey w3-bar-block " style="width:23%">
+    <div class="w3-sidebar w3-light-grey w3-bar-block " style="width:18%">
 
             <h4 class="w3-bar-item">Thông tin tài khoản</h4>
             <a href="{{url('/user/page/info/'.Auth::user()->id)}}" class="w3-bar-item w3-button">Thông tin của tôi</a>

@@ -5,7 +5,7 @@
 
     <div class="row">
                             
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding-left: 30px">
             <center>
                 <img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" alt="avatar">
                 <a href="{{url("user/profile")}}">

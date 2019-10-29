@@ -87,12 +87,12 @@ background: #dddddd;
         <div class="container-fluid">
             <div class="row">
                 
-                <div class="left col-sm-3">
+                <div class="left col-sm-2" style="margin-left: 80px">
                     @include('home.layouts.sidebar_page')
                 </div>
 
 
-                <div class="col-sm-9 right">
+                <div class="col-sm-8 right" style="margin-left:25px">
 
                     @yield('content')
                     

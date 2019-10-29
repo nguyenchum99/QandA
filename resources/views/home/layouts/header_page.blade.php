@@ -3,10 +3,10 @@
 <nav class="navbar navbar-inverse" style="background-color: #365899" >
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Trang chủ</a>
+        <a class="navbar-brand" href="#" style="margin-left: 70px">Trang chủ</a>
       </div>
       <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 140px">
 
           @if (Auth::check())
             <li>
