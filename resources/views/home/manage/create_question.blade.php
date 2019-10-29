@@ -8,9 +8,9 @@
             </div>
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                 <p style="color: red;font-size: 18px;"><span class="fa fa-lock">
-                </span>{{$session->name_session}}</p>
+                </span>Phiên hỏi đáp: {{$session->name_session}}</p>
                 <p><span class="fa fa-lock">
-                </span>Đăng bởi: {{$session ->name}}</p>
+                </span>Đăng bởi:</p>
                 <p><span class="fa fa-lock">
                 </span>Thời gian tạo:  {{$session->created_at}}</p>
             </div>

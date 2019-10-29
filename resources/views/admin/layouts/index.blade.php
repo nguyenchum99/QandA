@@ -41,14 +41,14 @@
     <div class="main">
         <div class="container-fluid">
             <div class="row">
-                <div class="left col-sm-3">
+                <div class="left col-sm-2" style="margin-left: 80px">
                     
                     @include('admin.layouts.sidebar')
 
                 </div>
 
 
-                <div class="col-sm-9 right">
+                <div class="col-sm-8 right" >
 
                     @yield('content')
             

@@ -10,19 +10,25 @@
 
           @if (Auth::check())
             <li>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position: relative; padding-left: 50px;
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+              role="button" aria-expanded="false" style="position: relative; padding-left: 50px;
               " >
-                <img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" style="width:32px; height:32px; position: absolute; top:10px;left:10px; border-radius: 50%">
+                <img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" 
+                style="width:32px; height:32px; position: absolute; top:10px;left:10px; border-radius: 50%">
                 {{Auth::user()->name}} <span class="caret"></span>
               </a>
 
               <ul class="dropdown-menu" role="menu">
                 
-                <li><a href="{{url('/user/page/edit/'.Auth::user()->id)}}"><i class="fa fa-gear fa-fw" ></i> Cập nhật thông tin</a>
+                <li><a href="{{url('/user/page/edit/'.Auth::user()->id)}}">
+                <i class="fa fa-gear fa-fw" ></i> Cập nhật thông tin</a>
                 </li>
+
+
                 <li class="divider"></li>
                 <li><a href="{{url("user/logout")}}"><i class="fa fa-sign-out fa-fw" ></i>Đăng xuất</a>
                 </li>
+                
               </ul>
             </li>
           @endif

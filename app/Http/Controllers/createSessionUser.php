@@ -41,13 +41,15 @@ class createSessionUser extends Controller
             $session = new Session;
             $session -> name_session = $request -> name;
             $session -> user_id = Auth::user()->id;
+            $session -> active = 1;
             $session->save();
 
-            return redirect('user/session/list_session_close') -> with('thongbao','Thêm thành công');
+            return redirect('user/session/list_session_active') -> with('thongbao','Thêm thành công');
     }
 
 
     
+    //hiển thị phiên hỏi đáp đang mở - tạo câu hỏi
     public function displaySessions(){
 
         $name_user['name'] = DB::table('users')
@@ -65,8 +67,12 @@ class createSessionUser extends Controller
         
         $session = Session::find($id);
 
-        
-        return view('home.manage.create_question',['session'=>$session]);
+        $user = DB::table('users')->join('session','session.user_id','=','users.id')
+        ->select('users.name')
+        ->where('session.id',$id)
+        ->get();
+
+        return view('home.manage.create_question',['session'=>$session,'user'=>$user]);
     }
 
 

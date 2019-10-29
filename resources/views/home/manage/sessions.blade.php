@@ -15,6 +15,7 @@
        
     @foreach($name as $l)
 
+        @if($l ->active == 1)
         <div class="box">
 
              {{-- hiện thị thành công --}}
@@ -30,7 +31,7 @@
                     </div>
                 </div>
         </div>
-
+        @endif
     @endforeach
 
 </div>

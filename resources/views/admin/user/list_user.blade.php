@@ -37,9 +37,9 @@
 
             <td width="12%">ID</td>
             <td width="30%" style="white-space: nowrap ;">Tên đăng nhập</td>
-            <td width="30%">E-mail</td>
-            <td width="20%">Mật khẩu</td>
-            <td width="20%">Avatar</td>
+            <td width="40%">E-mail</td>
+            {{-- <td width="10%">Mật khẩu</td> --}}
+            <td width="10%">Ảnh đại diện</td>
             <td width="5%">Quyền</td>
             <td width="5%">Sửa</td>
             <td width="5%">Xóa</td>
@@ -53,8 +53,8 @@
                 <td>{{$u->id}}</td>
                 <td>{{$u->name}}</td>
                 <td>{{$u->email}}</td>
-                <td>{{$u->password}}</td>
-                <td>{{$u->avatar}}</td>
+                {{-- <td style="text-overflow: ellipsis">{{$u->password}}</td> --}}
+                <td>{{$u->avatar}}
                 <td>
                         @if($u->level == 1)
                             {{"Admin"}}
