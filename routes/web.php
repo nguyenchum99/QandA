@@ -46,6 +46,7 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
         Route::get('add_question/{id}','manageSessionController@getAddQuestion'); 
         Route::post('add_question/{id}','manageSessionController@postAddQuestion');
+
     
     });
 
@@ -119,6 +120,8 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
 
         Route::get('create_answer/{id}','sessionController@getCreateAnswer');
         Route::post('create_answer/{id}','sessionController@postCreateAnswer');
+
+        
     });
 
     Route::group(['prefix' => 'manage'], function () {
@@ -130,6 +133,11 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
 
         Route::get('create_question/{id}','createSessionUser@getCreateQuestionOnSession');
         Route::post('create_question/{id}','createSessionUser@postCreateQuestionOnSession');
+
+        Route::get('list/{id}','createSessionUser@getListSession');
+
+        Route::get('edit/{id}','createSessionUser@getEditSession');
+        Route::post('edit/{id}','createSessionUser@postEditSession');
 
         
     });

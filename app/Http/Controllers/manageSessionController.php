@@ -71,6 +71,7 @@ class manageSessionController extends Controller
     }
 
 
+
     //sửa phiên
     public function getEditSession($id){
         $session = Session::find($id);

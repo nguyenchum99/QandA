@@ -39,18 +39,17 @@
                 <td>{{$l->user_id}}</td>
                 <td>{{$l->name_session}}</td>
                 <td><a href="{{url("admin/session/add_question/{$l->id}")}}">Tạo</a></td>
-                <td>
-                    <select id ="select" name="option" onchange="selectOption">
-
-                        <option {{old('option',$l->active)=="1"? 'selected':''}} value="{{$l->active}}">Mở</option>
-                        <option {{old('option',$l->active)=="0"? 'selected':''}} value="{{$l->active}}">Đóng</option>
-
-                    </select>
-
+                <td> 
+                        <select id ="select" name="option">
+                        <option {{old('option',$l->active)=="1"? 'selected':''}} value="1">Mở</option>
+                        <option {{old('option',$l->active)=="0"? 'selected':''}} value="0">Đóng</option>
+                      
+                        </select>
                 </td>
                 <td><a href="{{url("admin/session/edit/{$l->id}")}}">Sửa</a></td>
                 <td><a onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không?')" href="{{url("admin/session/delete_session/{$l->id}")}}">Xóa</a></td>
             </tr>
+
         @endforeach
         
     </table>
@@ -58,6 +57,8 @@
     <div aria-label="Page navigation">
         {{$list_session->links()}}
     </div>
+
+    
 
     
 @endsection

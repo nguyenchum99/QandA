@@ -89,6 +89,45 @@ class createSessionUser extends Controller
 
     }
 
+
+    public function getListSession($id){
+        $id = Auth::user()->id;
+        $session = DB::table('session')->join('users','users.id','=','session.user_id')
+        ->select('session.id','session.name_session')
+        ->where('users.id',$id)
+        ->get();
+
+        return view('home.manage.list_session_user',['list'=>$session]);
+
+    }
+
+    public function getEditSession($id){
+        $session = Session::find($id);
+        return view('home.manage.edit_session',['session'=>$session]);
+
+    }
+
+    public function postEditSession(Request $request,$id){
+
+        $session = Session::find($id);
+        // check điều kiện
+        $this -> validate($request,
+
+            [
+                'session' => 'required|min:10|max:300'
+            ],
+            [
+                'session.required'=> 'Bạn chưa nhập tên phiên',
+                'session.min' => 'Phiên có ít nhất 10 kí tự',
+                'session.max' => 'Phiên có nhiều nhất 300 kí tự'
+            ]
+        
+        );
+
+        $session -> name_session = $request -> session;
+        $session -> save();
+        return redirect('user/manage/list/'.Auth::user()->id) -> with('thongbao','Sửa thành công');
+    }
     
 }
 
