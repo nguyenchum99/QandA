@@ -139,6 +139,8 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
         Route::get('edit/{id}','createSessionUser@getEditSession');
         Route::post('edit/{id}','createSessionUser@postEditSession');
 
+        Route::get('delete/{id}','createSessionUser@deleteSession');
+
         
     });
 

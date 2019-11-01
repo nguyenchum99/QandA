@@ -128,6 +128,13 @@ class createSessionUser extends Controller
         $session -> save();
         return redirect('user/manage/list/'.Auth::user()->id) -> with('thongbao','Sửa thành công');
     }
+
+    public function deleteSession($id){
+        $session = Session::find($id);
+        $session ->delete();
+        $question = Question::where('session_id',$id)->delete();
+        return redirect('user/manage/list/'.Auth::user()->id)->with('thongbao','Xóa phiên thành công');
+    }
     
 }
 
