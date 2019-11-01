@@ -121,6 +121,9 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
         Route::get('create_answer/{id}','sessionController@getCreateAnswer');
         Route::post('create_answer/{id}','sessionController@postCreateAnswer');
 
+        Route::get('create_question/{id}','sessionController@getCreateQuestionOnSession');
+        Route::post('create_question/{id}','sessionController@postCreateQuestionOnSession');
+
         
     });
 
@@ -128,8 +131,6 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
         
         Route::get('createsession','createSessionUser@getCreateSession');
         Route::post('createsession','createSessionUser@postCreateSession');
-
-        Route::get('display_session','createSessionUser@displaySessions');
 
         Route::get('create_question/{id}','createSessionUser@getCreateQuestionOnSession');
         Route::post('create_question/{id}','createSessionUser@postCreateQuestionOnSession');

@@ -103,7 +103,32 @@ class sessionController extends Controller
     }
 
 
-    
+    //tạo câu hỏi trong phiên hỏi đáp
+    public function getCreateQuestionOnSession($id){
+        
+        $session = Session::find($id);
+
+        $user = DB::table('users')->join('session','session.user_id','=','users.id')
+        ->select('users.name')
+        ->where('session.id',$id)
+        ->get();
+
+        return view('home.session.create_question',['session'=>$session,'user'=>$user]);
+    }
+
+
+    public function postCreateQuestionOnSession(Request $request,$id){
+
+        
+        $question = new Question;
+        $question -> question = $request -> question;
+        $question -> user_id = Auth::user()->id;
+        $question -> session_id = $id;
+        $question-> save();
+
+        return redirect("user/session/list_question_active".$question->id) ->with('thongbao','Tạo câu hỏi thành công') ;
+
+    }
 
 
 }

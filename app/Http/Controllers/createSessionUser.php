@@ -48,20 +48,6 @@ class createSessionUser extends Controller
     }
 
 
-    
-    //hiển thị phiên hỏi đáp đang mở - tạo câu hỏi
-    public function displaySessions(){
-
-        $name_user['name'] = DB::table('users')
-        ->join('session','users.id','=','session.user_id') 
-        ->get();
-
-        
-        return view('home.manage.sessions',$name_user);
-
-    }
-
-
     //tạo câu hỏi trong phiên hỏi đáp
     public function getCreateQuestionOnSession($id){
         
@@ -90,6 +76,8 @@ class createSessionUser extends Controller
     }
 
 
+
+    //hiện thị tất cả danh sách các phiên của người dùng
     public function getListSession($id){
         $id = Auth::user()->id;
         $session = DB::table('session')->join('users','users.id','=','session.user_id')
@@ -101,6 +89,8 @@ class createSessionUser extends Controller
 
     }
 
+
+    //Cho phép người dùng tự sửa phiên hỏi đáp
     public function getEditSession($id){
         $session = Session::find($id);
         return view('home.manage.edit_session',['session'=>$session]);
@@ -129,12 +119,16 @@ class createSessionUser extends Controller
         return redirect('user/manage/list/'.Auth::user()->id) -> with('thongbao','Sửa thành công');
     }
 
+
+    //cho phép người dùng tự xóa phiên hỏi đáp của mình
     public function deleteSession($id){
         $session = Session::find($id);
         $session ->delete();
         $question = Question::where('session_id',$id)->delete();
         return redirect('user/manage/list/'.Auth::user()->id)->with('thongbao','Xóa phiên thành công');
     }
+
+
     
 }
 

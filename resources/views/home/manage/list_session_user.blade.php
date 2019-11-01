@@ -26,7 +26,7 @@
                         <p class="title" style="color: red">{{$l ->name_session}}</p>
                         <p><a href="{{url("user/manage/edit/{$l->id}")}}" >Sửa phiên</a></p>
                         <p><a href="{{url("user/manage/delete/{$l->id}")}}" >Xóa phiên</a></p>
-                        <p><a href="" >Tạo câu hỏi</a></p>
+                        <p><a href="{{url("user/manage/create_question/{$l->id}")}}" >Tạo câu hỏi</a></p>
                     </div>
                 </div>
         </div>

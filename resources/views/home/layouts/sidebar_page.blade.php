@@ -11,8 +11,7 @@
             <a href="{{url('/user/page/info/'.Auth::user()->id)}}" class="w3-bar-item w3-button"  style="text-decoration: none;">Thông tin của tôi</a>
             <a href="{{url('/user/page/edit/'.Auth::user()->id)}}" class="w3-bar-item w3-button" style="text-decoration: none;">Thay đổi thông tin</a>
             <h5 class="w3-bar-item">Quản lý</h5>
-            <a href="{{url("user/manage/createsession")}}" class="w3-bar-item w3-button" style="text-decoration: none;">Tạo phiên Hỏi-đáp</a>
-            <a href="{{url("user/manage/display_session")}}" class="w3-bar-item w3-button" style="text-decoration: none;">Tạo câu hỏi</a> 
+            <a href="{{url("user/manage/createsession")}}" class="w3-bar-item w3-button" style="text-decoration: none;">Tạo phiên Hỏi-đáp</a> 
             <a href="{{url('user/manage/list/'.Auth::user()->id)}}" class="w3-bar-item w3-button"  style="text-decoration: none;">Phiên hỏi đáp của tôi</a>
             <h5 class="w3-bar-item">Phiên hỏi dáp</h5>  
             <a href="{{url("user/session/list_session_active")}}" class="w3-bar-item w3-button" style="text-decoration: none;">Phiên hỏi đáp hoạt động</a>
