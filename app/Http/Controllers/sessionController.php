@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Question;
 use App\Answer;
 use App\User;
+use App\Session;
 
 use DB;
 
@@ -120,13 +121,14 @@ class sessionController extends Controller
     public function postCreateQuestionOnSession(Request $request,$id){
 
         
+        
         $question = new Question;
         $question -> question = $request -> question;
         $question -> user_id = Auth::user()->id;
         $question -> session_id = $id;
         $question-> save();
 
-        return redirect("user/session/list_question_active".$question->id) ->with('thongbao','Tạo câu hỏi thành công') ;
+        return redirect("user/session/list_question_active/".$id) ->with('thongbao','Tạo câu hỏi thành công') ;
 
     }
 

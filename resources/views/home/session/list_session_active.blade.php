@@ -28,6 +28,7 @@
                             <p class="title" style="color: red">{{$l->name_session}}</p>
                             <p>Chủ tọa: {{$l->name}}</p>
                             <p class="time">Đang mở </p>
+                            <p><a href="{{url("user/session/create_question/{$l->id}")}}">Tạo câu hỏi</a></p>
                             </a>
                         </div>
                     </div>
