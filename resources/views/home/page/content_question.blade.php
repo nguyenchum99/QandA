@@ -10,8 +10,6 @@
                 <p style="color: red;font-size: 18px;"><span class="fa fa-lock">
                 </span></p>
                 <p><span class="fa fa-lock">
-                </span>Mô tả: </p>
-                <p><span class="fa fa-lock">
                 </span>Đăng bởi: </p>
                 <p><span class="fa fa-lock">
                 </span>Thời gian tạo:22 ngày trước</p>
@@ -40,26 +38,24 @@
                 <ul>
                     <li >Nội dung câu hỏi:</li>
                     <li>{{$question->question}}</li>
-                    <li>3 lượt thích</li>
+                    <li>
+                        <form method="post" action="" class="fa fa-thumbs-o-up">
+                            <input type="submit" name="count" value="Thích"/>
+                        </form>
+                    </li>
                 </ul>
-
-            </div>
-
-
-            <p><i class="fa fa-thumbs-o-up"></i> Thích</p>
+            </div>          
             {{-- hiển thị nội dung câu trả  lời của từng câu hỏi --}}
 
             @foreach($list_answer as $l)
 
                 <div class="tra-loi">
-
                     <ul>
                         <li style="background: #1a88d652"><p></p><span class="fa fa-user"> Người dùng:{{$l->user_id}}</span></p>
                         <br>
                         <p class="time">Thời gian tạo: {{$l->created_at}}</p></li>
                         <li>{{$l->answer}}</li>
                     </ul>
-
                 </div>
                     
             @endforeach

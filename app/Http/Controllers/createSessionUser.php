@@ -81,7 +81,7 @@ class createSessionUser extends Controller
     public function getListSession($id){
         $id = Auth::user()->id;
         $session = DB::table('session')->join('users','users.id','=','session.user_id')
-        ->select('session.id','session.name_session')
+        ->select('session.id','session.name_session','session.active','users.avatar')
         ->where('users.id',$id)
         ->get();
 

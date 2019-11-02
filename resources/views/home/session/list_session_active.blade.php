@@ -25,7 +25,7 @@
                             style="height: 75px;width:75px;margin-top:10px" >
                         </div>
                         <div class="col-md-10 box-right"><a href="{{url("user/session/list_question_active/{$l->id}")}}" style="text-decoration: none;" >
-                            <p class="title" style="color: red">{{$l->name_session}}</p>
+                            <p class="title" style="color: red">Phiên hỏi đáp: {{$l->name_session}}</p>
                             <p>Chủ tọa: {{$l->name}}</p>
                             <p class="time">Đang mở </p>
                             <p><a href="{{url("user/session/create_question/{$l->id}")}}">Tạo câu hỏi</a></p>
