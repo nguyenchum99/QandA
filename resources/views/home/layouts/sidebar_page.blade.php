@@ -3,7 +3,7 @@
 
 
 <ul class="list-group nav-bar">
-    @if(Auth::user())
+    @if(Auth::check())
 
     <div class="w3-sidebar w3-light-grey w3-bar-block " style="width:18%">
 

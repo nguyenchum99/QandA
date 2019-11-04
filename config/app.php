@@ -178,7 +178,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
 
     ],
-
+  
     /*
     |--------------------------------------------------------------------------
     | Class Aliases
@@ -230,5 +230,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
 
     ],
+
+
 
 ];

@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right" style="margin-right: 140px">
 
-          @if (Auth::user())
+          @if (Auth::check())
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" 

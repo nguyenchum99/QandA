@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Storege;
 class userController extends Controller
 {
     
-    
     function __construct(){
         if(Auth::check()){
             view() -> share('user_login',Auth::user());
@@ -54,9 +53,9 @@ class userController extends Controller
         ];
 
 
-        if(Auth::guard('')->attempt($credentials))
+        if(Auth::attempt($credentials))
         {
-            return redirect('user/home');
+            return redirect('user/page/info/'.Auth::user()->id);
           
         }
         else{
@@ -74,12 +73,6 @@ class userController extends Controller
         return redirect('user/login');
     }
 
-
-
-
-    public function getview(){
-        return view('home.layouts.index_page');
-    }
 
     
     //chuyển đến trang đăng kí người dùng

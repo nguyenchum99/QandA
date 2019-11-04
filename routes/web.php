@@ -151,9 +151,6 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
 });
 
 
-Route::get('user/home','userController@getview');
-
-
 Route::get('search_user',[
     'as'=>'search_user',
     'uses'=>'manageUserController@getSearch_user'
