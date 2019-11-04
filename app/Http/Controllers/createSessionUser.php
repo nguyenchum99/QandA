@@ -128,6 +128,13 @@ class createSessionUser extends Controller
         return redirect('user/manage/list/'.Auth::user()->id)->with('thongbao','Xóa phiên thành công');
     }
 
+    public function postSessionUser(Request $request, $id){
+        $session = Session::find($id);
+        $this -> validate($request,['option'=>'required']);
+        $session -> active = $request->input('option');
+        $session ->save();
+        return redirect('user/manage/list/'.$id) -> with('thongbao','Bạn đã thay đổi trạng thái phiên hỏi đáp');
+    }
 
     
 }

@@ -142,6 +142,8 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
 
         Route::get('delete/{id}','createSessionUser@deleteSession');
 
+        Route::post('open_close/{id}','createSessionUser@postSessionUser');
+
         
     });
 

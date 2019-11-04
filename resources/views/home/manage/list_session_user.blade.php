@@ -25,12 +25,15 @@
                     </div>
                     <div class="col-md-10 box-right">
                         <p class="title" style="color: red">Phiên hỏi đáp: {{$l ->name_session}}</p>
-                        <p>
-                            @if($l->active == 1)
-                            {{"Phiên hỏi đáp mở"}}    
-                            @else 
-                            {{"Phiên hỏi đáp đóng"}}
-                            @endif
+                        <p>Trạng thái phiên hoạt động: 
+                            <form action="{{url("user/manage/open_close/{$l->id}")}}" method="post">          
+                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                                <select id ="select" name="option" value="{{$l->active}}" >
+                                    <option {{old('option',$l->active)=="1"? 'selected':''}} value="1">Mở</option>
+                                    <option {{old('option',$l->active)=="0"? 'selected':''}} value="0" >Đóng</option>
+                                </select>
+                                <input type="submit" name="submit" value="Thay đổi" >
+                            </form>
                         </p>
                         <p><a href="{{url("user/manage/edit/{$l->id}")}}" >Sửa phiên</a></p>
                         <p><a href="{{url("user/manage/delete/{$l->id}")}}" >Xóa phiên</a></p>
