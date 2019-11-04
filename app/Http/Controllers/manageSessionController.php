@@ -110,7 +110,7 @@ class manageSessionController extends Controller
         $this -> validate($request,['option'=>'required']);
         $session -> active = $request->input('option');
         $session ->save();
-        return view('admin.manage.list_session_user') -> with('thongbao','Bạn đã thay đổi trạng thái phiên hỏi đáp');
+        return redirect('admin/session/list_session') -> with('thongbao','Bạn đã thay đổi trạng thái phiên hỏi đáp');
     }
 
 
@@ -127,6 +127,7 @@ class manageSessionController extends Controller
    
 
    //thêm câu hỏi của admin trong phiên admin
+
    public function getAddQuestion($id){
 
         $session = Session::find($id);
