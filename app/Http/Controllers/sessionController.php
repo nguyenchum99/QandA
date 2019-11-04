@@ -15,6 +15,7 @@ use DB;
 
 use Illuminate\Support\Facades\Auth;
 
+
 class sessionController extends Controller
 {
     //
@@ -27,17 +28,15 @@ class sessionController extends Controller
 
     //hiển thị danh sách phiên đã đóng
     public function getListSession(){
-
-        $session['list'] = DB::table('session')->paginate(10);
-
-
-        $name_user['name'] = DB::table('users')->join('session','users.id','=','session.user_id')
-                                                
-                                                ->get();
-
-                                                                                                                          
+        $name_user['name'] = DB::table('users')
+        ->join('session','users.id','=','session.user_id')                                               
+        ->get();
+        // $question = DB::table('questions')->join('session','session.id','=','questions.session_id')
+        //                                   ->get();
+        // $count_ques['count'] = $question ->count();
+                                                                                                                       
         //truyền dữ liệu sang view
-        return view('home.session.list_session_close',$session,$name_user);
+        return view('home.session.list_session_close',$name_user);
 
     }
 
@@ -132,5 +131,6 @@ class sessionController extends Controller
 
     }
 
+   
 
 }

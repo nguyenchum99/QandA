@@ -30,13 +30,12 @@
                             <p class="title" style="color: red">Phiên hỏi đáp: {{$l->name_session}}</p>
                             <p>Chủ tọa: {{$l->name}}</p>
                             <p class="time">Đã đóng: </p>
-                            <p>Số câu hỏi:</p>
+                            <p>Số câu hỏi: </p>
                             </a>
                         </div>
                     </div>
             </div>
         @endif 
-        
 
     @endforeach
 

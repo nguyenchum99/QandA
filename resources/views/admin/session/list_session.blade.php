@@ -40,13 +40,19 @@
                 <td>{{$l->name_session}}</td>
                 <td><a href="{{url("admin/session/add_question/{$l->id}")}}">Tạo</a></td>
                 <td> 
-             
-                        <select id ="select" name="option">
-                            <option {{old('option',$l->active)=="1"? 'selected':''}} value="{{$l->active}}"                             
+
+                    <form action="{{url("admin/session/open_close/{$l->id}")}}" method="post">          
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                        <select id ="select" name="option" value="{{$l->active}}" >
+                            <option {{old('option',$l->active)=="1"? 'selected':''}} value="1"                             
                                 >Mở</option>
-                            <option {{old('option',$l->active)=="0"? 'selected':''}} value="{{$l->active}}"       
+                            <option {{old('option',$l->active)=="0"? 'selected':''}} value="0"       
                                 >Đóng</option>
                         </select>
+                        <input type="submit" name="submit" value="Thay đổi" 
+                        onclick="return xacnhanxoa('Bạn có chắc muốn thay đổi trạng thái phiên hay không?')" >
+                    </form>
+
                 </td>
                 <td><a href="{{url("admin/session/edit/{$l->id}")}}">Sửa</a></td>
                 <td><a onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không?')" 

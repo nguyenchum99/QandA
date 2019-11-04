@@ -103,6 +103,16 @@ class manageSessionController extends Controller
         return redirect('admin/session/edit/'.$id) -> with('thongbao','Sửa thành công');
     }
 
+    //đóng mở phiên hỏi đáp
+    public function postSession(Request $request,$id){
+
+        $session = Session::find($id);
+        $this -> validate($request,['option'=>'required']);
+        $session -> active = $request->input('option');
+        $session ->save();
+        return redirect('admin/session/list_session') -> with('thongbao','Bạn đã thay đổi trạng thái phiên hỏi đáp');
+    }
+
 
     //Tìm kiếm phiên trong admin
    public function getSearchSession(Request $req)

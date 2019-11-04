@@ -15,8 +15,9 @@ class UserLoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check()){
-            $user = Auth::user();
+        // dd(auth()->user());
+        if(Auth::user()){
+            // $user = Auth::user();
 
                 return $next($request);
 
@@ -25,5 +26,16 @@ class UserLoginMiddleware
         else{
             return redirect('user/login');
         }
+
+        // dd(Auth::user(),Auth::guest());
+        // if ($this->auth->guest()) {
+        //     if ($request->ajax()) {
+        //         return response('Unauthorized.', 401);
+        //     } else {
+        //         return redirect()->guest('user/login');
+        //     }
+        // }
+        
+        // return $next($request);
     }
 }

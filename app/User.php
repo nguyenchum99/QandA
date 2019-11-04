@@ -18,7 +18,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-
+    use Notifiable;
     protected $table="users";
     
 
@@ -54,6 +54,12 @@ class User extends Authenticatable
 
     public function session(){
         return $this->hasMany('App\Session');
+    }
+
+    public static function get_meta($question_id) {
+        return DB::table('notifications')
+            ->where('data->question_id', '=', $question_id)
+            ->get();
     }
 
 }

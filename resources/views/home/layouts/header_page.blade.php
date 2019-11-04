@@ -8,8 +8,21 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right" style="margin-right: 140px">
 
-          @if (Auth::check())
-            <li>
+          @if (Auth::user())
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+              role="button" aria-expanded="false" ><span class="glyphicon glyphicon-globe"></span> Thông báo 
+              <span class="badge">20</span></a>
+
+              <ul class="dropdown-menu" role="menu">
+                <li>sdfgdslfusdh</li>
+                <li>sdfgdslfusdh</li>
+                <li>sdfgdslfusdh</li>
+              </ul>
+            </li>
+            
+            <li>          
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
               role="button" aria-expanded="false" style="position: relative; padding-left: 50px;
               " >

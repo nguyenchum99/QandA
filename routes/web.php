@@ -47,7 +47,7 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         Route::get('add_question/{id}','manageSessionController@getAddQuestion'); 
         Route::post('add_question/{id}','manageSessionController@postAddQuestion');
 
-    
+        Route::post('open_close/{id}','manageSessionController@postSession');
     });
 
     Route::group(['prefix' => 'question'], function () {
@@ -176,5 +176,11 @@ Route::get('search_answer',[
 Route::get('user/profile', 'userController@profile');
 Route::post('user/profile', 'userController@update_avatar');
 
+
+Route::get('/x',function(){
+    foreach(Auth::user()->unreadNotifications as $notification){
+        $notification->markAsRead();
+    }
+});
 
 ?>
