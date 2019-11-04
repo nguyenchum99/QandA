@@ -1,5 +1,5 @@
 
-@extends('home.layouts.index_page')
+@extends('admin.layouts.index_profile')
 @section('content')
 
 	<div class="container">
@@ -34,7 +34,7 @@
 				                     {{"Thành viên"}}
 				                 @endif 
 				    </h5></br></br></br>
-				    <label>Thay ảnh đại diện</label>
+					<label>Thay ảnh đại diện</label>
 					<input type="file" name="avatar" id="avatar">
 					<input type="hidden" name="_token" value="{{csrf_token()}}"></br>
 					<input type="submit" class="pull-right btn btn-sm btn-primary" value="Save">

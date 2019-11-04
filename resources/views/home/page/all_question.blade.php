@@ -25,7 +25,9 @@
                     <div class="col-md-10 box-right"><a href="{{url("user/page/question_answer/{$l->id}")}}" style="text-decoration: none;">
                         <p class="title">{{$l->question}}</p>
                         <p>Phiên hỏi-đáp: {{$l->name_session}}</p>
-                        <p class="time">Thời gian tạo: {{$l->created_at}}</p>
+                        <p class="time">Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
+                                ->diffForHumans()
+                            }}</p>
                         </a>
                     </div>
                 </div>

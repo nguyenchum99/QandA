@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         Route::post('adduser','manageUserController@postAddUser'); 
         
         Route::get('delete/{id}', 'manageUserController@deleteUser'); 
+        
     });
 
     Route::group(['prefix' => 'session'], function () {
@@ -177,6 +178,9 @@ Route::get('search_answer',[
 
 Route::get('user/profile', 'userController@profile');
 Route::post('user/profile', 'userController@update_avatar');
+
+Route::get('admin/profile', 'manageUserController@profile');
+Route::post('admin/profile', 'manageUserController@update_avatar');
 
 
 Route::get('/x',function(){

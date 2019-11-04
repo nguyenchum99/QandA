@@ -12,7 +12,9 @@
                 <p><span class="fa fa-lock">
                 </span>Đăng bởi:</p>
                 <p><span class="fa fa-lock">
-                </span>Thời gian tạo:  {{$session->created_at}}</p>
+                </span>Thời gian tạo:  {{ \Carbon\Carbon::createFromTimeStamp(strtotime($session->created_at))
+                                ->diffForHumans()
+                            }}</p>
             </div>
         </div>
 </div>

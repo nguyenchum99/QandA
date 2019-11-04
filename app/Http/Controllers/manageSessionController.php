@@ -87,12 +87,12 @@ class manageSessionController extends Controller
         $this -> validate($request,
 
             [
-                'session' => 'required|min:10|max:300'
+                'session' => 'required|min:3|max:100'
             ],
             [
                 'session.required'=> 'Bạn chưa nhập tên phiên',
-                'session.min' => 'Phiên có ít nhất 10 kí tự',
-                'session.max' => 'Phiên có nhiều nhất 300 kí tự'
+                'session.min' => 'Phiên có ít nhất 3 kí tự',
+                'session.max' => 'Phiên có nhiều nhất 100 kí tự'
             ]
         
         );
@@ -110,7 +110,7 @@ class manageSessionController extends Controller
         $this -> validate($request,['option'=>'required']);
         $session -> active = $request->input('option');
         $session ->save();
-        return view('admin.manage.list_session_user') -> with('thongbao','Bạn đã thay đổi trạng thái phiên hỏi đáp');
+       return redirect('admin/session/list_session') -> with('thongbao','Bạn đã thay đổi trạng thái phiên hỏi đáp');
     }
 
 

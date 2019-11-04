@@ -12,6 +12,7 @@ use App\Answer;
 use App\User;
 use App\Session;
 use DB;
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -82,6 +83,7 @@ class pageController extends Controller
     public function getListQuestion(){
 
         // $data['list'] = DB::table('questions')->get();
+        Carbon::setLocale('vi');
 
         $data['list'] = DB::table('questions')->join('session','session.id','=','questions.session_id')
                                               ->select('questions.id','questions.question','session.name_session','questions.created_at')
@@ -98,7 +100,7 @@ class pageController extends Controller
     //lấy dữ liệu hiển thị câu trả lời của câu hỏi
     public function getListQuestionAnswer($id){
 
-        
+        Carbon::setLocale('vi');
         $question = DB::table('questions')->find($id);
         $answer = DB::table('answers')->where('question_id',$id)->get();
 

@@ -19,7 +19,8 @@
                 {{Auth::user()->name}} <span class="caret"></span>
               </a>
 
-              <ul class="dropdown-menu" role="menu">
+              <ul class="dropdown-menu" role="menu" style="margin-right: 140px;">
+                <li><a href="{{url("admin/profile")}}"><i class="fa fa-user fa-fw" ></i> Hồ sơ cá nhân</a>
                 <li><a href="{{url('/admin/user/edit/'.Auth::user()->id)}}">
                 <i class="fa fa-gear fa-fw" ></i> Cài đặt</a>
                 </li>

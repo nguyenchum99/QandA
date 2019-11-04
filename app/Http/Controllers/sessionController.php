@@ -10,6 +10,7 @@ use App\Question;
 use App\Answer;
 use App\User;
 use App\Session;
+use Carbon\Carbon;
 
 use DB;
 
@@ -55,7 +56,7 @@ class sessionController extends Controller
 
     //hiển thị câu hỏi trong  phiên hỏi đáp mở
     public function getListQuestionActive($id){
-
+        Carbon::setLocale('vi');
         $data['list'] = DB::table('questions')
         ->join('session','session.id','=','questions.session_id')
         ->select('questions.id','questions.question','session.name_session','questions.created_at')                                    
@@ -70,7 +71,7 @@ class sessionController extends Controller
     //hiển thị các câu hỏi trong phiên hỏi đáp đóng
     public function getListQuestionOnSession($id)
     {
-       
+        Carbon::setLocale('vi');
         $data['list'] = DB::table('questions')
         ->join('session','session.id','=','questions.session_id')
         ->select('questions.id','questions.question','session.name_session','questions.created_at')                                    
@@ -85,13 +86,14 @@ class sessionController extends Controller
 
     //Tạo câu trả lời trong phiên hỏi đáp mở
     public function getCreateAnswer($id){
+        Carbon::setLocale('vi');
         $question = Question::find($id);
         return view('home.session.create_answer',['question'=>$question]);
 
     }
 
     public function postCreateAnswer(Request $request,$id){
-
+        Carbon::setLocale('vi');
         $answer = new Answer;
         $answer -> answer = $request -> answer;
         $answer -> user_id = Auth::user()->id;
@@ -105,7 +107,7 @@ class sessionController extends Controller
 
     //tạo câu hỏi trong phiên hỏi đáp
     public function getCreateQuestionOnSession($id){
-        
+        Carbon::setLocale('vi');
         $session = Session::find($id);
 
         $user = DB::table('users')->join('session','session.user_id','=','users.id')
@@ -120,7 +122,7 @@ class sessionController extends Controller
     public function postCreateQuestionOnSession(Request $request,$id){
 
         
-        
+        Carbon::setLocale('vi');
         $question = new Question;
         $question -> question = $request -> question;
         $question -> user_id = Auth::user()->id;

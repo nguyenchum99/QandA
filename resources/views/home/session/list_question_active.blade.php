@@ -19,7 +19,9 @@
                     <div class="col-md-10 box-right">
                         <p class="title">{{$l->question}}</p>
                         <p>Phiên hỏi-đáp: {{$l->name_session}}</p>
-                        <p class="time">Thời gian tạo: {{$l->created_at}}</p>
+                        <p class="time">Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
+                                ->diffForHumans()
+                            }}</p>
                         <p><a href="{{url("user/session/create_answer/{$l->id}")}}">Tạo câu trả lời</a></p>
                     </div>
                 </div>
