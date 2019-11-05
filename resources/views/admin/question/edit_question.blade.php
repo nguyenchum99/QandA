@@ -32,7 +32,7 @@
                     class="form-control" placeholder="Sửa câu hỏi" value="{{$question->question}}"  />
                 </div>
 
-                <input type="submit" name="submit" value="Sửa" class="btn btn-primary" />
+                <input type="submit" name="submit" value="Sửa" class="btn btn-primary" style="background-color: #737373"/>
             </form>
         </div>
     <div>

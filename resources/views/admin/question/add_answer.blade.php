@@ -4,8 +4,8 @@
 @section('content')
 
         <div style ="width: 40%">
-            <h2 style="color: blue">Tạo câu trả lời</h2>
-            <h3>Câu hỏi: {{$question ->question}}</h3>
+            <h3>Tạo câu trả lời</h3>
+            <h4>Câu hỏi: {{$question ->question}}</h4>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)
              <div class="alert alert-danger">
@@ -24,7 +24,7 @@
                   class="form-control" placeholder="Nội dung câu trả lời"></textarea>
              </div>
 
-             <input type="submit" name="submit" value="Thêm câu trả lời" class="btn btn-primary" />
+             <input type="submit" name="submit" value="Thêm câu trả lời" class="btn btn-primary" style="background-color: #737373" />
          </form>
         </div>
     <div>

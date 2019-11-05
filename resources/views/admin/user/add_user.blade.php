@@ -3,7 +3,7 @@
 
 @section('content')
 
-        <div style ="width: 40%">
+        <div style ="width: 45%">
             <h2>Thêm thông tin người dùng</h2>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)
@@ -58,13 +58,9 @@
                     <label class="radio-inline">
                         <input name="level" value="1" type="radio">Admin
                     </label>
-                    {{-- <select name="level" class="form-control">
-                    	<option value="1" >Admin</option>
-                        <option value="0" selected="selected">User</option>
-                    </select> --}}
                 </div>
 
-                <input type="submit" name="submit" value="Thêm mới" class="btn btn-primary" />
+                <input type="submit" name="submit" value="Thêm mới" class="btn btn-primary" style="background-color: #737373"/>
             </form>
         </div>
     <div>

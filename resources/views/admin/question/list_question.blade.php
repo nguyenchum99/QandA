@@ -22,14 +22,14 @@
             </div>
     </form>
     
-    <table border="2" class="table table-striped">
+    <table border="2" class="table table-striped" style="width: 90%">
        
         <tr id="tbl-first-row" style="font-weight: bold;">
             <td width="10%">ID câu hỏi</td>
-            <td width="13%">ID người dùng</td>
-            <td width="12%">ID phiên</td>
+            <td width="10%">ID người dùng</td>
+            <td width="10%">ID phiên</td>
             <td width="45%">Câu hỏi</td>
-            <td width="15%">Tạo câu trả lời</td>
+            <td width="10%">Tạo câu trả lời</td>
             <td width="5%">Sửa</td>
             <td width="5%">Xóa</td>
         </tr>
@@ -43,7 +43,8 @@
                 <td>{{$l->question}}</td>
                 <td><a href="{{url("admin/question/add_answer/{$l->id}")}}">Tạo</a></td>
                 <td><a href="{{url("admin/question/edit/{$l->id}")}}">Sửa</a></td>
-                <td><a onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không?')" href="{{url("admin/question/delete/{$l->id}")}}">Xóa</a></td>
+                <td><a onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không?')"
+                     href="{{url("admin/question/delete/{$l->id}")}}">Xóa</a></td>
             </tr>
         @endforeach
         

@@ -31,10 +31,17 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
 
                 <div class="form-group">
+                    <label>Tên phiên</label>
                     <input type="text" name="name" class="form-control" placeholder="Tên phiên"  />
                 </div>
+                
+                <div class="form-group">
+                	<label>Mật khẩu phiên</label>
+                    <input type="password" name="password" class="form-control" placeholder="Mật khẩu"  />
+                </div>
 
-                <input type="submit" name="submit" value="Thêm mới" class="btn btn-primary" />
+                <input type="submit" name="submit" value="Thêm mới" 
+                class="btn btn-primary" style="background-color: #737373"/>
             </form>
         </div>
     <div>

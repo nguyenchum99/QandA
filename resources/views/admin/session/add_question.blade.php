@@ -4,8 +4,8 @@
 @section('content')
 
         <div style ="width: 40%">
-            <h2 style="color: blue">Tạo câu hỏi của người dùng</h2>
-            <h3>Phiên hỏi đáp:  {{$session->name_session}}<h3>
+            <h3>Tạo câu hỏi của người dùng</h3>
+            <h4>Phiên hỏi đáp:  {{$session->name_session}}<h4>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)
              <div class="alert alert-danger">

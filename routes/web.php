@@ -19,7 +19,8 @@ Route::get('getview','MyController@getView');
 
 
 Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
-
+    Route::get('profile', 'manageUserController@profile');
+    Route::post('profile', 'manageUserController@update_avatar');
 
     Route::group(['prefix' => 'user'], function () {
         Route::get('listuser','manageUserController@getListUser');
@@ -31,6 +32,7 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         Route::post('adduser','manageUserController@postAddUser'); 
         
         Route::get('delete/{id}', 'manageUserController@deleteUser'); 
+        
     });
 
     Route::group(['prefix' => 'session'], function () {
@@ -96,6 +98,8 @@ Route::post('user/register','userController@postUserRegister');
 
 
 Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
+    Route::get('profile', 'userController@profile');
+    Route::post('profile', 'userController@update_avatar');
 
     Route::group(['prefix' => 'page'], function () {
         Route::get('info/{id}','pageController@getInfo');
@@ -172,14 +176,29 @@ Route::get('search_answer',[
 ]);
 
 
-Route::get('user/profile', 'userController@profile');
-Route::post('user/profile', 'userController@update_avatar');
+
 
 
 Route::get('/x',function(){
     foreach(Auth::user()->unreadNotifications as $notification){
         $notification->markAsRead();
     }
+});
+
+
+
+use App\Notifications\Answer;
+use Carbon\Carbon;
+use App\User;
+
+Route::get('/', function () {
+   
+    $user = user::find(1);
+    User::find(1)->notify(new Answer);
+    // Notification::route('mail','abc@gmail.com')->notify(new Answer($user));
+
+    return view('welcome');
+    
 });
 
 ?>

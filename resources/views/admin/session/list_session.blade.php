@@ -20,30 +20,31 @@
                 
             </div>
     </form>
-    <table border="2" class="table table-striped">
-      
-        <tr id="tbl-first-row">
-            <td width="10%">ID phiên</td>
-            <td width="10%">ID người dùng</td>
-            <td width="50%">Tên phiên</td>
-            <td width="10%">Tạo câu hỏi</td>
-            <td width="10%">Hoạt động</td>
+    <table border="2"  class="table table-striped" style="width: 90%">
+    
+        <tr id="tbl-first-row" style="font-weight: bold;">
+           
+            <td width="30%">Tên phiên</td>
+            <td width="10%">Mật khẩu phiên</td>
+            <td width="7%">Tạo câu hỏi</td>
+            <td width="17%">Hoạt động</td>
             <td width="5%">Sửa</td>
             <td width="5%">Xóa</td>
         </tr>
+    
 
         {{-- lấy dữ liệu từ database hiện thị lên view --}}
         @foreach ($list_session as $l)
             <tr>
-                <td>{{$l->id}}</td>
-                <td>{{$l->user_id}}</td>
                 <td>{{$l->name_session}}</td>
+                <td>{{$l->password_session}}
                 <td><a href="{{url("admin/session/add_question/{$l->id}")}}">Tạo</a></td>
                 <td> 
 
                     <form action="{{url("admin/session/open_close/{$l->id}")}}" method="post">          
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                        <select id ="select" name="option" value="{{$l->active}}" >
+                        <select style="padding:3px;    background-color: #ededed;
+                        "id ="select" name="option" value="{{$l->active}}" >
                             <option {{old('option',$l->active)=="1"? 'selected':''}} value="1"                             
                                 >Mở</option>
                             <option {{old('option',$l->active)=="0"? 'selected':''}} value="0"       

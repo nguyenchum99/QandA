@@ -3,7 +3,7 @@
 
 @section('content')
 
-        <div style ="width: 40%">
+        <div style ="width: 45%">
 
             <h2>Sửa thông tin người dùng</h2>
             @if(count($errors) > 0)
@@ -54,7 +54,7 @@
                     
                 </div>
 
-                <input type="submit" name="submit" value="Sửa" class="btn btn-primary" />
+                <input type="submit" name="submit" value="Sửa" class="btn btn-primary" style="background-color: #737373"/>
             </form>
         </div>
     <div>

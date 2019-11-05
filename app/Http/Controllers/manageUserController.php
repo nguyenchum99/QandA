@@ -133,4 +133,41 @@ class manageUserController extends Controller
 
         return view('admin.user.search_user', compact('user'),['user'=>$user,'tukhoa'=>$tukhoa]);
     }
+
+    //profile admin
+    public function profile() {
+        return view('admin.user.profile', array('user' => Auth::user()));
+    }
+
+    public function update_avatar(Request $request){
+
+        if($request->hasFile('avatar')){
+            
+            $this->validate($request, 
+                [
+                    //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 5M
+                    'avatar' => 'mimes:jpg,jpeg,png,gif|max:5000',
+                ],          
+                [
+                    //Tùy chỉnh hiển thị thông báo không thõa điều kiện
+                    'avatar.mimes' => 'Chỉ chấp nhận avatar với đuôi .jpg .jpeg .png .gif',
+                    'avatar.max' => 'Avatar giới hạn dung lượng không quá 5M',
+                ]
+            );
+            
+            //Lưu hình ảnh vào thư mục public/img/avatar
+            $file = $request->file('avatar');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $user = Auth::user();
+            $file->move('img/avatars/', $filename);
+            $user->avatar = $filename;
+        } else {
+            return $request;
+            $user->avatar = 'img/avatars/image.jpg';
+        }
+        
+        $user->save();
+        return redirect('admin/profile')-> with('thongbao','Cập nhật avatar thành công');
+    }
 }

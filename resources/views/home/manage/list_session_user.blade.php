@@ -15,7 +15,7 @@
        
     @foreach($list as $l)
 
-        <div class="box">
+        <div class="box" >
 
              {{-- hiện thị thành công --}}
                 <div class="row">  
@@ -32,7 +32,8 @@
                                     <option {{old('option',$l->active)=="1"? 'selected':''}} value="1">Mở</option>
                                     <option {{old('option',$l->active)=="0"? 'selected':''}} value="0" >Đóng</option>
                                 </select>
-                                <input type="submit" name="submit" value="Thay đổi" >
+                                <input type="submit" name="submit" value="Thay đổi" 
+                                onclick="return xacnhanxoa('Bạn có chắc muốn thay đổi trạng thái phiên hay không?')">
                             </form>
                         </p>
                         <p><a href="{{url("user/manage/edit/{$l->id}")}}" >Sửa phiên</a></p>
