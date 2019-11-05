@@ -30,18 +30,23 @@ class createSessionUser extends Controller
 
             [
                 'name' => 'required|min:3|max:100',
+                'password'=>'required|min:3|max:100'
 
             ],
             [
                 'name.required' => 'Bạn chưa nhập tên phiên',
                 'name.min' => 'Tên phiên phải ít nhất 3 kí tự',
-                'name.max' => 'Tên phiên phải từ 3 đến 100 kí tự'
+                'name.max' => 'Tên phiên phải từ 3 đến 100 kí tự',
+                'password.required' => 'Bạn chưa nhập mật khẩu phiên',
+                'password.min' => 'Mật khẩu phiên phải ít nhất 3 kí tự',
+                'password.max' => 'Mật khẩu phiên phải từ 3 đến 100 kí tự'
 
             ]);
 
             $session = new Session;
             $session -> name_session = $request -> name;
             $session -> user_id = Auth::user()->id;
+            $session -> password_session = $request->password;
             $session -> active = 1;
             $session->save();
 
