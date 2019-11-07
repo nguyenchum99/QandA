@@ -14,12 +14,6 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
               role="button" aria-expanded="false" ><span class="glyphicon glyphicon-globe"></span> Thông báo 
               <span class="badge">20</span></a>
-
-              <ul class="dropdown-menu" role="menu">
-                <li>sdfgdslfusdh</li>
-                <li>sdfgdslfusdh</li>
-                <li>sdfgdslfusdh</li>
-              </ul>
             </li>
             
             <li>          
@@ -32,8 +26,6 @@
               </a>
 
               <ul class="dropdown-menu" role="menu">
-                <li><a href="{{url("user/profile")}}"><i class="fa fa-user fa-fw" ></i> Hồ sơ cá nhân</a>
-                </li>
                 <li><a href="{{url('/user/page/edit/'.Auth::user()->id)}}">
                 <i class="fa fa-gear fa-fw" ></i> Cập nhật thông tin</a>
                 </li>
