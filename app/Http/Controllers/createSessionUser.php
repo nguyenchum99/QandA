@@ -50,13 +50,13 @@ class createSessionUser extends Controller
             $session -> active = 1;
             $session->save();
 
-            return redirect('user/session/list_session_active') -> with('thongbao','Thêm thành công');
+            return redirect('user/manage/list/'.Auth::user()->id) -> with('thongbao','Thêm thành công');
     }
 
 
     //tạo câu hỏi trong phiên hỏi đáp
     public function getCreateQuestionOnSession($id){
-        
+        Carbon::setLocale('vi');
         $session = Session::find($id);
 
         $user = DB::table('users')->join('session','session.user_id','=','users.id')
@@ -69,15 +69,14 @@ class createSessionUser extends Controller
 
 
     public function postCreateQuestionOnSession(Request $request,$id){
-
-        
+        Carbon::setLocale('vi');
         $question = new Question;
         $question -> question = $request -> question;
         $question -> user_id = Auth::user()->id;
         $question -> session_id = $id;
         $question-> save();
 
-        return redirect("user/page/question_answer/".$question->id) ->with('thongbao','Tạo câu hỏi thành công') ;
+        return redirect("user/session/list_question_active/".$id) ->with('thongbao','Tạo câu hỏi thành công') ;
 
     }
 

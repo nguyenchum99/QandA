@@ -37,9 +37,11 @@
                             {{-- {{url("user/session/list_question_active/{$l->id}")}} --}}
                             <p class="title" style="color: red">Phiên hỏi đáp: {{$l->name_session}}</p>
                             <p>Chủ tọa: {{$l->name}}</p>
+                            <p>Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
+                                ->diffForHumans() }}</p>
                             <form action="{{url("user/session/check_password/{$l->id}")}}" method="POST" data-remote="true">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                <input type="password"  placeholder="Mật khẩu" name="password">
+                                <input type="password"  placeholder="Nhập mật khẩu phiên..." name="password">
                                 <input type="submit" class="btn btn-default" data-dismiss="modal" value="Xác nhận">       
                             </form>
                         </div>

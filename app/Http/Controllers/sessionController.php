@@ -45,6 +45,7 @@ class sessionController extends Controller
 
     //hiển thị danh sách phiên hoạt động
     public function getListSessionActive(){
+        Carbon::setLocale('vi');
         $session['list'] = DB::table('session')->paginate(10);
         $name_user['name'] = DB::table('users')->join('session','users.id','=','session.user_id')
                                                 ->get();
@@ -112,7 +113,14 @@ class sessionController extends Controller
     public function getCreateAnswer($id){
         Carbon::setLocale('vi');
         $question = Question::find($id);
-        return view('home.session.create_answer',['question'=>$question]);
+        
+        $answer = DB::table('answers')
+        ->join('users','users.id','=','answers.user_id')
+        ->select('users.name','answers.answer','answers.created_at')
+        ->where('answers.question_id',$id)
+        ->get();
+
+        return view('home.session.create_answer',['question'=>$question,'list'=>$answer]);
 
     }
 
@@ -124,7 +132,7 @@ class sessionController extends Controller
         $answer -> question_id = $id;
         $answer -> save();
 
-        return redirect("user/page/listquestion") ->with('thongbao','Thêm câu trả lời thành công') ;
+        return redirect("user/session/create_answer/".$id) ->with('thongbao','Thêm câu trả lời thành công') ;
 
     }
 
