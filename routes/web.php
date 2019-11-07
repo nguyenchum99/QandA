@@ -118,16 +118,18 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
         Route::get('list_session_close','sessionController@getListSession');
         Route::get('list_session_active','sessionController@getListSessionActive');
 
+        Route::post('check_password/{id}','sessionController@checkPasswordSession');
         Route::get('list_question_active/{id}','sessionController@getListQuestionActive');
+
 
         Route::get('list_question/{id}','sessionController@getListQuestionOnSession');
 
         Route::get('create_answer/{id}','sessionController@getCreateAnswer');
         Route::post('create_answer/{id}','sessionController@postCreateAnswer');
 
-        Route::get('create_question/{id}','sessionController@getCreateQuestionOnSession');
+      
         Route::post('create_question/{id}','sessionController@postCreateQuestionOnSession');
-
+        
         
     });
 

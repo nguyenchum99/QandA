@@ -11,7 +11,7 @@ use App\Answer;
 use App\User;
 use App\Session;
 use Carbon\Carbon;
-
+use Hash;
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -47,27 +47,51 @@ class sessionController extends Controller
     public function getListSessionActive(){
         $session['list'] = DB::table('session')->paginate(10);
         $name_user['name'] = DB::table('users')->join('session','users.id','=','session.user_id')
-                                                
                                                 ->get();
                                                                                                            
         //truyền dữ liệu sang view
         return view('home.session.list_session_active',$session,$name_user);
     }
 
-    //hiển thị câu hỏi trong  phiên hỏi đáp mở
+
+    //check mật khẩu phiên hỏi đáp đang mở
+    public function checkPasswordSession(Request $request,$id){
+
+        $this->validate($request,
+        [
+            'password'=>'required'  
+        ],[
+            'password.required'=>'Bạn phải nhập mật khẩu phiên'
+        ]);
+
+        $check = $request->input('password');
+        $session = Session::find($id);
+       
+        if($check == $session->password_session){
+            
+            return redirect("user/session/list_question_active/".$id);
+        }
+        else{
+       
+            return redirect("user/session/list_session_active")->with('thongbao','Mật khẩu sai');
+        }
+    }
+
+    //hiển thị câu hỏi trong phiên hỏi đáp hoạt động
     public function getListQuestionActive($id){
         Carbon::setLocale('vi');
+        $session = Session::find($id);
         $data['list'] = DB::table('questions')
         ->join('session','session.id','=','questions.session_id')
-        ->select('questions.id','questions.question','session.name_session','questions.created_at')                                    
+        ->join('users','questions.user_id','=','users.id')
+        ->select('questions.id','questions.question','session.name_session','questions.created_at','users.name')                                    
         ->where('session.id',$id)                                     
         ->get();
 
-
-        return view('home.session.list_question_active',$data);
+        return view('home.session.list_question_active',$data,['session'=>$session]);
     }
 
-    
+
     //hiển thị các câu hỏi trong phiên hỏi đáp đóng
     public function getListQuestionOnSession($id)
     {
@@ -78,7 +102,7 @@ class sessionController extends Controller
         ->where('session.id',$id)                                     
         ->get();
 
-
+        
         return view('home.session.list_question_on_session',$data);
 
     }
@@ -105,22 +129,20 @@ class sessionController extends Controller
     }
 
 
-    //tạo câu hỏi trong phiên hỏi đáp
-    public function getCreateQuestionOnSession($id){
-        Carbon::setLocale('vi');
-        $session = Session::find($id);
+    // //tạo câu hỏi trong phiên hỏi đáp
+    // public function getCreateQuestionOnSession($id){
+    //     Carbon::setLocale('vi');
+    //     $session = Session::find($id);
+    //     $user = DB::table('users')->join('session','session.user_id','=','users.id')
+    //     ->select('users.name')
+    //     ->where('session.id',$id)
+    //     ->get();
 
-        $user = DB::table('users')->join('session','session.user_id','=','users.id')
-        ->select('users.name')
-        ->where('session.id',$id)
-        ->get();
-
-        return view('home.session.create_question',['session'=>$session,'user'=>$user]);
-    }
+    //     return view('home.session.list_question_active',['session'=>$session,'user'=>$user]);
+    // }
 
 
     public function postCreateQuestionOnSession(Request $request,$id){
-
         
         Carbon::setLocale('vi');
         $question = new Question;

@@ -5,7 +5,16 @@
 
 <div class="main-right">
     <h2>Câu hỏi trong phiên hỏi đáp mở</h2>
-  
+
+    <form method="post" action="{{url("user/session/create_question/{$session->id}")}}">
+        <div class="form-group">
+            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+            <h4>Tạo câu hỏi</h4>    
+            <textarea type="text" name="question" rows="3"
+            class="form-control" placeholder="Nội dung câu hỏi" ></textarea>
+        </div>
+        <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary" />
+    </form>
 
         @foreach($list as $l)
 
@@ -17,7 +26,8 @@
                     </div>
                     
                     <div class="col-md-10 box-right">
-                        <p class="title">{{$l->question}}</p>
+                        <p class="title">Câu hỏi: {{$l->question}}</p>
+                        <p>Đăng bởi: {{$l->name}}</p>
                         <p>Phiên hỏi-đáp: {{$l->name_session}}</p>
                         <p class="time">Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
                                 ->diffForHumans()
