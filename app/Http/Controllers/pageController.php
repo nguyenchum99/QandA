@@ -106,17 +106,12 @@ class pageController extends Controller
 
         $user = DB::table('users')
         ->join('questions','questions.user_id','=','users.id')
+        ->select('users.name')
         ->get();
         
-        $session = DB::table('session')
-        ->join('questions','session.id','=','questions.session_id')
-        ->select('session.name_session','session.created_at')                                                                        
-        ->get();
-
-
         //truyền dữ liệu sang view
         return view('home.page.content_question',
-        ['question'=>$question, 'list_answer'=> $answer,'user'=>$user, 'session'=>$session]);
+        ['question'=>$question, 'list_answer'=> $answer,'user'=>$user]);
     }
 
 
