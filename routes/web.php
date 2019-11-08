@@ -50,6 +50,7 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         Route::post('add_question/{id}','manageSessionController@postAddQuestion');
 
         Route::post('open_close/{id}','manageSessionController@postSession');
+
     });
 
     Route::group(['prefix' => 'question'], function () {
@@ -63,7 +64,12 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
         Route::get('add_answer/{id}','manageAnswerController@getAddAnswer'); 
         Route::post('add_answer/{id}','manageAnswerController@postAddAnswer');
-        
+
+        Route::get('add_survey','manageSurveyController@getAddSurvey');
+
+        Route::post('add_ques_yesno','manageSurveyController@postAddQuestionYesNo');
+
+        Route::post('add_ques_choice','manageSurveyController@postAddQuestionChoice');
         
     });
 
@@ -153,6 +159,14 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
         
     });
 
+    Route::group(['prefix' => 'survey'], function () {
+
+        Route::get('survey_page','surveyUser@getSurvey');
+
+        Route::post('yes_no/{id}','surveyUser@postAnswerYesNo');
+
+
+    });
 
 });
 

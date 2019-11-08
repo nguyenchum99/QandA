@@ -25,7 +25,7 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                     <h4>Nhập nội dung câu trả lời </h4>    
                     <textarea type="text" name="answer" rows="3"
-                    class="form-control" placeholder="Nội dung câu trả lời" ></textarea>
+                    class="form-control" placeholder="Nội dung câu trả lời..." ></textarea>
                 </div>
    
                 <input type="submit" name="submit" value="Trả lời" class="btn btn-primary" />
@@ -39,7 +39,7 @@
     <div class="botton">
    
             <div class="main-right">
-                <div class="content">
+                <div class="content" style="background-color: #ffffff">
                     {{-- hiện thị nội dung câu hỏi --}}
                         <div class="form-group">
                             <p>Đăng bởi: {{$l->name}}</p>

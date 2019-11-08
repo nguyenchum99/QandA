@@ -102,6 +102,17 @@ background: #dddddd;
     </div>
 </div>
 
+<script>
+    function xacnhanxoa (xoa){
+
+        if (window.confirm(xoa)) {
+            return true;
+        }
+        return false;
+    }
+    $("div.alert").delay(3000).slideUp();
+</script>
+
 
 </body>
 </html>

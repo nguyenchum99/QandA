@@ -84,31 +84,6 @@ class manageQuestionController extends Controller
    }
 
 
-   
-
-
-   
-//    public function postAddQuestion(Request $request){
-//         $this->validate($request,
-
-//         [
-//             'question' => 'required|min:10|max:100',
-
-//         ],
-//         [
-//             'question.required' => 'Bạn chưa nhập nội dung câu hỏi',
-//             'question.min' => 'Câu hỏi phải ít nhất 10 kí tự',
-//             'question.max' => 'Câu hỏi  phải từ 10 đến 100 kí tự'
-
-//         ]);
-
-//         $question = new Question;
-//         $question -> question = $request -> question;
-//         $question -> user_id = Auth::user()->id;
-
-//         $session->save();
-
-//         return redirect('admin/session/list_session') -> with('thongbao','Thêm thành công');
-//    }
+  
 
 }
