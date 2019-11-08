@@ -19,12 +19,19 @@ use DB;
 use Illuminate\Support\Facades\Auth;
 class manageSurveyController extends Controller
 {
-    //
-    //tạo câu khảo sát có không
-    public function getAddSurvey(){
-        return view('admin.question.add_survey');
-    }
+  
 
+    public function getListSurveyYesNo(){
+
+        $list1['ques_yesno'] = DB::table('questions_yesno')->paginate(10);
+
+        // $list2['choices'] = DB::table('question_choice') ->paginate(2);
+        // ->join('question_survey','question_choice.question_id','=','question_survey.id')
+        // ->select('question_choice.choice',
+        // 'question_survey.question','question_survey.id','question_survey.user_id')
+        // ->get();
+        return view('admin.question.list_survey',$list1);
+    }
 
     public function postAddQuestionYesNo(Request $request){
         $this->validate($request,
@@ -44,7 +51,20 @@ class manageSurveyController extends Controller
         $question -> user_id = Auth::user()->id;
         $question-> save();
         
-        return redirect('admin/question/add_survey') -> with('thongbao','Thêm thành công');
+        return redirect('admin/question/list_survey') -> with('thongbao','Thêm thành công');
+    }
+
+
+
+    public function getAddSurvey(){
+
+
+        $list['choices'] = DB::table('question_choice')
+        ->join('question_survey','question_choice.question_id','=','question_survey.id')
+        ->select('question_choice.choice',
+        'question_survey.question','question_survey.id','question_survey.user_id')
+        ->get();
+        return view('admin.question.add_survey',$list);
     }
 
     public function postAddQuestionChoice(Request $request){

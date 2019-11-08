@@ -66,7 +66,8 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         Route::post('add_answer/{id}','manageAnswerController@postAddAnswer');
 
         Route::get('add_survey','manageSurveyController@getAddSurvey');
-
+        Route::get('list_survey','manageSurveyController@getListSurveyYesNo');
+        
         Route::post('add_ques_yesno','manageSurveyController@postAddQuestionYesNo');
 
         Route::post('add_ques_choice','manageSurveyController@postAddQuestionChoice');
