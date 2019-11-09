@@ -2,11 +2,13 @@
 
 @section('content')
 
-        <div style ="width: 70%">
+        <div style ="width: 50%">
 
             {{-- thông báo lỗi --}}
-            @if(count($errors) > 0)
-                <div class="alert alert-danger">
+
+            <h2>Sửa nội dung câu hỏi</h2>
+                @if(count($errors) > 0)
+                <div class="alert alert-danger"  style="width:50%">
                 
                     @foreach ($errors -> all() as $err)
                         {{$err}}<br>
@@ -18,13 +20,11 @@
             {{-- hiện thị sửa thành công --}}
             @if(session('thongbao'))
 
-            <div class="alert alert-success">
+            <div class="alert alert-success"  style="width:50%">
                 {{session('thongbao')}}
             </div>
             @endif
 
-
-            <h2>Sửa nội dung câu hỏi</h2>
             <form method="post" action="{{$question->id}}">
                 <div class="form-group">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>    

@@ -1,12 +1,12 @@
 
 
-<nav class="navbar navbar-inverse" style="background-color: #365899" >
+<nav class="navbar navbar-inverse" style="background-color: #737373" >
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#" style="margin-left: 70px">Trang chủ</a>
+        <a class="navbar-brand" href="#" style="margin-left: 70px;color: #ffffff">Trang chủ</a>
       </div>
       <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right" style="margin-right: 140px">
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 140px;">
 
           @if (Auth::check())
 

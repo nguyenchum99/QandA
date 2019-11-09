@@ -4,14 +4,15 @@
 @section('content')
     
 
+<div style="width: 90%">
+    <h2>Danh sách phiên hỏi đáp</h2>
     @if(session('thongbao'))
 
-        <div class="alert alert-success">
+        <div class="alert alert-success" style="width:50%">
             {{session('thongbao')}}
         </div>
 
     @endif
-    <h2>Danh sách phiên hỏi đáp</h2>
     <form method = "get" action= "{{route('search_session')}}" id="searchForm" role="search">
             <input type="hidden" name="_token" value ="{{csrf_token()}}";>
             <div class="input-group" style="margin: 10px 0 29px 0; width: 40%"> 
@@ -20,7 +21,7 @@
                 
             </div>
     </form>
-    <table border="2"  class="table table-striped" style="width: 90%">
+    <table border="2"  class="table table-striped">
     
         <tr id="tbl-first-row" style="font-weight: bold;">
            
@@ -67,7 +68,7 @@
         {{$list_session->links()}}
     </div>
 
-    
+</div>
 
     
 @endsection

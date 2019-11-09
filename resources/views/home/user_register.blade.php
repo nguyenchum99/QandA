@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="{{asset('css/login.css')}}">
+  <link rel="stylesheet" href="{{asset('css/login_user.css')}}">
 </head>
 <body>
 
@@ -46,11 +46,6 @@
 <div class="container" style="background: #E9EBEE; height: 562px;">
     <center>
 
-    <div class="Name">
-        <h1>HỆ THỐNG HỎI - ĐÁP</h1>
-        <span class="vien"></span>
-    </div>
-
     <div class="login">
         <div class="main-head">
             <div class="head">
@@ -71,7 +66,7 @@
                         <input type="password" class="form-control" placeholder="Nhập lại mật khẩu" name="cpassword">
                     </div>
                     <div class="form-group">
-                        <input href="" type="submit" class="btn btn-primary" value="Đăng kí">
+                        <input href="" type="submit" class="btn btn-primary" value="Đăng kí"  style="background-color: #737373">
                     </div>
                     {{-- <div class="fomr-group">
                         <input type="submit" class="btn btn-default" value="Đăng kí">

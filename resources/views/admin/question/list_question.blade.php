@@ -3,14 +3,15 @@
 @extends('admin.layouts.index')
 @section('content')
     
-@if(session('thongbao'))
-
-<div class="alert alert-success">
-    {{session('thongbao')}}
-</div>
-
-@endif
+<div style="width: 90%">
     <h2>Danh sách câu hỏi</h2>
+    @if(session('thongbao'))
+
+        <div class="alert alert-success" style="width:50%">
+            {{session('thongbao')}}
+        </div>
+
+    @endif
 
     <form method = "get" action= "{{route('search_question')}}" id="searchForm" role="search">
             <input type="hidden" name="_token" value ="{{csrf_token()}}";>
@@ -21,7 +22,7 @@
             </div>
     </form>
     
-    <table border="2" class="table table-striped" style="width: 90%">
+    <table border="2" class="table table-striped" >
        
         <tr id="tbl-first-row" style="font-weight: bold;">
             <td width="10%">ID câu hỏi</td>
@@ -53,5 +54,5 @@
         {{$list_question->links()}}
     </div>
 
-
+</div>
 @endsection
