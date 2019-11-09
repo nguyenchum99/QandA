@@ -71,6 +71,8 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         Route::post('add_ques_yesno','manageSurveyController@postAddQuestionYesNo');
 
         Route::post('add_ques_choice','manageSurveyController@postAddQuestionChoice');
+
+        Route::get('delete_yesno/{id}','manageSurveyController@deleteYesNo');
         
     });
 

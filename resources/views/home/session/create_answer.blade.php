@@ -42,6 +42,8 @@
                 <div class="content" style="background-color: #ffffff">
                     {{-- hiện thị nội dung câu hỏi --}}
                         <div class="form-group">
+                            <img src="{{URL::asset('/img/avatars/'.$l->avatar)}}" alt="image"
+                            style="height: 75px;width:75px;margin-top:10px" >
                             <p>Đăng bởi: {{$l->name}}</p>
                             <p>Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
                                     ->diffForHumans()}}</p>

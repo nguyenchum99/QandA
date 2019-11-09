@@ -3,14 +3,13 @@
 @extends('admin.layouts.index')
 @section('content')
     
+@if(session('thongbao'))
 
-    @if(session('thongbao'))
+<div class="alert alert-success">
+    {{session('thongbao')}}
+</div>
 
-        <div class="alert alert-success">
-            {{session('thongbao')}}
-        </div>
-
-    @endif
+@endif
     <h2>Danh sách câu hỏi</h2>
 
     <form method = "get" action= "{{route('search_question')}}" id="searchForm" role="search">

@@ -27,6 +27,8 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
                     <input type="text" name="session" 
                     class="form-control" placeholder="Sửa phiên" value="{{$session->name_session}}"  />
+                    <input type="password" name="password" 
+                    class="form-control" placeholder="" value="{{$session->password_session}}"  />
                 </div>
                 <input type="submit" name="submit" value="Sửa" class="btn btn-primary" />
             </form>

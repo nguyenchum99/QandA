@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 class manageSurveyController extends Controller
 {
   
-
+    //hiển thị câu hỏi khảo sát có không
     public function getListSurveyYesNo(){
 
         $list1['ques_yesno'] = DB::table('questions_yesno')->paginate(10);
@@ -33,6 +33,7 @@ class manageSurveyController extends Controller
         return view('admin.question.list_survey',$list1);
     }
 
+    //tạo câu hỏi khảo sát có không
     public function postAddQuestionYesNo(Request $request){
         $this->validate($request,
         [
@@ -55,7 +56,7 @@ class manageSurveyController extends Controller
     }
 
 
-
+//hiển thị câu hỏi khảo sát lựa chọn trong 4 đáp án
     public function getAddSurvey(){
 
 
@@ -67,6 +68,8 @@ class manageSurveyController extends Controller
         return view('admin.question.add_survey',$list);
     }
 
+
+    //tạo câu hỏi  khảo sát lựa chọn trong 4 đáp án
     public function postAddQuestionChoice(Request $request){
 
         $this->validate($request,
@@ -118,6 +121,17 @@ class manageSurveyController extends Controller
       
         
         return redirect('admin/question/add_survey') -> with('thongbao','Thêm thành công');
+    }
+
+   
+    public function deleteYesNo($id){
+
+        $question = Question_YesNo::find($id);
+        $question ->delete();
+
+        $answer = Answer_YesNo::where('question_id',$id)->delete();
+
+        return redirect('admin/question/list_survey')->with('thongbao','Xóa thành công');
     }
 
     

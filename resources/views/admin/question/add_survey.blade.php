@@ -34,7 +34,7 @@
                     <br><input type="text" name="choice3" class="form-control" placeholder="Đáp án 3">
                     <br><input type="text" name="choice4" class="form-control" placeholder="Đáp án 4">
                 </div>
-                <input type="submit" name="submit" value="Tạo" class="btn btn-primary" />
+                <input type="submit" name="submit" value="Tạo" class="btn btn-primary" style="background-color: #737373"/>
             </form>
 
         </div>

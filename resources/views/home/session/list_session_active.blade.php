@@ -30,8 +30,8 @@
                 {{-- hiện thị thành công --}}
                     <div class="row">  
                         <div class="col-md-2">
-                            <img src="{{URL::asset('/img/q-and-a.jpg')}}" alt="image" 
-                            style="height: 75px;width:75px;margin-top:10px" >
+                            <img src="{{URL::asset('/img/avatars/'.$l->avatar)}}" alt="image"
+                         style="height: 75px;width:75px;margin-top:10px" >
                         </div>
                         <div class="col-md-10 box-right">
                             {{-- {{url("user/session/list_question_active/{$l->id}")}} --}}

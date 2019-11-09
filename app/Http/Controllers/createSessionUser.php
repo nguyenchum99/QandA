@@ -109,17 +109,21 @@ class createSessionUser extends Controller
         $this -> validate($request,
 
             [
-                'session' => 'required|min:3|max:300'
+                'session' => 'required|min:3|max:300',
+                'password'=>'required|min:3',
             ],
             [
                 'session.required'=> 'Bạn chưa nhập tên phiên',
                 'session.min' => 'Phiên có ít nhất 3 kí tự',
-                'session.max' => 'Phiên có nhiều nhất 300 kí tự'
+                'session.max' => 'Phiên có nhiều nhất 300 kí tự',
+                'password.required'=>'Bạn chưa nhập mật khẩu phiên',
+                'pasword.min' =>'Mật khẩu ít nhất 3 kí tự'
             ]
         
         );
 
-        $session -> name_session = $request -> session;
+        $session ->name_session = $request ->session;
+        $session ->password_session = $request->password;
         $session -> save();
         return redirect('user/manage/list/'.Auth::user()->id) -> with('thongbao','Sửa thành công');
     }

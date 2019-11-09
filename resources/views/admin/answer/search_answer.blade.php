@@ -3,7 +3,7 @@
 @extends('admin.layouts.index')
 @section('content')
     
-    <table border="2" class="table table-striped">
+    <table border="2" class="table table-striped" style="width: 90%">
         <h4>Tìm kiếm : {{$tukhoa}}</h4>
         <tr id="tbl-first-row" style="font-weight: bold;">
                 <td width="12%">ID câu trả lời</td>
