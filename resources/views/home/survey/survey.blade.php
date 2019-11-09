@@ -15,13 +15,15 @@
 </div>
 
  @endif
+
+  {{-- hiển thị danh sách câu hỏi có không --}}
     @foreach($list_question as $l)
     <div class="botton">
             <div class="main-right">
                 <div class="content" style="background-color: #ffffff">
                     {{-- hiện thị nội dung câu hỏi --}}
                         <div class="form-group" >
-                            <p>Câu hỏi: {{$l->question}}</p>
+                            <p>Câu hỏi có/không: {{$l->question}} ?</p>
                             <p>Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
                                 ->diffForHumans()}}</p>
                         </div>
@@ -39,7 +41,22 @@
                         </form>
                 </div>
             </div>
-
+    </div>
     @endforeach
+
+
+    @foreach($ques_choice as $l)
+    <div class="botton"><a href="{{url("user/survey/list_choice/{$l->id}")}}">
+            <div class="main-right">
+                <div class="content" style="background-color: #ffffff">
+                    {{-- hiện thị nội dung câu hỏi --}}
+                        <div class="form-group" >
+                            <p>Câu hỏi lựa chọn: {{$l->question}} ?</p>
+                        </div>
+                </div>
+            </div>
+        </a>
+    </div>
+ @endforeach
 
 @endsection
