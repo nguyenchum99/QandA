@@ -46,7 +46,7 @@
 
 
     @foreach($ques_choice as $l)
-    <div class="botton"><a href="{{url("user/survey/list_choice/{$l->id}")}}">
+    <div class="botton" ><a href="{{url("user/survey/list_choice/{$l->id}")}}"  style="text-decoration: none;">
             <div class="main-right">
                 <div class="content" style="background-color: #ffffff">
                     {{-- hiện thị nội dung câu hỏi --}}

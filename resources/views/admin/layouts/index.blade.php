@@ -70,7 +70,7 @@
             }
             return false;
         }
-        $("div.alert").delay(3000).slideUp();
+        $("div.alert").delay(1000).slideUp();
     </script>
     
 </body>

@@ -3,9 +3,11 @@
 @extends('admin.layouts.index')
 @section('content')
     
+<div style="width: 90%">
         {{-- thông báo lỗi --}}
+        <h3>Danh sách người dùng</h3>
         @if(count($errors) > 0)
-        <div class="alert alert-danger">
+        <div class="alert alert-danger" style="width:50%">
             
                 @foreach ($errors -> all() as $err)
                     {{$err}}<br>
@@ -17,11 +19,10 @@
         {{-- hiện thị sửa thành công --}}
         @if(session('thongbao'))
 
-        <div class="alert alert-success">
+        <div class="alert alert-success" style="width:50%">
             {{session('thongbao')}}
         </div>
         @endif
-        <h3>Danh sách người dùng</h3>
         <form method = "get" action= "{{route('search_user')}}" id="searchForm" role="search">
                 <input type="hidden" name="_token" value ="{{csrf_token()}}";>
                 <div class="input-group" style="margin: 10px 0 29px 0; width: 30%"> 
@@ -31,7 +32,7 @@
                 </div>
         </form>
 
-    <table border="2" class="table table-striped" style="width: 90%">
+    <table border="2" class="table table-striped" >
         
         <tr id="tbl-first-row" style="font-weight: bold;">
 
@@ -68,5 +69,5 @@
     <div aria-label="Page navigation">
         {{$list_user->links()}}
     </div>
-
+</div>
 @endsection

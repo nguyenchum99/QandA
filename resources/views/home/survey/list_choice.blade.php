@@ -17,8 +17,8 @@
  @endif
     
     {{-- hiển thị câu hỏi lựa chọn --}}
-    <div class="botton">
-            <div class="main-right">
+    <div class="botton" >
+            <div class="main-right" >
                 <div class="content" style="background-color: #ffffff">
                     {{-- hiện thị nội dung câu hỏi --}}
                         <div class="form-group" >

@@ -4624,3 +4624,7 @@
 #53 C:\\xampp\\htdocs\\QandA\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #54 {main}
 "} 
+[2019-11-09 23:59:24] local.ERROR: Maximum execution time of 30 seconds exceeded {"userId":1,"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 30 seconds exceeded at C:\\xampp\\htdocs\\QandA\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ImplicitRouteBinding.php:9)
+[stacktrace]
+#0 {main}
+"} 

@@ -8,6 +8,12 @@ use App\Question;
 use App\Answer;
 use App\User;
 use App\Session;
+
+use App\Question_YesNo;
+use App\Answer_YesNo;
+use App\QuestionSurvey;
+use App\UserResponse;
+
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -39,19 +45,17 @@ class manageUserController extends Controller
             [
                 'name' => 'required|min:3',
                 'email' => 'required|email|unique:users,email',
-                'password'=> 'required|min:3|max:30',
+                'password'=> 'required|min:3',
                 'passAgain' => 'required|same:password'
 
             ],
             [
                 'name.required' => 'Bạn chưa nhập tên người dùng',
-                'name.min' => 'Tên người dùng phải ít nhất 3 kí tự',
                 'email.required' => 'Bạn chưa nhập email',
                 'email.email'=> 'Bạn chưa nhập đúng định dạng email',
                 'email.unique'=> 'Email đã tồn tại',
                 'password.required'=> 'Bạn chưa nhập mật khẩu',
                 'password.min' => 'Mật khẩu có ít nhất 3 kí tự',
-                'password.max' => 'Mât khẩu có nhiều nhất 30 kí tự',
                 'passAgain.required'=> 'Bạn chưa nhập mật khẩu',
                 'passAgain.same' => 'Mật khẩu bạn nhập lại chưa khớp'
 
@@ -84,7 +88,7 @@ class manageUserController extends Controller
 
         [
             'name' => 'required|min:3',
-            'password'=> 'required|min:3|max:30',
+            'password'=> 'required|min:3',
             
         ],
         [
@@ -92,7 +96,7 @@ class manageUserController extends Controller
             'name.min' => 'Tên người dùng phải ít nhất 3 kí tự',
             'password.required'=> 'Bạn chưa nhập mật khẩu',
             'password.min' => 'Mật khẩu có ít nhất 3 kí tự',
-            'password.max' => 'Mât khẩu có nhiều nhất 30 kí tự'
+
             
 
         ]);
@@ -118,7 +122,13 @@ class manageUserController extends Controller
         $session = Session::where('user_id',$id)->delete();
         $question = Question::where('user_id',$id)->delete();
         $answer = Answer::where('user_id',$id)->delete();
-       
+        
+        $question_yesno = Question_YesNo::where('user_id',$id)->delete();
+        $answer_yesno = Answer_yesNo::where('user_id',$id)->delete();
+        
+        $question_survey = QuestionSurvey::where('user_id',$id)->delete();
+        $user_response = UserResponse::where('user_id',$id)->delete();
+
         return redirect('admin/user/listuser')->with('thongbao','Xóa người dùng thành công');
     }
 
