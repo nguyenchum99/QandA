@@ -77,6 +77,10 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
         Route::get('edit_yesno/{id}','manageSurveyController@getEditYesNo');
         Route::post('edit_yesno/{id}','manageSurveyController@postEditYesNo');
+
+
+        Route::get('layout_opinion','manageSurveyController@getLayoutOpinion');
+        Route::post('create_opinion','manageSurveyController@postCreateOpinion');
     });
 
 

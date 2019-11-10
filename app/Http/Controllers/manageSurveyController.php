@@ -14,6 +14,10 @@ use App\QuestionSurvey;
 use App\QuestionChoice;
 use App\UserResponse;
 
+use App\Survey;
+use App\Choice;
+use App\Response;
+
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -164,5 +168,61 @@ class manageSurveyController extends Controller
         $question -> save();
 
         return redirect('admin/question/edit_yesno/'.$id) -> with('thongbao','Sửa thành công');
+    }
+
+    public function getLayoutOpinion(){
+        return view('admin.question.create_opinion');
+    }
+
+    public function postCreateOpinion(Request $request){
+        $this->validate($request,
+        [
+            'question' => 'required|min:3|max:100',
+             'choice1' => 'required',
+             'choice2' => 'required',
+             'choice3' => 'required',
+             'choice4' => 'required',
+
+        ],
+        [
+            'question.required' => 'Bạn chưa nhập nội dung câu hỏi',
+            'question.min' => 'Câu hỏi phải ít nhất 10 kí tự',
+            'question.max' => 'Câu hỏi  phải từ 10 đến 100 kí tự',
+            'choice1.required' => 'Bạn chưa nhập nội dung đáp án 1',
+            'choice2.required' => 'Bạn chưa nhập nội dung đáp án 2',
+            'choice3.required' => 'Bạn chưa nhập nội dung đáp án 3',
+            'choice4.required' => 'Bạn chưa nhập nội dung đáp án 4',
+
+        ]);
+
+        $question = new Survey;
+        $question -> question = $request -> question;
+        $question -> user_id = Auth::user()->id;
+        $question-> save();
+         
+        $id_ques = $question -> id;
+
+        $choice = new Choice;
+        $choice ->question_id = $id_ques;
+        $choice ->choice = $request -> choice1;
+        $choice->save();
+
+        $choice = new Choice;
+        $choice ->question_id = $id_ques;
+        $choice ->choice = $request -> choice2;
+        $choice->save();
+
+        $choice = new Choice;
+        $choice ->question_id = $id_ques;
+        $choice ->choice = $request -> choice3;
+        $choice->save();
+
+        $choice = new Choice;
+        $choice ->question_id = $id_ques;
+        $choice ->choice = $request -> choice4;
+        $choice->save();
+      
+        
+        return redirect('admin/question/layout_opinion') -> with('thongbao','Thêm thành công');
     }
 }

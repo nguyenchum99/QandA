@@ -3,7 +3,7 @@
 
 @section('content')
 
-        <h3>Danh sách câu hỏi khảo sát</h3>
+        
         <div style ="width: 40%">
             <h3>Tạo khảo sát </h3>
             @if(session('thongbao'))
@@ -24,7 +24,7 @@
                 </div>
             @endif
 
-            <form method="post" action="{{url("admin/question/add_ques_choice")}}">
+            <form method="post" action="{{url("admin/question/create_opinion")}}">
                 <h4>Tạo câu hỏi chọn/đáp án</h4>
                 <div class="form-group">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
@@ -39,30 +39,7 @@
 
         </div>
 
-    <button type="submit"  class="btn btn-primary"><a href="{{url("admin/question/layout_opinion")}}">lay y kien</a></button>
-    <div style="width: 90%;margin-top: 20px;">
-        <table border="2" class="table table-striped" style="width: 90%">
-       
-            <tr id="tbl-first-row" style="font-weight: bold;">
-                <td width="10%">ID câu hỏi</td>
-                <td width="10%">ID người dùng</td>
-                <td width="30%">Câu hỏi</td>
-                <td width="20%">Lựa chọn</td>
-            </tr> 
-    
-            @foreach ($choices as $c)
-                <tr>
-                    <td>{{$c->id}}</td>
-                    <td>{{$c->user_id}}</td>
-                    <td>{{$c->question}}</td>
-                    <td>{{$c->choice}}</td>
-                   
-                </tr>
-            @endforeach
-            
-        </table>
-        
-        </div>
-
+   
+   
 @endsection
 
