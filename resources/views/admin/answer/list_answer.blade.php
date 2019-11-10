@@ -4,13 +4,7 @@
 @section('content')
     
 
-    @if(session('thongbao'))
-
-        <div class="alert alert-success">
-            {{session('thongbao')}}
-        </div>
-
-    @endif
+    <div style="width: 90%">
     <h2>Danh sách câu trả lời</h2>
     <form method = "get" action= "{{route('search_answer')}}" id="searchForm" role="search" >
             <input type="hidden" name="_token" value ="{{csrf_token()}}";>
@@ -20,8 +14,15 @@
                 
             </div>
     </form>
+    @if(session('thongbao'))
+
+        <div class="alert alert-success" style="width: 60%">
+            {{session('thongbao')}}
+        </div>
+
+    @endif
     
-    <table border="2" class="table table-striped" style="width: 90%">
+    <table border="2" class="table table-striped" >
        
         <tr id="tbl-first-row" style="font-weight: bold;">
             <td width="12%">ID câu trả lời</td>
@@ -49,5 +50,5 @@
     <div aria-label="Page navigation">
        {{$list_answer->links()}}
     </div>
-
+</div>
 @endsection

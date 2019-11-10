@@ -1,28 +1,29 @@
 @extends('home.layouts.index_page')
 @section('content')
 
-<div class="top">
-        <div class="row"> 
-            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                <h3>Câu hỏi khảo sát</h3>
-            </div>
-        </div>
-</div>
-@if(session('thongbao'))
+<div class="top" >
+        <div class="form-group" style="margin-left: 20px"> 
+            
+                <h3 ><b>Câu hỏi khảo sát</b></h3>
+                @if(session('thongbao'))
                         
-<div class="alert alert-success">
-    {{session('thongbao')}}
+                <div class="alert alert-success" style="width: 60%">
+                    {{session('thongbao')}}
+                </div>
+            
+             @endif
+        </div>
+
 </div>
 
- @endif
     
     {{-- hiển thị câu hỏi lựa chọn --}}
     <div class="botton" >
             <div class="main-right" >
-                <div class="content" style="background-color: #ffffff">
+                <div class="content" style="background-color: #ffffff;border-radius: 10px">
                     {{-- hiện thị nội dung câu hỏi --}}
                         <div class="form-group" >
-                            <p>Câu hỏi: {{$question->question}}</p>
+                            <p class="title" style="color:red;">Câu hỏi: {{$question->question}}</p>
                             {{-- <p>Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
                                 ->diffForHumans()}}</p> --}}
                         </div>
@@ -35,7 +36,7 @@
                                     </label>
                                 </div>
                             @endforeach
-                            <input type="submit"  value="Trả lời"  style="background-color: #737373"/>
+                            <input type="submit"  value="Trả lời"   style="background-color: #737373; margin-left:35px;" class="btn btn-primary"/>
                         </form>   
                 </div>
             </div>
