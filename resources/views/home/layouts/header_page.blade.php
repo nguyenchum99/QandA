@@ -1,6 +1,6 @@
 
 
-<nav class="navbar navbar-inverse" style="background-color: #737373" >
+<nav class="navbar navbar-inverse" style="background-color:#e63900" >
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#" style="margin-left: 70px;color: #ffffff">Trang chủ</a>
@@ -11,14 +11,14 @@
           @if (Auth::check())
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff"
               role="button" aria-expanded="false" ><span class="glyphicon glyphicon-globe"></span> Thông báo 
               <span class="badge">20</span></a>
             </li>
             
             <li>          
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
-              role="button" aria-expanded="false" style="position: relative; padding-left: 50px;
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"  
+              role="button" aria-expanded="false" style="position: relative; padding-left: 50px;color: #ffffff
               " >
                 <img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" 
                 style="width:32px; height:32px; position: absolute; top:10px;left:10px; border-radius: 50%">

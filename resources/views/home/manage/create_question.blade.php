@@ -9,9 +9,9 @@
                 </center>
             </div>
             <div class="col-sm-7 right">
-                <p style="color: red;font-size: 18px;"><span class="fa fa-lock">
+                <p style="color: #e63900;font-size: 18px;"><span class="fa fa-lock">
                 </span>Phiên hỏi đáp: {{$session->name_session}}</p>
-                <p><span class="fa fa-history">
+                <p style="color: #e63900;"><span class="fa fa-history">
                 </span>Thời gian tạo:  {{ \Carbon\Carbon::createFromTimeStamp(strtotime($session->created_at))
                                     ->diffForHumans()}}</p>
             </div>
@@ -32,7 +32,7 @@
                     class="form-control" placeholder="..." ></textarea>
                 </div>
    
-                <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary"  style="background-color: #737373"/>
+                <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary"  style="background-color: #e63900"/>
             </form>
 
         </div>

@@ -3,7 +3,7 @@
 
 @section('content')
 
-        <div style ="width: 40%; padding-left: 30px">
+        <div style ="width: 40%; padding-left: 30px;color:#e63900">
             <h3><b>Tạo phiên hỏi đáp</b></h3>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)
@@ -33,7 +33,7 @@
                 </div>
 
                 <input type="submit" name="submit" value="Thêm mới" class="btn btn-primary" 
-                style="background-color: #737373;color:white"/>
+                style="background-color: #e63900;color:white"/>
             </form>
         </div>
     <div>

@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="main-right">
+<div class="main-right" style="color: #e63900">
     <h3><b>Danh sách phiên hỏi đáp đã đóng</b></h3>
     @if(session('thongbao'))
 
@@ -27,9 +27,9 @@
                             style="height: 75px;width:75px;margin-top:10px" >
                         </div>
                         <div class="col-sm-7 right" style="background-color: #ffffff"><a href="{{url("user/session/list_question/{$l->id}")}}" style="text-decoration: none;">
-                            <p class="title" style="color: red">Phiên hỏi đáp: {{$l->name_session}}</p>
-                            <p><font size="2" color="blue">Chủ tọa: {{$l->name}}</p>
-                            <p class="time">Đã đóng </p>
+                            <p class="title" style="color:  #e63900">Phiên hỏi đáp: {{$l->name_session}}</p>
+                            <p><font size="2" color=" #e63900">Chủ tọa: {{$l->name}}</p>
+                            <p >Đã đóng </p>
                             
                             </a>
                         </div>

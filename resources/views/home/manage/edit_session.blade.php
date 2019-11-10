@@ -1,7 +1,7 @@
 
 @extends('home.layouts.index_page')
 @section('content')
-        <div style ="width: 50%; margin-left:20px" >
+        <div style ="width: 50%; margin-left:20px;color: #e63900" >
             {{-- thông báo lỗi --}}
             @if(count($errors) > 0)
                 <div class="alert alert-danger">
@@ -21,7 +21,7 @@
             </div>
             @endif
 
-            <h2>Sửa tên phiên hỏi đáp</h2>
+            <h4><b>Sửa tên phiên hỏi đáp</b></h4>
             <form method="post" action="{{$session->id}}">
                 <div class="form-group">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>  
@@ -32,7 +32,7 @@
                     <input type="password" name="password" 
                     class="form-control" placeholder="Nhập mật khẩu phiên" value="{{$session->password_session}}"  />
                 </div>
-                <input type="submit" name="submit" value="Sửa" class="btn btn-primary" style="background-color: #737373" />
+                <input type="submit" name="submit" value="Sửa" class="btn btn-primary" style="background-color: #e63900" />
             </form>
         </div>
     <div>

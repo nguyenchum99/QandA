@@ -4,18 +4,18 @@
 
 
 <div class="main-right">
-    <h3><b>Câu hỏi trong phiên hỏi đáp mở</b></h3>
-    <h4 style="color:red"><b>Phiên hỏi đáp: {{$session ->name_session}}<b></h4>
+    <h3 style="color: #e63900"><b>Câu hỏi trong phiên hỏi đáp mở</b></h3>
+    <h4 style="color: #e63900ed"><b>Phiên hỏi đáp: {{$session ->name_session}}<b></h4>
 
     <form method="post" action="{{url("user/session/create_question/{$session->id}")}}">
-        <div class="form-group">
+        <div class="form-group" style="color:  #e63900">
 
             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
             <h4>Tạo câu hỏi</h4>    
             <textarea type="text" name="question" rows="3"
             class="form-control" placeholder="Nội dung câu hỏi..." ></textarea>
         </div>
-        <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary" style="background-color: #737373"/>
+        <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary" style="background-color: #e63900"/>
     </form>
 
         @foreach($list as $l)
@@ -29,9 +29,9 @@
                     
                     <div class="col-sm-7 right" style="background-color: #ffffff">
                         <p class="title" style="color:red">Câu hỏi: {{$l->question}} ?</p>
-                        <p><font size="2" color="blue">Đăng bởi: {{$l->name}}</p>
-                        <p><font size="2" color="blue">Phiên hỏi-đáp: {{$l->name_session}}</p>
-                        <p class="time">Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
+                        <p><font size="2" >Đăng bởi: {{$l->name}}</p>
+                        <p><font size="2" >Phiên hỏi-đáp: {{$l->name_session}}</p>
+                        <p >Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
                                 ->diffForHumans()
                             }}</p>
                     </div>

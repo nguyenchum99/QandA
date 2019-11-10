@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="main-right">
+<div class="main-right" style="color: #e63900">
     <h3><b>Danh sách phiên hỏi đáp đang mở</b></h3>
     @if(count($errors) > 0)
     <div class="alert alert-danger">
@@ -35,14 +35,14 @@
                         </div>
                         <div class="col-sm-7 right" style="background-color: #ffffff">
                             {{-- {{url("user/session/list_question_active/{$l->id}")}} --}}
-                            <p class="title" style="color: red">Phiên hỏi đáp: {{$l->name_session}}</p>
-                            <p><font size="2" color="blue">Chủ tọa: {{$l->name}}</p>
-                            <p class="time">Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
+                            <p class="title" style="color:  #e63900">Phiên hỏi đáp: {{$l->name_session}}</p>
+                            <p><font size="2" color=" #e63900">Chủ tọa: {{$l->name}}</p>
+                            <p >Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
                                 ->diffForHumans() }}</p>
                             <form action="{{url("user/session/check_password/{$l->id}")}}" method="POST" data-remote="true">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <input type="password"  placeholder="Nhập mật khẩu phiên..." name="password" style="height: 32px">
-                                <input type="submit" class="btn btn-primary" style="background-color: #737373" value="Xác nhận">       
+                                <input type="submit" class="btn btn-primary" style="background-color:  #e63900" value="Xác nhận">       
                             </form>
                         </div>
                     </div>

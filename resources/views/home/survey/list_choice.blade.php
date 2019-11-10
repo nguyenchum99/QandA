@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="top" >
-        <div class="form-group" style="margin-left: 20px"> 
+        <div class="form-group" style="margin-left: 20px;color: #e63900"> 
             
                 <h3 ><b>Câu hỏi khảo sát</b></h3>
                 @if(session('thongbao'))
@@ -36,7 +36,7 @@
                                     </label>
                                 </div>
                             @endforeach
-                            <input type="submit"  value="Trả lời"   style="background-color: #737373; margin-left:35px;" class="btn btn-primary"/>
+                            <input type="submit"  value="Trả lời"   style="background-color:  #e63900; margin-left:35px;" class="btn btn-primary"/>
                         </form>   
                 </div>
             </div>

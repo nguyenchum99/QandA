@@ -3,8 +3,8 @@
 @section('content')
 
 
-<div class="main-right">
-    <h3><b>Phiên hỏi đáp của tôi</b></h3>
+<div class="main-right" >
+    <h3 style="color:#e63900"><b>Phiên hỏi đáp của tôi</b></h3>
     @if(session('thongbao'))
 
     <div class="alert alert-success">
@@ -28,14 +28,14 @@
                         <p class="title" style="color: red">Phiên hỏi đáp: {{$l ->name_session}}</p>
                             <form action="{{url("user/manage/open_close/{$l->id}")}}" method="post">          
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                <select id ="select" name="option" value="{{$l->active}}" style="height: 28px" >
+                                <select id ="select" name="option" value="{{$l->active}}"  class="btn btn-primary" style="background-color: #ffffff;color:#000000">
                                     <option {{old('option',$l->active)=="1"? 'selected':''}} value="1">Mở</option>
                                     <option {{old('option',$l->active)=="0"? 'selected':''}} value="0" >Đóng</option>
                                 </select>
-                                <input type="submit" name="submit" value="Thay đổi" 
+                                <input type="submit" name="submit" value="Thay đổi" style="background-color: #e63900"  class="btn btn-primary"
                                 onclick="return xacnhanxoa('Bạn có chắc muốn thay đổi trạng thái phiên hay không?')">
                             </form>
-                        <div style="margin-top:10px;">
+                        <div style="margin-top:10px;color:#e63900">
                             <a href="{{url("user/manage/edit/{$l->id}")}}">Sửa phiên</a>
                             <a href="{{url("user/manage/delete/{$l->id}")}}" onclick="return xacnhanxoa('Bạn có chắc muốn xóa trạng thái phiên hay không?')"
                                 style="margin-left: 10px;">Xóa phiên</a>

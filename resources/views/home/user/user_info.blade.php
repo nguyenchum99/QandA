@@ -11,13 +11,12 @@
             </center>
         </div>
         
-        <div class="col-sm-5 right" >
-            <span class="fa fa-user name" ></span>
-            <p class="name"> {{$user->name}}</p>
+        <div class="col-sm-5 right" style="color:#e63900">
+            <span class="fa fa-user name" style="color:#e63900"></span>
+            <p class="name" style="color:#e63900"> {{$user->name}}</p>
             
             <span class="fa fa-graduation-cap" ></span>
             <p class="number">
-
                 @if($user->level == 1)
                     {{"Chức vụ: Quản trị viên"}}
                 @else 

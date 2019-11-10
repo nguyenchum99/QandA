@@ -3,9 +3,9 @@
 
 <div class="top">
         <div class="main-right">
-            <div class="form-group" style="margin-left: 30x">
-                <h3>Danh sách câu trả lời </h3>
-                <p style="color: red;font-size: 18px;">
+            <div class="form-group" style="margin-left: 30x;color:  #e63900">
+                <h3><b>Danh sách câu trả lời </b></h3>
+                <p style="color:  #e63900;font-size: 16px;">
                 Câu hỏi: {{$question->question}}?</p>
                 <p>Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($question->created_at))
                                 ->diffForHumans()
@@ -28,7 +28,7 @@
                     class="form-control" placeholder="Nội dung câu trả lời..." ></textarea>
                 </div>
    
-                <input type="submit" name="submit" value="Trả lời" class="btn btn-primary" style="background-color: #737373"/>
+                <input type="submit" name="submit" value="Trả lời" class="btn btn-primary" style="background-color:  #e63900"/>
             </form>
 
         </div>

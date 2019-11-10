@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="top" >
-        <div class="form-group" style="margin-left: 20px"> 
+        <div class="form-group" style="margin-left: 20px;color: #e63900"> 
             
                 <h3><b>Khảo sát </b></h3>
                 @if(session('thongbao'))
@@ -22,8 +22,8 @@
                 <div class="content" style="background-color: #ffffff;border-radius: 10px">
                     {{-- hiện thị nội dung câu hỏi --}}
                         <div class="form-group" >
-                            <p class="title" style="color:red;">Câu hỏi có/không: {{$l->question}} ?</p>
-                            <p style="color:blue">Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
+                            <p class="title" style="color: #e63900;">Câu hỏi có/không: {{$l->question}} ?</p>
+                            <p style="color: #e63900">Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
                                 ->diffForHumans()}}</p>
                         </div>
                         <form action="{{url("user/survey/yes_no/{$l->id}")}}" method="post">
@@ -36,7 +36,7 @@
                                         <input name="answer" value="1" type="radio"> Có
                                     </label>
                                     <input type="submit"  value="Trả lời"  
-                                    style="background-color: #737373; margin-left:10px;" class="btn btn-primary"/>
+                                    style="background-color: #e63900; margin-left:10px;" class="btn btn-primary"/>
                                 </div>
                         </form>
                 </div>
