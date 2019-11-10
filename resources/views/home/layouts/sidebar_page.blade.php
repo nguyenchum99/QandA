@@ -23,7 +23,7 @@
             <a href="{{url("user/session/list_session_active")}}" 
             class="w3-bar-item w3-button" style="text-decoration: none;">Phiên hỏi đáp hoạt động</a>
             <a href="{{url("user/session/list_session_close")}}" class="w3-bar-item w3-button" style="text-decoration: none;">Phiên hỏi đáp đã đóng</a> 
-            <a href="{{url("user/page/listquestion")}}" class="w3-bar-item w3-button" style="text-decoration: none;">Tất cả câu hỏi</a>
+            {{-- <a href="{{url("user/page/listquestion")}}" class="w3-bar-item w3-button" style="text-decoration: none;">Tất cả câu hỏi</a> --}}
 
             
     </div>

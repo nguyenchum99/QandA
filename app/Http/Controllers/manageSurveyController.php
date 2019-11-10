@@ -135,4 +135,34 @@ class manageSurveyController extends Controller
     }
 
     
+    //sửa phiên
+    public function getEditYesNo($id){
+        $question = Question_YesNo::find($id);
+
+        return view('admin.question.edit_yesno',['question'=>$question]);
+    }
+
+    public function postEditYesNo(Request $request, $id){
+
+        $question = Question_YesNo::find($id);
+
+        // check điều kiện
+        $this -> validate($request,
+
+            [
+                'question' => 'required|min:3|max:100'
+            ],
+            [
+                'question.required'=> 'Bạn chưa nhập tên câu hỏi',
+                'question.min' => 'Câu hỏi có ít nhất 3 kí tự',
+                'question.max' => 'Câu hỏi có nhiều nhất 100 kí tự'
+            ]
+        
+        );
+
+        $question -> question = $request -> question;
+        $question -> save();
+
+        return redirect('admin/question/edit_yesno/'.$id) -> with('thongbao','Sửa thành công');
+    }
 }
