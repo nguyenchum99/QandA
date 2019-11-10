@@ -4,13 +4,14 @@
 
 <div class="top">
         <div class="row"> 
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <img src="{{URL::asset('/img/q-and-a.jpg')}}">
+            <div class="left col-sm-3"><center>
+                <img src="{{URL::asset('/img/q-and-a.jpg')}}" style="height:60%; width:60%;">
+                </center>
             </div>
-            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            <div class="col-sm-7 right">
                 <p style="color: red;font-size: 18px;"><span class="fa fa-lock">
                 </span>Phiên hỏi đáp: {{$session->name_session}}</p>
-                <p><span class="fa fa-lock">
+                <p><span class="fa fa-history">
                 </span>Thời gian tạo:  {{ \Carbon\Carbon::createFromTimeStamp(strtotime($session->created_at))
                                     ->diffForHumans()}}</p>
             </div>
@@ -20,18 +21,18 @@
 <div class="botton">
    
     <div class="main-right">
-        <div class="content">
+        <div class="content" style="background-color: #ebebe0">
             {{-- hiện thị nội dung câu hỏi --}}
 
             <form method="post" action="{{$session->id}}">
-                <div class="form-group">
+                <div class="form-group" >
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                     <h4>Nhập nội dung câu hỏi</h4>    
                     <textarea type="text" name="question" rows="3"
-                    class="form-control" placeholder="Nội dung câu hỏi" ></textarea>
+                    class="form-control" placeholder="..." ></textarea>
                 </div>
    
-                <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary" />
+                <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary"  style="background-color: #737373"/>
             </form>
 
         </div>

@@ -4,7 +4,7 @@
 @section('content')
 
         <div style ="width: 40%; padding-left: 30px">
-            <h2>Tạo phiên hỏi đáp</h2>
+            <h3><b>Tạo phiên hỏi đáp</b></h3>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)
              <div class="alert alert-danger">
@@ -32,7 +32,8 @@
                     <input type="password" name="password" class="form-control" placeholder="Mật khẩu"  />
                 </div>
 
-                <input type="submit" name="submit" value="Thêm mới" class="btn btn-primary" />
+                <input type="submit" name="submit" value="Thêm mới" class="btn btn-primary" 
+                style="background-color: #737373;color:white"/>
             </form>
         </div>
     <div>

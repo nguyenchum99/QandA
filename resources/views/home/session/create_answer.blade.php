@@ -2,11 +2,11 @@
 @section('content')
 
 <div class="top">
-        <div class="row"> 
-            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <div class="main-right">
+            <div class="form-group" style="margin-left: 30x">
                 <h3>Danh sách câu trả lời </h3>
                 <p style="color: red;font-size: 18px;">
-                Câu hỏi: {{$question->question}}</p>
+                Câu hỏi: {{$question->question}}?</p>
                 <p>Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($question->created_at))
                                 ->diffForHumans()
                             }}</p>
@@ -28,7 +28,7 @@
                     class="form-control" placeholder="Nội dung câu trả lời..." ></textarea>
                 </div>
    
-                <input type="submit" name="submit" value="Trả lời" class="btn btn-primary" />
+                <input type="submit" name="submit" value="Trả lời" class="btn btn-primary" style="background-color: #737373"/>
             </form>
 
         </div>
@@ -41,17 +41,21 @@
             <div class="main-right">
                 <div class="content" style="background-color: #ffffff">
                     {{-- hiện thị nội dung câu hỏi --}}
-                        <div class="form-group">
+                        <div class="row">
+                            <div class="left col-sm-2">
                             <img src="{{URL::asset('/img/avatars/'.$l->avatar)}}" alt="image"
-                            style="height: 75px;width:75px;margin-top:10px" >
+                            style="height:70px;width:70px;margin-top:10px" ></div>
+                            <div class="col-sm-7 right" style="background-color: #ffffff">
+                            <p class="title" style="color:red;">Trả lời: {{$l->answer}}</p>
                             <p>Đăng bởi: {{$l->name}}</p>
                             <p>Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
                                     ->diffForHumans()}}</p>
-                            <p>Trả lời: {{$l->answer}}</p>
+
+                            </div>
                         </div>
                 </div>
             </div>
-
+        </div>
     @endforeach
 
 @endsection

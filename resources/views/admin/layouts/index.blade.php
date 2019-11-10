@@ -40,7 +40,7 @@
     </div>
 
     <div class="main">
-        <div class="container">
+        <div class="container" >
             <div class="row">
                 <div class="left col-sm-3">
                     

@@ -4,7 +4,7 @@
 
 
 <div class="main-right">
-    <h2>Phiên hỏi đáp của tôi</h2>
+    <h3><b>Phiên hỏi đáp của tôi</b></h3>
     @if(session('thongbao'))
 
     <div class="alert alert-success">
@@ -19,26 +19,28 @@
 
              {{-- hiện thị thành công --}}
                 <div class="row">  
-                    <div class="col-md-2">
+                    <div class="left col-sm-2" ><center>
                         <img src="{{URL::asset('/img/avatars/'.$l->avatar)}}" alt="image"
-                         style="height: 75px;width:75px;margin-top:10px" >
+                         style="height: 75px;width:75px;border-radius:50%;margin-top: 10px" >
+                         </center>
                     </div>
-                    <div class="col-md-10 box-right">
+                    <div class="col-sm-7 right" style="background-color: #ffffff">
                         <p class="title" style="color: red">Phiên hỏi đáp: {{$l ->name_session}}</p>
-                        <p>Trạng thái phiên hoạt động: 
                             <form action="{{url("user/manage/open_close/{$l->id}")}}" method="post">          
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                <select id ="select" name="option" value="{{$l->active}}" >
+                                <select id ="select" name="option" value="{{$l->active}}" style="height: 28px" >
                                     <option {{old('option',$l->active)=="1"? 'selected':''}} value="1">Mở</option>
                                     <option {{old('option',$l->active)=="0"? 'selected':''}} value="0" >Đóng</option>
                                 </select>
                                 <input type="submit" name="submit" value="Thay đổi" 
                                 onclick="return xacnhanxoa('Bạn có chắc muốn thay đổi trạng thái phiên hay không?')">
                             </form>
-                        </p>
-                        <p><a href="{{url("user/manage/edit/{$l->id}")}}" >Sửa phiên</a></p>
-                        <p><a href="{{url("user/manage/delete/{$l->id}")}}" >Xóa phiên</a></p>
-                        <p><a href="{{url("user/manage/create_question/{$l->id}")}}" >Tạo câu hỏi</a></p>
+                        <div style="margin-top:10px;">
+                            <a href="{{url("user/manage/edit/{$l->id}")}}">Sửa phiên</a>
+                            <a href="{{url("user/manage/delete/{$l->id}")}}" onclick="return xacnhanxoa('Bạn có chắc muốn xóa trạng thái phiên hay không?')"
+                                style="margin-left: 10px;">Xóa phiên</a>
+                            <a href="{{url("user/manage/create_question/{$l->id}")}}" style="margin-left: 10px;">Tạo câu hỏi</a>
+                        </div>
                     </div>
                 </div>
         </div>

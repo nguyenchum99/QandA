@@ -5,13 +5,13 @@
 
     <div class="row">
                             
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding-left: 30px">
+        <div class="left col-sm-4" >
             <center>
                 <img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" alt="avatar">
             </center>
         </div>
         
-        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+        <div class="col-sm-5 right" >
             <span class="fa fa-user name" ></span>
             <p class="name"> {{$user->name}}</p>
             

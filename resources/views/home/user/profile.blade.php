@@ -2,8 +2,9 @@
 @extends('home.layouts.index_page')
 @section('content')
 
-	<div class="container">
+	<div class="container" style="width: 90%">
 		<div class="row">
+			<div style="width: 60%">
 				@if(count($errors) > 0)
 			<div class="alert alert-danger">
 			
@@ -21,18 +22,17 @@
 			 </div>
 
 		 @endif
-
+			</div>
 			<div class="col-sm-9 right ">
-				<img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" style="width:160px; height: 160px; float: left; border-radius:50%; margin-right:25px;">
-				<h2> Hồ sơ cá nhân  </h2>
+				<img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" 
+				style="width:160px; height: 160px; float: left; border-radius:50%; margin-right:25px;">
 				<form enctype="multipart/form-data" action="" method="post">
-				    <label>Thay ảnh đại diện</label>
 					<input type="file" name="avatar" id="avatar" value="Tải ảnh lên">
 					<input type="hidden" name="_token" value="{{csrf_token()}}"></br>
-					<input type="submit" class="pull-right btn btn-sm btn-primary" value="Lưu">
+					<input type="submit" class="btn btn-primary" value="Lưu" style="background-color: #737373">
 				</form>
 			</div>
 		</div>
 	</div>
-
+</div>
 @endsection

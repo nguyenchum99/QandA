@@ -24,13 +24,15 @@
             <h2>Sửa tên phiên hỏi đáp</h2>
             <form method="post" action="{{$session->id}}">
                 <div class="form-group">
-                    <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
+                    <input type="hidden" name="_token" value="{{csrf_token()}}"/>  
+                    <label>Tên phiên</label> 
                     <input type="text" name="session" 
-                    class="form-control" placeholder="Sửa phiên" value="{{$session->name_session}}"  />
+                    class="form-control" placeholder="Nhập tên phiên" value="{{$session->name_session}}"  />
+                    <label>Mật khẩu phiên</label>
                     <input type="password" name="password" 
-                    class="form-control" placeholder="" value="{{$session->password_session}}"  />
+                    class="form-control" placeholder="Nhập mật khẩu phiên" value="{{$session->password_session}}"  />
                 </div>
-                <input type="submit" name="submit" value="Sửa" class="btn btn-primary" />
+                <input type="submit" name="submit" value="Sửa" class="btn btn-primary" style="background-color: #737373" />
             </form>
         </div>
     <div>

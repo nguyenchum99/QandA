@@ -86,12 +86,10 @@ background: #dddddd;
         <div class="container-fluid">
             <div class="row">
                 
-                <div class="left col-sm-2" style="margin-left: 80px">
+                <div class="left col-sm-2" >
                     @include('home.layouts.sidebar_page')
                 </div>
-
-
-                <div class="col-sm-8 right" style="margin-left:25px">
+                <div class="col-sm-7 right" style="margin-left:140px;">
 
                     @yield('content')
                     
@@ -110,7 +108,7 @@ background: #dddddd;
         }
         return false;
     }
-    $("div.alert").delay(3000).slideUp();
+    $("div.alert").delay(1000).slideUp();
 </script>
 
 

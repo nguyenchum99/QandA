@@ -4,7 +4,7 @@
 @section('content')
 <div class="row">
     
-            <h2>Thay đổi thông tin </h2>
+            <h3 style="margin-left: 25px;"><b>Thay đổi thông tin </b></h3>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)
              <div class="alert alert-danger">
@@ -16,15 +16,15 @@
              </div>
           @endif
 
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding-left: 30px">
+            <div class="left col-sm-4" style="margin-top:40px">
                 <center>
                     <img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" alt="avatar">
                     <a href="{{url("user/profile")}}">
-                    <input type="submit" class="btn nut" value="Thay ảnh đại diện" style="background-color: #365899;color:white">
+                    <input type="submit" class="btn nut" value="Thay ảnh đại diện" style="background-color: #737373;color:white">
                     </a>
                 </center>
             </div>
-            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <div class="col-sm-5 right">
                 <form method="post" action="{{$user->id}}">
 
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
@@ -49,7 +49,7 @@
                         <input type="email" name="email" class="form-control" placeholder="Email" value="{{$user->email}}"  readonly=""/>
                     </div>
 
-                    <input type="submit" name="submit" value="Lưu" class="btn btn-primary" />
+                    <input type="submit" name="submit" value="Lưu" class="btn btn-primary" style="background-color: #737373;color:white"/>
                 </form>
             </div>
  

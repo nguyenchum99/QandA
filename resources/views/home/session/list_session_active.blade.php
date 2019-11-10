@@ -4,7 +4,7 @@
 
 
 <div class="main-right">
-    <h2>Danh sách phiên hỏi đáp đang mở</h2>
+    <h3><b>Danh sách phiên hỏi đáp đang mở</b></h3>
     @if(count($errors) > 0)
     <div class="alert alert-danger">
         
@@ -29,20 +29,20 @@
 
                 {{-- hiện thị thành công --}}
                     <div class="row">  
-                        <div class="col-md-2">
+                        <div class="left col-sm-2">
                             <img src="{{URL::asset('/img/avatars/'.$l->avatar)}}" alt="image"
-                         style="height: 75px;width:75px;margin-top:10px" >
+                         style="height: 75px;width:75px;margin-top:10px;border-radius: 50%" >
                         </div>
-                        <div class="col-md-10 box-right">
+                        <div class="col-sm-7 right" style="background-color: #ffffff">
                             {{-- {{url("user/session/list_question_active/{$l->id}")}} --}}
                             <p class="title" style="color: red">Phiên hỏi đáp: {{$l->name_session}}</p>
-                            <p>Chủ tọa: {{$l->name}}</p>
-                            <p>Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
+                            <p><font size="2" color="blue">Chủ tọa: {{$l->name}}</p>
+                            <p class="time">Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
                                 ->diffForHumans() }}</p>
                             <form action="{{url("user/session/check_password/{$l->id}")}}" method="POST" data-remote="true">
                                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                <input type="password"  placeholder="Nhập mật khẩu phiên..." name="password">
-                                <input type="submit" class="btn btn-default" data-dismiss="modal" value="Xác nhận">       
+                                <input type="password"  placeholder="Nhập mật khẩu phiên..." name="password" style="height: 32px">
+                                <input type="submit" class="btn btn-primary" style="background-color: #737373" value="Xác nhận">       
                             </form>
                         </div>
                     </div>
