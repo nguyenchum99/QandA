@@ -172,12 +172,15 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
     Route::group(['prefix' => 'survey'], function () {
 
         Route::get('survey_page','surveyUser@getSurvey');
+
         Route::post('yes_no/{id}','surveyUser@postAnswerYesNo');
 
         Route::get('list_choice/{id}','surveyUser@getListQuestionChoice');
 
         Route::post('choice/{id}','surveyUser@postChoice');
 
+        Route::get('list_opinion/{id}','surveyUser@getOpinion');
+        Route::post('opinion/{id}','surveyUser@postOpinion');
     });
 
 });

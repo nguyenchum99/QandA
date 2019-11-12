@@ -59,4 +59,19 @@
     </div>
  @endforeach
 
+
+ @foreach($opinion as $o)
+    <div class="botton" ><a href="{{url("user/survey/list_opinion/{$o->id}")}}"  style="text-decoration: none;">
+            <div class="main-right">
+                <div class="content" style="background-color: #ffffff;border-radius: 10px">
+                    {{-- hiện thị nội dung câu hỏi --}}
+                         <div class="form-group" >
+                            <p  class="title" style="color:red;">Lấy ý kiến: {{$o->question}}</p>
+                        </div>
+                </div>
+            </div>
+        </a>
+    </div>
+ @endforeach
+
 @endsection

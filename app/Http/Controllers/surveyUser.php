@@ -13,6 +13,10 @@ use App\QuestionSurvey;
 use App\QuestionChoice;
 use App\UserResponse;
 
+use App\Survey;
+use App\Choice;
+use App\Response;
+
 use App\User;
 use Carbon\Carbon;
 use DB;
@@ -24,16 +28,22 @@ class surveyUser extends Controller
     //
 
     public function getSurvey(){
+
         Carbon::setLocale('vi');
-        $question['list_question'] = DB::table('questions_yesno')
+        $list_question = DB::table('questions_yesno')
         ->select('questions_yesno.question','questions_yesno.created_at','questions_yesno.id')
         ->get();
 
-        $ques_choice['ques_choice'] = DB::table('question_survey')
+        $ques_choice = DB::table('question_survey')
         ->select('question_survey.id','question_survey.question')
         ->get();
 
-        return view('home.survey.survey',$question,$ques_choice);
+        $opinion= DB::table('survey')
+        ->select('survey.id','survey.question')
+        ->get();
+       
+      
+        return view('home.survey.survey')->with(compact('list_question', 'ques_choice','opinion'));
     }
 
     public function postAnswerYesNo(Request $request,$id){
@@ -80,4 +90,33 @@ class surveyUser extends Controller
    }
 
  
+   public function getOpinion($id){
+       
+        $question = Survey::find($id);
+
+        $list = DB::table('choice')
+        
+        ->where('choice.question_id',$id)
+        ->get();
+
+        return view('home.survey.opinion')->with(compact('question','list'));
+   }
+
+   public function postOpinion(Request $request,$id){
+
+        $choice = Choice::where('question_id','$id')->select('id') ->get()->toArray();
+        $choice = $choice ->id;
+        
+        foreach($choice as $c){
+            $answer = new Response;
+            $answer ->question_choice = (int)$c;    
+            $answer ->user_id = Auth::user()->id;
+            $answer ->answer = $request->answer[(int)$c];    
+            $answer->save();
+
+          
+        }
+
+        return redirect('user/survey/survey_page') -> with('thongbao','Trả lời thành công');
+   }
 }
