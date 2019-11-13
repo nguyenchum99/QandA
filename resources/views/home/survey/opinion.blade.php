@@ -35,25 +35,27 @@
 
                         
                             <form action="{{url("user/survey/opinion/{$question->id}")}}" method="post">
-                                @foreach($list as $l )
+                               
+                                @foreach($list as $list )
                                 <div  class="form-group">
-                                <p>{{$l->choice}}</p>
-                                <input type="hidden" name="_token" value="{{csrf_token()}}"/> 
-                                    <div class="form-group" style="margin-left:35px">
+                                <p>{{$list->choice}}</p>
+                                <input type="hidden" name="_token" value="{{csrf_token()}}"     /> 
+                               
+                                    <div class="form-group" style="margin-left:35px"> 
                                             <label class="radio-inline">
-                                                <input name="answer[{{$l->id}}]" value="1" type="radio" checked=""> 1
+                                                <input name="answer[{{$list->id}}]" value="1" type="radio" checked=""> 1
                                             </label>
                                             <label class="radio-inline">
-                                                <input name="answer[{{$l->id}}]" value="2" type="radio"  > 2
+                                                <input name="answer[{{$list->id}}]" value="2" type="radio"  > 2
                                             </label>
                                             <label class="radio-inline">
-                                                <input name="answer[{{$l->id}}]" value="3"  type="radio"  > 3
+                                                <input name="answer[{{$list->id}}]" value="3"  type="radio"  > 3
                                             </label>
                                             <label class="radio-inline">
-                                                <input name="answer[{{$l->id}}]" value="4" type="radio" > 4
+                                                <input name="answer[{{$list->id}}]" value="4" type="radio" > 4
                                             </label>
                                             <label class="radio-inline">
-                                                <input name="answer[{{$l->id}}]" value="5"  type="radio"  > 5
+                                                <input name="answer[{{$list->id}}]" value="5"  type="radio"  > 5
                                             </label>
                                     </div>
                                 @endforeach                                           

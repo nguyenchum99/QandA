@@ -21,6 +21,8 @@ use App\User;
 use Carbon\Carbon;
 use DB;
 
+use \stdClass;
+
 use Illuminate\Support\Facades\Auth;
 
 class surveyUser extends Controller
@@ -104,19 +106,17 @@ class surveyUser extends Controller
 
    public function postOpinion(Request $request,$id){
 
-        $choice = Choice::where('question_id','$id')->select('id') ->get()->toArray();
-        $choice = $choice ->id;
-        
+        $choice = DB::table('choice')->where('choice.question_id',$id)
+        ->pluck('id');   
+     
         foreach($choice as $c){
             $answer = new Response;
-            $answer ->question_choice = (int)$c;    
+            $answer ->question_choice = (int) $c;    
             $answer ->user_id = Auth::user()->id;
             $answer ->answer = $request->answer[(int)$c];    
             $answer->save();
-
-          
         }
-
+    
         return redirect('user/survey/survey_page') -> with('thongbao','Trả lời thành công');
    }
 }
