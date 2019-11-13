@@ -23,14 +23,16 @@
 
 		 @endif
 			</div>
-			<div class="col-sm-9 right ">
+			<div class="col-sm-9 right ">	
 				<img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" 
-				style="width:160px; height: 160px; float: left; border-radius:50%; margin-right:25px;">
-				<form enctype="multipart/form-data" action="" method="post">
+				style="width:160px; height: 160px; float: left; border-radius:50%; margin-right:25px">
+				<div class="form-group" style="padding: 20px">
+				<form enctype="multipart/form-data" action="" method="post" >
 					<input type="file" name="avatar" id="avatar" value="Tải ảnh lên">
 					<input type="hidden" name="_token" value="{{csrf_token()}}"></br>
-					<input type="submit" class="btn btn-primary" value="Lưu" style="background-color: #737373">
+					<input type="submit" class="btn btn-primary" value="Lưu" >
 				</form>
+			</div>
 			</div>
 		</div>
 	</div>

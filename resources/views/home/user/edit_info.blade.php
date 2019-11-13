@@ -7,7 +7,7 @@
             <h3 style="margin-left: 25px;color:#e63900"><b>Thay đổi thông tin </b></h3>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)
-             <div class="alert alert-danger">
+             <div class="alert alert-danger" style="width: 50%;margin-left: 10px">
              
                  @foreach ($errors -> all() as $err)
                      {{$err}}<br>

@@ -7,7 +7,8 @@
                             
         <div class="left col-sm-4" >
             <center>
-                <img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" alt="avatar">
+                <img src="{{URL::asset('/img/avatars/'.Auth::user()->avatar)}}" alt="avatar"
+                style="width:160px; height: 160px;border-radius: 50%;margin-top: 15px">
             </center>
         </div>
         

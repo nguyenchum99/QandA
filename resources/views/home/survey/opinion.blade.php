@@ -4,7 +4,7 @@
 <div class="top" >
         <div class="form-group" style="margin-left: 20px;color: #e63900"> 
             
-                <h3 ><b>Câu hỏi khảo sát</b></h3>
+                <h3 ><b>Phiếu lấy ý kiến phản hồi</b></h3>
                 <h5> Đề nghị cho biết ý kiến đánh giá của bạn bằng cách Tích chọn vào 
                      giá trị tương ứng (1..5)
                      về từng vấn đề trong quá trình tham gia khảo sát này.
@@ -28,7 +28,7 @@
                 <div class="content" style="background-color: #ffffff;border-radius: 10px">
                     {{-- hiện thị nội dung câu hỏi --}}
                         <div class="form-group" >
-                            <p class="title" style="color:red;">Câu hỏi: {{$question->question}}</p>
+                            <p class="title" style="color:red;">{{$question->question}}</p>
                         </div>
                     
                        

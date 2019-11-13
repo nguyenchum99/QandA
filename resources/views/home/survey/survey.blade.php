@@ -22,9 +22,8 @@
                 <div class="content" style="background-color: #ffffff;border-radius: 10px">
                     {{-- hiện thị nội dung câu hỏi --}}
                         <div class="form-group" >
-                            <p class="title" style="color: #e63900;">Câu hỏi có/không: {{$l->question}} ?</p>
-                            <p style="color: #e63900">Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
-                                ->diffForHumans()}}</p>
+                            <p class="title">Câu hỏi có/không:</p>
+                            <p class="title" style="color: #e63900;"> {{$l->question}} ?</p>
                         </div>
                         <form action="{{url("user/survey/yes_no/{$l->id}")}}" method="post">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/> 
@@ -51,7 +50,8 @@
                 <div class="content" style="background-color: #ffffff;border-radius: 10px">
                     {{-- hiện thị nội dung câu hỏi --}}
                         <div class="form-group" >
-                            <p  class="title" style="color:red;">Câu hỏi lựa chọn: {{$l->question}} ?</p>
+                                <p class="title">Câu hỏi lựa chọn: <p>
+                            <p  class="title" style="color:red;">{{$l->question}} ?</p>
                         </div>
                 </div>
             </div>
@@ -66,7 +66,8 @@
                 <div class="content" style="background-color: #ffffff;border-radius: 10px">
                     {{-- hiện thị nội dung câu hỏi --}}
                          <div class="form-group" >
-                            <p  class="title" style="color:red;">Lấy ý kiến: {{$o->question}}</p>
+                            <p class="title">Phiếu lấy ý kiến phản hồi:</p>
+                            <p  class="title" style="color:red;">{{$o->question}}</p>
                         </div>
                 </div>
             </div>
