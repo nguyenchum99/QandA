@@ -20,7 +20,7 @@
 
 <div class="botton">
    
-    <div class="main-right">
+    
         <div class="content" style="background-color: #ebebe0">
             {{-- hiện thị nội dung câu hỏi --}}
 
@@ -31,11 +31,10 @@
                     <textarea type="text" name="question" rows="3"
                     class="form-control" placeholder="..." ></textarea>
                 </div>
-   
                 <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary"  style="background-color: #e63900"/>
             </form>
 
-        </div>
+      
     </div>
 
 

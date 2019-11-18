@@ -38,15 +38,20 @@ ul .slide:hover #menu{
 .list-group {
     margin-bottom: 0;
 }
+
 .right{
-background: #dddddd;
+    background-color: #f2f2f2;
     padding: 13px;
 }
 
-.right span{float: left; padding:3.5px 10px 0 0}
-        .right img{width: 200px;}
-        .name{font-size:20px; color: blue;}
-        .nut{    width: 200px;
+.right span{
+    float: left;
+     padding:3.5px 10px 0 0;
+            
+    }
+.right img{width: 200px;}
+.name{font-size:20px; color: blue;}
+ .nut{    width: 200px;
             margin: 15px 0;}
 
 .top{padding-bottom: 60px}
@@ -87,7 +92,7 @@ background: #dddddd;
         <div class="container-fluid">
             <div class="row">
                 
-                <div class="left col-sm-2" >
+                <div class="left col-sm-2" style="background-color: #f2f2f2;" >
                     @include('home.layouts.sidebar_page')
                 </div>
                 <div class="col-sm-7 right" style="margin-left:140px;">

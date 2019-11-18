@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="main-right" style="color: #e63900">
+<div class="content" style="color: #e63900">
     <h3><b>Câu hỏi trong phiên đã đóng</b></h3>
   
         @foreach($list as $l)
@@ -26,11 +26,7 @@
                 </div>
             </a>
         </div>
-
-        @endforeach
-
-       
-       
+@endforeach    
 </div>
 
 @endsection

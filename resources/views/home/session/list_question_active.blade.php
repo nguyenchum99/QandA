@@ -20,14 +20,14 @@
 
         @foreach($list as $l)
 
-        <div class="box"  style="margin-top: 15px;"><a href="{{url("user/session/create_answer/{$l->id}")}}">
+        <div class="content"  style="margin-top: 15px;background: #ffffff"><a href="{{url("user/session/create_answer/{$l->id}")}}">
                 <div class="row">  
-                    <div class="left col-sm-2"><center>
+                    <div class="col-sm-2"><center>
                         <img src="{{URL::asset('/img/avatars/'.$l->avatar)}}" alt="image"
-                        style="height: 75px;width:75px;margin-top:10px" ></center>
-                    </div>
+                        style="height: 75px;width:75px;margin-top:10px" >
+                    </div></center>
                     
-                    <div class="col-sm-7 right" style="background-color: #ffffff">
+                    <div class="col-sm-7" >
                         <p class="title" style="color:red">Câu hỏi: {{$l->question}} ?</p>
                         <p><font size="2" >Đăng bởi: {{$l->name}}</p>
                         <p><font size="2" >Phiên hỏi-đáp: {{$l->name_session}}</p>
