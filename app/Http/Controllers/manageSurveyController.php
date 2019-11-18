@@ -27,14 +27,22 @@ class manageSurveyController extends Controller
     //hiển thị câu hỏi khảo sát có không
     public function getListSurveyYesNo(){
 
-        $list1['ques_yesno'] = DB::table('questions_yesno')->paginate(10);
+        $list1 = DB::table('questions_yesno')->paginate(10);
 
-        // $list2['choices'] = DB::table('question_choice') ->paginate(2);
-        // ->join('question_survey','question_choice.question_id','=','question_survey.id')
-        // ->select('question_choice.choice',
-        // 'question_survey.question','question_survey.id','question_survey.user_id')
-        // ->get();
-        return view('admin.question.list_survey',$list1);
+        $test = DB::table('questions_yesno')->pluck('id');
+
+        
+        foreach($test as $t){
+            $list = DB::table('answers_yesno')
+            ->where('question_id',$t)
+            ->where('answer',0)
+            ->get()
+            ->count();
+
+        }
+       
+
+        return view('admin.question.list_survey',['ques_yesno'=>$list1,'list'=>$list]);
     }
 
     //tạo câu hỏi khảo sát có không
@@ -170,9 +178,18 @@ class manageSurveyController extends Controller
         return redirect('admin/question/edit_yesno/'.$id) -> with('thongbao','Sửa thành công');
     }
 
-    public function getLayoutOpinion(){
-        return view('admin.question.create_opinion');
+    public function getLayoutOpinion(Request $request){
+        $number = $request->input('number');
+        return view('admin.question.create_opinion',['number'=>$number]);
+
     }
+
+    public function postNumber(Request $request){
+        $number = $request->input('number');
+        return redirect('admin/question/layout_opinion');
+    }
+   
+
 
     public function postCreateOpinion(Request $request){
         $this->validate($request,

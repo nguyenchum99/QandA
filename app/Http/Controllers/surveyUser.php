@@ -29,6 +29,8 @@ class surveyUser extends Controller
 {
     //
 
+
+    //hiển thị khảo sát
     public function getSurvey(){
 
         Carbon::setLocale('vi');
@@ -48,6 +50,8 @@ class surveyUser extends Controller
         return view('home.survey.survey')->with(compact('list_question', 'ques_choice','opinion'));
     }
 
+
+    //trả lời câu hỏi khảo sát có không
     public function postAnswerYesNo(Request $request,$id){
 
             // $check = Answer_YesNo::find(4);
@@ -67,6 +71,8 @@ class surveyUser extends Controller
     }
 
 
+
+    //hiển thị câu hỏi lựa chọn
    public function getListQuestionChoice($id){
            
             $question = QuestionSurvey::find($id);
@@ -81,6 +87,8 @@ class surveyUser extends Controller
 
    }
 
+
+   //trả lời câu hỏi lựa chọn
    public function postChoice($id){
 
     $choice = new UserResponse;
@@ -92,6 +100,8 @@ class surveyUser extends Controller
    }
 
  
+
+   //hiển thị phiếu lấy ý kiến
    public function getOpinion($id){
        
         $question = Survey::find($id);
@@ -104,6 +114,8 @@ class surveyUser extends Controller
         return view('home.survey.opinion')->with(compact('question','list'));
    }
 
+
+   //trả lời phiếu lấy ý kiến người dùng
    public function postOpinion(Request $request,$id){
 
         $choice = DB::table('choice')->where('choice.question_id',$id)

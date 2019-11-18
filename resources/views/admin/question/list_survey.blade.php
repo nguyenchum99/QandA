@@ -40,9 +40,12 @@
         <tr id="tbl-first-row" style="font-weight: bold;">
             <td width="10%">ID câu hỏi</td>
             <td width="10%">ID người dùng</td>
-            <td width="45%">Câu hỏi</td>
+            <td width="40%">Câu hỏi</td>
             <td width="5%">Sửa</td>
             <td width="5%">Xóa</td>
+            <td width="5%">Có</td>
+            <td width="5%">Không</td>
+
         </tr>
 
         {{-- lấy dữ liệu từ database hiện thị lên view --}}
@@ -54,6 +57,9 @@
                 <td><a href="{{url("admin/question/edit_yesno/{$l->id}")}}">Sửa</a></td>
                 <td><a onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không?')"
                      href="{{url("admin/question/delete_yesno/{$l->id}")}}">Xóa</a></td>
+                {{-- <td>{{$count}}</td>
+                <td>{{$count}}</td> --}}
+                    
             </tr>
         @endforeach
         

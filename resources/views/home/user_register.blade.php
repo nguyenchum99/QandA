@@ -40,14 +40,16 @@
         a{
             color:#ffffff !important;
         }
-        .login{margin-top: 60px;}
+        .login{margin-top: 60px;
+            
+        }
         span{
             border-top:5px solid white;
         }
         form{
             height: 300px;
             padding-top: 20px;
-            background-color:  #ffffff;
+            background-color:  #ffebe6;
              
         }
         .main-head{
@@ -72,7 +74,7 @@
         </style>
 <body>
 
-<nav class="navbar navbar-default">
+{{-- <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">HỆ THỐNG HỎI ĐÁP Q-A</a>
@@ -83,7 +85,7 @@
       
     </ul>
   </div>
-</nav>
+</nav> --}}
 <div class="container">
     <center>
 
@@ -91,7 +93,7 @@
         <div class="main-head">
             <div class="head">
                     <h3>HỆ THỐNG HỎI ĐÁP Q-A</h3>
-                    <h4>ĐĂNG NHẬP</h4>
+                    <h4>ĐĂNG KÝ TÀI KHOẢN </h4>
             </div>
                 <form action="{{url("user/register")}}" method="post">
                                         {{-- thông báo lỗi --}}
@@ -138,5 +140,16 @@
         </div> 
     </div>
 </div></center>
+
+<script>
+    function xacnhanxoa (xoa){
+
+        if (window.confirm(xoa)) {
+            return true;
+        }
+        return false;
+    }
+    $("div.alert").delay(1000).slideUp();
+</script>
 </body>
 </html>

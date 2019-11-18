@@ -14,6 +14,9 @@ use App\Answer_YesNo;
 use App\QuestionSurvey;
 use App\UserResponse;
 
+use App\Response;
+use App\Survey;
+
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -128,6 +131,9 @@ class manageUserController extends Controller
         
         $question_survey = QuestionSurvey::where('user_id',$id)->delete();
         $user_response = UserResponse::where('user_id',$id)->delete();
+
+        $survey = Survey::where('user_id',$id)->delete();
+        $response = Response::where('user_id',$id)->delete();
 
         return redirect('admin/user/listuser')->with('thongbao','Xóa người dùng thành công');
     }

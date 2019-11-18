@@ -38,16 +38,22 @@
 
 
 a{
-    color:#ffffff !important;
+    color:#000000!important;
 }
-.login{margin-top: 60px;}
+.login{margin-top: 100px;
+
+}
+
+#login{
+    color: #000000;
+}
 span{
     border-top:5px solid white;
 }
 form{
     height: 300px;
     padding-top: 20px;
-    background-color:  #ffffff;
+    background-color:  #ffebe6;
      
 }
 .main-head{
@@ -55,7 +61,6 @@ form{
     background-color:   #e63900 ;
     height: 380px;
     margin-bottom: 10px;
-  
 }
 .form-group{
    padding: 5px 100px;
@@ -73,7 +78,7 @@ button{
 <body >
 
     {{-- thông báo lỗi --}}
-
+{{-- 
 <nav class="navbar navbar-default" >
   <div class="container-fluid">
     <div class="navbar-header" >
@@ -87,8 +92,8 @@ button{
       
     </ul>
   </div>
-</nav>
-<div class="container" >
+</nav>  --}}
+<div class="container">
     <center>
     <div class="login">
         <div class="main-head">
@@ -97,7 +102,7 @@ button{
                 <h4>ĐĂNG NHẬP</h4>
             </div>
             
-                <form action="{{url("user/login")}}"  method="post">
+                <form action="{{url("user/login")}}"  method="post" id="login">
                     @if(count($errors) > 0)
                     <div class="alert alert-danger">
                         
@@ -123,6 +128,7 @@ button{
                     <div class="form-group">
                         <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
                     </div>
+                    <p style="color: #000000"><a href="{{url("user/register")}}" >Đăng kí tài khoản</a></p>
                     <div class="form-group">
                         <input  type="submit" class="btn btn-primary" value="Đăng nhập" 
                         style="background-color: #e63900">
