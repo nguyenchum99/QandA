@@ -15,7 +15,7 @@
     color: #ffffff;
 }
 .container-fluid{
-    background-color:  #e63900  ;
+    background-color:  #a6a6a6 ;
     padding: 10px 58px;
     
     
@@ -26,7 +26,7 @@
     
 }
 .navbar-default .navbar-nav>.active>a{
-    background-color:    #e63900 !important;
+    background-color:    #a6a6a6 !important;
     border-radius: 10px;
     
    
@@ -53,12 +53,12 @@ span{
 form{
     height: 300px;
     padding-top: 20px;
-    background-color:  #ffebe6;
+    background-color:#cccccc;
      
 }
 .main-head{
     width: 500px;
-    background-color:   #e63900 ;
+    background-color:  #a6a6a6;
     height: 380px;
     margin-bottom: 10px;
 }
@@ -69,13 +69,18 @@ button{
     float: right;
 }
 .head{
-    color: #ffffff;
+    color: #000000;
     text-align: center;
     padding: 12px 0 12px 15px;
 }
 
+
+
 </style>
-<body >
+<body  style=" background-image: url({{ asset('img/bg2.jpg') }});
+height: 100%;background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;">
 
     {{-- thông báo lỗi --}}
 {{-- 
@@ -98,8 +103,8 @@ button{
     <div class="login">
         <div class="main-head">
             <div class="head">
-                <h3>HỆ THỐNG HỎI ĐÁP Q-A</h3>
-                <h4>ĐĂNG NHẬP</h4>
+                <h3><b>HỆ THỐNG HỎI ĐÁP Q-A</b></h3>
+                <h4><b>ĐĂNG NHẬP</b></h4>
             </div>
             
                 <form action="{{url("user/login")}}"  method="post" id="login">
@@ -131,7 +136,7 @@ button{
                     <p style="color: #000000"><a href="{{url("user/register")}}" >Đăng kí tài khoản</a></p>
                     <div class="form-group">
                         <input  type="submit" class="btn btn-primary" value="Đăng nhập" 
-                        style="background-color: #e63900">
+                        style="background-color: #999999;color: #000000">
             
                     </div>
                    

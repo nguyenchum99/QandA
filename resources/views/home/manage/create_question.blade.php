@@ -9,9 +9,9 @@
                 </center>
             </div>
             <div class="col-sm-7 right">
-                <p style="color: #e63900;font-size: 18px;"><span class="fa fa-lock">
+                <p style="color: #000000;font-size: 18px;"><span class="fa fa-lock">
                 </span>Phiên hỏi đáp: {{$session->name_session}}</p>
-                <p style="color: #e63900;"><span class="fa fa-history">
+                <p style="color:  #000000;"><span class="fa fa-history">
                 </span>Thời gian tạo:  {{ \Carbon\Carbon::createFromTimeStamp(strtotime($session->created_at))
                                     ->diffForHumans()}}</p>
             </div>
@@ -21,7 +21,7 @@
 <div class="botton">
    
     
-        <div class="content" style="background-color: #ebebe0">
+        <div class="content" style="background-color: #ffffff;border-radius: 10px">
             {{-- hiện thị nội dung câu hỏi --}}
 
             <form method="post" action="{{$session->id}}">
@@ -31,7 +31,8 @@
                     <textarea type="text" name="question" rows="3"
                     class="form-control" placeholder="..." ></textarea>
                 </div>
-                <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary"  style="background-color: #e63900"/>
+                <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" 
+                class="btn btn-primary" style="background-color:#a6a6a6; color:#000000"/>
             </form>
 
       

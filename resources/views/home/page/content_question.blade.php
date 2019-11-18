@@ -18,28 +18,20 @@
 
 </div>
 
-<div class="botton">
-    <div class="main-right">
-       
-        <div class="content" style="background-color: #ebebe0;border-radius: 10px">
+<div class="botton" style="background:#f2f2f2 ">
+    
+          @foreach($list_answer as $l)
+        <div class="content" style="background-color: #ffffff;border-radius: 10px; margin-top: 15px">
             {{-- hiển thị nội dung câu trả  lời của từng câu hỏi --}}
-            @foreach($list_answer as $l)
-                <div  style="border-radius:10px">
-                    <ul>
-                        <li style="background: #1a88d652;border-radius:10px"> Người dùng:{{$l->user_id}}</p>
+            <p style="color: #000000" > Người dùng:{{$l->user_id}}</p>
                     
-                       </li>
-                        <li style="background-color: #ffffff;color:blue;border-radius:10px">Trả lời: {{$l->answer}}
-                                <p class="time">Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
-                                        ->diffForHumans()}}</p></li>
-                    </ul>
-                    <br>
-                </div>
-                    
-            @endforeach
-
+            <p style="color: red">Trả lời: {{$l->answer}}</p>
+            <p >Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
+            ->diffForHumans()}}</p>
         </div>
-    </div>
+    @endforeach
+
+</div>
 
 
 @endsection

@@ -63,8 +63,12 @@ ul .slide:hover #menu{
 .chevron{display: inline-block;
     padding-top: 10px;    margin-bottom: 13px;}
 .header p{    padding: 5px 0 5px 10px;margin: 0}
+
 .title{    font-size: 15px;
-    font-weight: 600;}
+    font-weight: 600;
+    }
+
+
     .content{    padding: 15px;
     border: 1px solid #e0e0e0;box-shadow: 0px 0px 14px 0px
 }.content ul li{padding: 5px;
@@ -80,7 +84,7 @@ ul .slide:hover #menu{
 </head>
 
 
-<body>
+<body  style=" background:#f2f2f2 ;">
 
     <div class="head">
 
@@ -92,7 +96,7 @@ ul .slide:hover #menu{
         <div class="container-fluid">
             <div class="row">
                 
-                <div class="left col-sm-2" style="background-color: #f2f2f2;" >
+                <div class="left col-sm-2">
                     @include('home.layouts.sidebar_page')
                 </div>
                 <div class="col-sm-7 right" style="margin-left:140px;">

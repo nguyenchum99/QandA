@@ -10,69 +10,77 @@
 
 </head>
 <style>
-        .navbar-nav{
-            float: right !important;   
-            color: #ffffff;
-        }
-        .container-fluid{
-            background-color:  #e63900  ;
-            padding: 10px 58px;
-            
-            
-        }
-        .active{
-        
-            /* background-color: red !important; */
-            
-        }
-        .navbar-default .navbar-nav>.active>a{
-            background-color:    #e63900 !important;
-            border-radius: 10px;
-            
-           
-        }
-        
-        .navbar-brand{
-            margin-left: 40px;
-        }
-        
-        
-        a{
-            color:#ffffff !important;
-        }
-        .login{margin-top: 60px;
-            
-        }
-        span{
-            border-top:5px solid white;
-        }
-        form{
-            height: 300px;
-            padding-top: 20px;
-            background-color:  #ffebe6;
-             
-        }
-        .main-head{
-            width: 500px;
-            background-color:   #e63900 ;
-            height: 380px;
-            margin-bottom: 10px;
-          
-        }
-        .form-group{
-           padding: 5px 100px;
-        }
-        button{
-            float: right;
-        }
-        .head{
-            color: #ffffff;
-            text-align: center;
-            padding: 12px 0 12px 15px;
-        }
+     .navbar-nav{
+    float: right !important;   
+    color: #ffffff;
+}
+.container-fluid{
+    background-color:  #a6a6a6 ;
+    padding: 10px 58px;
+    
+    
+}
+.active{
+
+    /* background-color: red !important; */
+    
+}
+.navbar-default .navbar-nav>.active>a{
+    background-color:    #a6a6a6 !important;
+    border-radius: 10px;
+    
+   
+}
+
+.navbar-brand{
+    margin-left: 40px;
+}
+
+
+a{
+    color:#000000!important;
+}
+.login{margin-top: 100px;
+
+}
+
+#login{
+    color: #000000;
+}
+span{
+    border-top:5px solid white;
+}
+form{
+    height: 300px;
+    padding-top: 20px;
+    background-color:#cccccc;
+     
+}
+.main-head{
+    width: 500px;
+    background-color:  #a6a6a6;
+    height: 380px;
+    margin-bottom: 10px;
+}
+.form-group{
+   padding: 5px 100px;
+}
+button{
+    float: right;
+}
+.head{
+    color: #000000;
+    text-align: center;
+    padding: 12px 0 12px 15px;
+}
+
+
         
         </style>
-<body>
+<body  style=" background-image: url({{ asset('img/bg2.jpg') }});
+height: 100%;background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;">
 
 {{-- <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -92,8 +100,8 @@
     <div class="login">
         <div class="main-head">
             <div class="head">
-                    <h3>HỆ THỐNG HỎI ĐÁP Q-A</h3>
-                    <h4>ĐĂNG KÝ TÀI KHOẢN </h4>
+                    <h3><b>HỆ THỐNG HỎI ĐÁP Q-A</b></h3>
+                    <h4><b>ĐĂNG KÝ TÀI KHOẢN </b></h4>
             </div>
                 <form action="{{url("user/register")}}" method="post">
                                         {{-- thông báo lỗi --}}
@@ -131,7 +139,7 @@
                     </div>
                     <div class="form-group">
                         <input href="" type="submit" class="btn btn-primary" value="Đăng kí"  
-                        style="background-color: #e63900">
+                        style="background-color:  #999999;color: #000000">
                     </div>
                     {{-- <div class="fomr-group">
                         <input type="submit" class="btn btn-default" value="Đăng kí">
