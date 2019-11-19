@@ -37,11 +37,11 @@
                 <input type="submit" name="submit" value="Tạo" class="btn btn-primary" style="background-color: #737373"/>
             </form>
 
-        </div>
+        </div>  
 
     <button type="submit"  class="btn btn-primary" style="background-color: #737373;margin-top: 10px">
         <a href="{{url("admin/question/layout_opinion")}}" style="color: #ffffff;text-decoration: none;">Tạo phiếu lấy ý kiến phản hồi</a></button>
-    <div style="width: 90%;margin-top: 20px;">
+    {{-- <div style="width: 90%;margin-top: 20px;">
         <table border="2" class="table table-striped" style="width: 90%">
        
             <tr id="tbl-first-row" style="font-weight: bold;">
@@ -63,7 +63,7 @@
             
         </table>
         
-        </div>
+        </div> --}}
 
 @endsection
 

@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
+use App\Question;
+
+
 use App\Question_YesNo;
 use App\Answer_YesNo;
 use App\User;
@@ -29,20 +32,22 @@ class manageSurveyController extends Controller
 
         $list1 = DB::table('questions_yesno')->paginate(10);
 
-        $test = DB::table('questions_yesno')->pluck('id');
-
+        // $countYes = DB::table('answers_yesno')
+        //                     ->select(array('answers_yesno.*',DB::raw('COUNT(answers_yesno.question_id)')))
+        //                     ->where('answers_yesno.answer','=',1)
+        //                     ->join('questions_yesno','questions_yesno.id','=','answers_yesno.question_id')
+        //                     ->groupBy('answers_yesno.question_id')
+        //                     ->get();
+                            
+      
+        // $countNo = DB::table('answers_yesno')
+        //                     ->select(DB::raw('count(*), question_id'))
+        //                     ->where("answer","=","0")
+        //                     ->groupBy('question_id')
+        //                     ->get();   
         
-        foreach($test as $t){
-            $list = DB::table('answers_yesno')
-            ->where('question_id',$t)
-            ->where('answer',0)
-            ->get()
-            ->count();
-
-        }
-       
-
-        return view('admin.question.list_survey',['ques_yesno'=>$list1,'list'=>$list]);
+        return view('admin.question.list_survey',
+        ['ques_yesno'=>$list1]);
     }
 
     //tạo câu hỏi khảo sát có không
@@ -241,5 +246,22 @@ class manageSurveyController extends Controller
       
         
         return redirect('admin/question/layout_opinion') -> with('thongbao','Thêm thành công');
+    }
+
+    public function postQuestionAnswer(Request $request){
+
+        $this-> validate($request,[
+            'question' => 'required',
+        ],[
+            'question.required' => 'Bạn chưa nhập nội dung câu hỏi',
+        ]);
+
+        $question = new Question;
+        $question ->user_id= Auth::user()->id;
+        $question->question = $request->question;
+
+        $question->save();
+        return redirect('admin/question/list_survey') -> with('thongbao','Thêm thành công');
+
     }
 }

@@ -42,7 +42,6 @@
 
 
     @foreach($ques_choice as $l)
-    <a href="{{url("user/survey/list_choice/{$l->id}")}}"  style="text-decoration: none;">
         <div class="content" style="background-color: #ffffff;border-radius: 10px;margin-top:15px">
                 <a href="{{url("user/survey/list_choice/{$l->id}")}}"  style="text-decoration: none;">
                     {{-- hiện thị nội dung câu hỏi --}}
@@ -54,6 +53,27 @@
         </div>
 
  @endforeach
+
+
+
+ @foreach($question as $l)
+        <div class="content" style="background-color: #ffffff;border-radius: 10px;margin-top:15px">
+            <div class="form-group" >
+                <p class="title" style="color: #e63900;">Câu hỏi trả lời: {{$l->question}} ?</p>
+            </div>
+            <form action="{{url("user/survey/answer/{$l->id}")}}" method="post">
+                <input type="hidden" name="_token" value="{{csrf_token()}}"/> 
+                    <div class="form-group" style="margin-left:37px; width: 50%">
+                        <textarea type="text" name="answer" rows="2"  cols="70"
+                         placeholder="Nội dung ..." ></textarea>
+                         <input type="submit"  value="Trả lời" 
+                        style="background-color:#a6a6a6; color:#000000;" class="btn btn-primary"/>
+                    </div>
+            </form>
+        </div>
+
+ @endforeach
+        
 
 
  @foreach($opinion as $o)

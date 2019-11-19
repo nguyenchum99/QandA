@@ -17,6 +17,9 @@ use App\Survey;
 use App\Choice;
 use App\Response;
 
+use App\Question;
+use App\Answer;
+
 use App\User;
 use Carbon\Carbon;
 use DB;
@@ -45,9 +48,14 @@ class surveyUser extends Controller
         $opinion= DB::table('survey')
         ->select('survey.id','survey.question')
         ->get();
+
+        $question = DB::table('questions')
+        ->select('questions.id','questions.question')
+        ->whereNull('questions.session_id')
+        ->get();
        
       
-        return view('home.survey.survey')->with(compact('list_question', 'ques_choice','opinion'));
+        return view('home.survey.survey')->with(compact('list_question', 'ques_choice','opinion','question'));
     }
 
 
@@ -131,4 +139,22 @@ class surveyUser extends Controller
     
         return redirect('user/survey/survey_page') -> with('thongbao','Trả lời thành công');
    }
+
+   public function postAnswer(Request $request,$id){
+
+        $this-> validate($request,[
+            'answer' => 'required',
+        ],[
+            'answer.required' => 'Bạn chưa nhập nội dung câu hỏi',
+        ]);
+
+        $answer = new Answer;
+        $answer->answer = $request->answer;
+        $answer->user_id = Auth::user()->id;
+        $answer->question_id = $id;
+        $answer->save();
+
+        return redirect('user/survey/survey_page') -> with('thongbao','Trả lời thành công');
+   }
+
 }

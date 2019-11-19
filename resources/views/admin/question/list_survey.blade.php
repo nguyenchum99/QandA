@@ -32,7 +32,17 @@
         <input type="submit" name="submit" value="Tạo câu hỏi có/không" class="btn btn-primary" style="background-color: #737373"/>
     </form>
 
+    <form method="post" action="{{url("admin/question/add_ques")}}">
+        <h4>Tạo câu hỏi-đáp</h4>
+        <div class="form-group">
+            <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
+            <textarea type="text" rows="2" name="question" class="form-control" placeholder="Nội dung câu hỏi" ></textarea>
+        </div>
+        <input type="submit" name="submit" value="Tạo câu hỏi" class="btn btn-primary" style="background-color: #737373"/>
+    </form>
+
     </div>
+
 
     <div style="width: 90%;margin-top: 20px;">
     <table border="2" class="table table-striped" >
@@ -43,8 +53,8 @@
             <td width="40%">Câu hỏi</td>
             <td width="5%">Sửa</td>
             <td width="5%">Xóa</td>
-            <td width="5%">Có</td>
-            <td width="5%">Không</td>
+            {{-- <td width="5%">Có</td>
+            <td width="5%">Không</td> --}}
 
         </tr>
 
@@ -59,7 +69,9 @@
                      href="{{url("admin/question/delete_yesno/{$l->id}")}}">Xóa</a></td>
                 {{-- <td>{{$count}}</td>
                 <td>{{$count}}</td> --}}
-                    
+                {{-- <td>{{$countYes}}</td> --}}
+                {{-- <td>{{$countNo}}</td>
+                     --}}
             </tr>
         @endforeach
         

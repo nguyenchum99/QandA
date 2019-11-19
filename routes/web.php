@@ -84,6 +84,8 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
         Route::post('create_opinion','manageSurveyController@postCreateOpinion');
 
+        Route::post('add_ques','manageSurveyController@postQuestionAnswer');
+
 
     });
 
@@ -185,6 +187,8 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
 
         Route::get('list_opinion/{id}','surveyUser@getOpinion');
         Route::post('opinion/{id}','surveyUser@postOpinion');
+
+        Route::post('answer/{id}','surveyUser@postAnswer');
     });
 
 });

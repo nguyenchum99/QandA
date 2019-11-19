@@ -44,7 +44,6 @@
                     <br><input type="text" name="choice[{{$i}}]" class="form-control" placeholder="Nội dung 1">
                   @endfor
 
-                  
                     <br><input type="text" name="choice1" class="form-control" placeholder="Nội dung 1">
                     <br><input type="text" name="choice2" class="form-control" placeholder="Nội dung 2">
                     <br><input type="text" name="choice3" class="form-control" placeholder="Nội dung 3">

@@ -1,6 +1,6 @@
 
 
-    <div class="bg-light border-right" id="sidebar-wrapper" style="margin-left:70px">
+    <div class="bg-light border-right" id="sidebar-wrapper" style="margin-left:50px">
         <div class="list-group list-group-flush">
           <a href="{{url('admin/user/listuser')}}" class="list-group-item list-group-item-action bg-light">Danh sách người dùng</a>
           <a href="{{url('admin/user/adduser')}}" class="list-group-item list-group-item-action bg-light">Thêm tài khoản mới</a>

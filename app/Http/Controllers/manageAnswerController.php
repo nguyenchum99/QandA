@@ -42,12 +42,11 @@ class manageAnswerController extends Controller
         $this -> validate($request,
 
             [
-                'answer' => 'required|min:10|max:300'
+                'answer' => 'required|max:100'
             ],
             [
                 'answer.required'=> 'Bạn chưa nhập câu trả lời',
-                'answer.min' => 'Câu trả lời có ít nhất 10 kí tự',
-                'answer.max' => 'Câu trả lời có nhiều nhất 300 kí tự'
+                'answer.max' => 'Câu trả lời có nhiều nhất 100 kí tự'
             ]
         
         );
@@ -92,12 +91,11 @@ class manageAnswerController extends Controller
 
         $this->validate($request,
         [
-            'answer' => 'required|min:10|max:100',
+            'answer' => 'required|max:100',
 
         ],
         [
             'answer.required' => 'Bạn chưa nhập nội dung câu hỏi',
-            'answer.min' => 'Câu hỏi phải ít nhất 10 kí tự',
             'answer.max' => 'Câu hỏi  phải từ 10 đến 100 kí tự'
 
         ]);
