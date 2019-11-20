@@ -41,29 +41,28 @@
 
     <button type="submit"  class="btn btn-primary" style="background-color: #737373;margin-top: 10px">
         <a href="{{url("admin/question/layout_opinion")}}" style="color: #ffffff;text-decoration: none;">Tạo phiếu lấy ý kiến phản hồi</a></button>
-    {{-- <div style="width: 90%;margin-top: 20px;">
+    <div style="width: 90%;margin-top: 20px;">
         <table border="2" class="table table-striped" style="width: 90%">
        
             <tr id="tbl-first-row" style="font-weight: bold;">
                 <td width="10%">ID câu hỏi</td>
                 <td width="10%">ID người dùng</td>
                 <td width="30%">Câu hỏi</td>
-                <td width="20%">Lựa chọn</td>
+               
             </tr> 
     
             @foreach ($choices as $c)
                 <tr>
                     <td>{{$c->id}}</td>
                     <td>{{$c->user_id}}</td>
-                    <td>{{$c->question}}</td>
-                    <td>{{$c->choice}}</td>
-                   
+                    <td><a href="{{url("admin/question/chart_choice/{$c->id}")}}">{{$c->question}}</a></td> 
+    
                 </tr>
             @endforeach
             
         </table>
         
-        </div> --}}
+        </div>
 
 @endsection
 

@@ -77,11 +77,13 @@ class manageSurveyController extends Controller
     public function getAddSurvey(){
 
 
-        $list['choices'] = DB::table('question_choice')
-        ->join('question_survey','question_choice.question_id','=','question_survey.id')
-        ->select('question_choice.choice',
-        'question_survey.question','question_survey.id','question_survey.user_id')
-        ->get();
+        // $list['choices'] = DB::table('question_choice')
+        // ->join('question_survey','question_choice.question_id','=','question_survey.id')
+        // ->select('question_choice.choice',
+        // 'question_survey.question','question_survey.id','question_survey.user_id')
+        // ->get();
+
+        $list['choices'] = DB::table('question_survey')->get();
         return view('admin.question.add_survey',$list);
     }
 
@@ -268,9 +270,7 @@ class manageSurveyController extends Controller
     public function displayChart($id)
     {
             
-        $answer = Answer_YesNo::
-        where('question_id',$id)
-        ->get();
+        $question = Question_YesNo::find($id);
 
         $countYes = Answer_YesNo::where('question_id',$id)
         ->where('answer',1)
@@ -284,24 +284,55 @@ class manageSurveyController extends Controller
          
         $no = $countNo->count();
       
-        // $countNo = DB::table('answers_yesno')
-        //                     ->select(DB::raw('count(*), question_id'))
-        //                     ->where("answer","=","0")
-        //                     ->groupBy('question_id')
-        //                     ->get();  
-      
+        $pie  =	 Charts::create('pie', 'highcharts')
+                ->title('Biểu đồ khảo sát')
+                ->labels(['Có', 'Không'])
+                ->values([$yes,$no])
+                ->dimensions(500,300)
+                ->responsive(false);
 
-        // $users = User::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))
-        // ->get();
-        // $chart = Charts::database($answer, 'bar', 'highcharts')
-        //     ->title("Monthly new Register Users")
-        //     ->elementLabel("Total Users")
-        //     ->dimensions(1000, 500)
-        //     ->responsive(false)
-        //     ->groupBy($answer, true);
 
-        return view('admin.question.chart', compact('pie'));
+
+        return view('admin.question.chart', compact('pie','question'));
            
+    }
+
+    public function displayChartChoice($id){
+
+        $question = QuestionSurvey::find($id);
+
+        $question_choice = QuestionChoice::where('question_id',$id)
+        ->pluck('choice');
+
+        $arr = array();
+        foreach( $question_choice as $q){
+            array_push($arr,(string)$q);
+        }   
+
+        // $count = DB::table('user_response')
+        // ->join('question_choice','question_choice.id','=','user_response.question_choice')
+        // ->join('question_survey','question_survey.id','=','question_choice.question_id')
+        // ->where('question_survey.id',$id)
+        // ->pluck(DB::raw('COUNT(user_response.question_choice)'));
+        
+        // $count = DB::table('user_response')->where('question_choice','18')->select(
+        //     ->pluck(DB::raw('.question_choice)')));
+
+        // $array = array();
+        // foreach( $count as $c){
+        //     array_push($array,$c);
+        // } 
+
+        
+        $pie  =	 Charts::create('pie', 'highcharts')
+        ->title('Biểu đồ khảo sát')
+        ->labels([$arr[0], $arr[1],$arr[2],$arr[3]])
+        ->values([12,12,12,12])
+        ->dimensions(500,300)
+        ->responsive(false);
+       
+        return view('admin.question.chart_choice', compact('pie','question'));
+
     }
 
 }

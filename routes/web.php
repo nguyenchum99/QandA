@@ -88,6 +88,7 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
 
         Route::get('chart/{id}','manageSurveyController@displayChart');
+        Route::get('chart_choice/{id}','manageSurveyController@displayChartChoice');
 
 
     });
