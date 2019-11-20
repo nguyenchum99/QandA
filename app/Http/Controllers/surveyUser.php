@@ -97,10 +97,10 @@ class surveyUser extends Controller
 
 
    //trả lời câu hỏi lựa chọn
-   public function postChoice($id){
+   public function postChoice(Request $request){
 
     $choice = new UserResponse;
-    $choice -> question_choice = $id;
+    $choice -> question_choice = $request->input('answer');
     $choice -> user_id = Auth::user()->id;
     $choice-> save();
     

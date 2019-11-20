@@ -25,17 +25,19 @@
             <p class="title" style="color:red;">Câu hỏi: {{$question->question}}</p>
                 
         </div>
-        @foreach($choice as $c)
-            <form action="{{url("user/survey/choice/{$c->id}")}}" method="post">
+        
+            <form action="{{url("user/survey/choice")}}" method="post">
+                @foreach($choice as $c)
                 <input type="hidden" name="_token" value="{{csrf_token()}}"/> 
                 <div class="form-group" style="margin-left:35px">
                     <label class="radio-inline">
                     <input name="answer" value="{{$c->id}}" checked="" type="radio"> {{$c->choice}}
                 </label>
                 </div>
-        @endforeach
+            @endforeach
             <input type="submit"  value="Trả lời" 
             style="background-color:#a6a6a6; color:#000000;margin-left: 35px" class="btn btn-primary"/>
+           
             </form>   
     </div>
 

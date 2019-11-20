@@ -187,7 +187,7 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
 
         Route::get('list_choice/{id}','surveyUser@getListQuestionChoice');
 
-        Route::post('choice/{id}','surveyUser@postChoice');
+        Route::post('choice','surveyUser@postChoice');
 
         Route::get('list_opinion/{id}','surveyUser@getOpinion');
         Route::post('opinion/{id}','surveyUser@postOpinion');

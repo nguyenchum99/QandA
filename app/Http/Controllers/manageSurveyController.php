@@ -309,25 +309,28 @@ class manageSurveyController extends Controller
             array_push($arr,(string)$q);
         }   
 
-        // $count = DB::table('user_response')
-        // ->join('question_choice','question_choice.id','=','user_response.question_choice')
-        // ->join('question_survey','question_survey.id','=','question_choice.question_id')
-        // ->where('question_survey.id',$id)
-        // ->pluck(DB::raw('COUNT(user_response.question_choice)'));
+        $count = DB::table('user_response')
+        ->join('question_choice','question_choice.id','=','user_response.question_choice')
+        ->join('question_survey','question_survey.id','=','question_choice.question_id')
+        ->where('question_survey.id',$id)
+        ->select(DB::raw('COUNT(user_response.question_choice) as cnt'))
+        ->groupBy('question_choice.choice')
+        ->pluck('cnt');
+
         
         // $count = DB::table('user_response')->where('question_choice','18')->select(
         //     ->pluck(DB::raw('.question_choice)')));
 
-        // $array = array();
-        // foreach( $count as $c){
-        //     array_push($array,$c);
-        // } 
+        $array = array();
+        foreach( $count as $c){
+            array_push($array,(int)$c);
+        } 
 
         
         $pie  =	 Charts::create('pie', 'highcharts')
         ->title('Biểu đồ khảo sát')
         ->labels([$arr[0], $arr[1],$arr[2],$arr[3]])
-        ->values([12,12,12,12])
+        ->values([$array[0], $array[1],$array[2],$array[3]])
         ->dimensions(500,300)
         ->responsive(false);
        
