@@ -87,6 +87,9 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         Route::post('add_ques','manageSurveyController@postQuestionAnswer');
 
 
+        Route::get('chart/{id}','manageSurveyController@displayChart');
+
+
     });
 
 

@@ -63,7 +63,7 @@
             <tr>
                 <td>{{$l->id}}</td>
                 <td>{{$l->user_id}}</td>
-                <td>{{$l->question}}</td>
+                <td><a href="{{url("admin/question/chart/{$l->id}")}}">{{$l->question}}</a></td>
                 <td><a href="{{url("admin/question/edit_yesno/{$l->id}")}}">Sửa</a></td>
                 <td><a onclick="return xacnhanxoa('Bạn Có Chắc Là Muốn Xóa Không?')"
                      href="{{url("admin/question/delete_yesno/{$l->id}")}}">Xóa</a></td>

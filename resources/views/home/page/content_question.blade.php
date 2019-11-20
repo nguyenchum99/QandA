@@ -9,7 +9,7 @@
             </div>
             <div class="col-sm-7 right">
                 <p class="title" style="color:red;">Câu hỏi: {{$question->question}}?</p>
-                <p style="color:blue">Đăng bởi: người dùng {{$question->user_id}}</p>
+                <p style="color:blue">Đăng bởi: người dùng ẩn danh</p>
                 <p style="color:blue">Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($question->created_at))
                                 ->diffForHumans()
                             }}</p>
@@ -23,11 +23,11 @@
           @foreach($list_answer as $l)
         <div class="content" style="background-color: #ffffff;border-radius: 10px; margin-top: 15px">
             {{-- hiển thị nội dung câu trả  lời của từng câu hỏi --}}
-            <p style="color: #000000" > Người dùng: {{$l->user_id}}</p>
-                    
+            <p style="color: #000000" >Đăng bởi: người dùng ẩn danh</p>
             <p style="color: red">Trả lời: {{$l->answer}}</p>
             <p >Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
             ->diffForHumans()}}</p>
+
         </div>
     @endforeach
 

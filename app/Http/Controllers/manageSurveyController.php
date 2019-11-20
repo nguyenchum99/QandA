@@ -20,7 +20,7 @@ use App\UserResponse;
 use App\Survey;
 use App\Choice;
 use App\Response;
-
+use Charts;
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -264,4 +264,44 @@ class manageSurveyController extends Controller
         return redirect('admin/question/list_survey') -> with('thongbao','Thêm thành công');
 
     }
+    
+    public function displayChart($id)
+    {
+            
+        $answer = Answer_YesNo::
+        where('question_id',$id)
+        ->get();
+
+        $countYes = Answer_YesNo::where('question_id',$id)
+        ->where('answer',1)
+        ->get();
+         
+        $yes = $countYes->count();
+
+        $countNo = Answer_YesNo::where('question_id',$id)
+        ->where('answer',0)
+        ->get();
+         
+        $no = $countNo->count();
+      
+        // $countNo = DB::table('answers_yesno')
+        //                     ->select(DB::raw('count(*), question_id'))
+        //                     ->where("answer","=","0")
+        //                     ->groupBy('question_id')
+        //                     ->get();  
+      
+
+        // $users = User::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))
+        // ->get();
+        // $chart = Charts::database($answer, 'bar', 'highcharts')
+        //     ->title("Monthly new Register Users")
+        //     ->elementLabel("Total Users")
+        //     ->dimensions(1000, 500)
+        //     ->responsive(false)
+        //     ->groupBy($answer, true);
+
+        return view('admin.question.chart', compact('pie'));
+           
+    }
+
 }
