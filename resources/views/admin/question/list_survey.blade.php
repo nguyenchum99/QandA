@@ -4,18 +4,19 @@
 @section('content')
 
 
-    <h3>Danh sách câu hỏi khảo sát có/không</h3>
-    <div style ="width: 50%">
+
+    <div class="container">
+        <h3>Danh sách câu hỏi khảo sát có/không</h3>
         @if(session('thongbao'))
 
-            <div class="alert alert-success">
+            <div class="alert alert-success" style="width: 50%">
                 {{session('thongbao')}}
             </div>
 
         @endif
 
         @if(count($errors) > 0)
-            <div class="alert alert-danger">
+            <div class="alert alert-danger" style="width: 50%">
                     
                 @foreach ($errors -> all() as $err)
                     {{$err}}<br>
@@ -24,23 +25,31 @@
             </div>
         @endif
 
-    <form method="post" action="{{url("admin/question/add_ques_yesno")}}">
-        <h4>Tạo câu hỏi có/không</h4>
-        <div class="form-group">
-            <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
-            <textarea type="text" rows="2" name="question" class="form-control" placeholder="Nội dung câu hỏi" ></textarea>
-        </div>
-        <input type="submit" name="submit" value="Tạo câu hỏi có/không" class="btn btn-primary" style="background-color: #737373"/>
-    </form>
+    <div class="row">
 
-    <form method="post" action="{{url("admin/question/add_ques")}}">
-        <h4>Tạo câu hỏi-đáp</h4>
-        <div class="form-group">
-            <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
-            <textarea type="text" rows="2" name="question" class="form-control" placeholder="Nội dung câu hỏi" ></textarea>
+        <div class="left col-sm-3">
+            <form method="post" action="{{url("admin/question/add_ques_yesno")}}">
+                <label>Tạo câu hỏi có/không</label>
+                <div class="form-group">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
+                    <textarea type="text" rows="2" name="question" class="form-control" placeholder="Nội dung câu hỏi" ></textarea>
+                </div>
+                <input type="submit" name="submit" value="Tạo câu hỏi có/không" class="btn btn-primary" style="background-color: #737373"/>
+            </form>
         </div>
-        <input type="submit" name="submit" value="Tạo câu hỏi" class="btn btn-primary" style="background-color: #737373"/>
-    </form>
+
+        <div class="col-sm-3 right" style ="margin-top: 27px">
+            <form method="post" action="{{url("admin/question/add_ques")}}">
+                <label>Tạo câu hỏi-đáp</label>
+                <div class="form-group">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
+                    <textarea type="text" rows="2" name="question" class="form-control" placeholder="Nội dung câu hỏi" ></textarea>
+                </div>
+                <input type="submit" name="submit" value="Tạo câu hỏi" class="btn btn-primary" style="background-color: #737373"/>
+            </form>
+        </div>
+
+    </div>
 
     </div>
 

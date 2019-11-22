@@ -3,43 +3,50 @@
 
 @section('content')
 
-        <h3>Danh sách câu hỏi khảo sát</h3>
-        <div style ="width: 40%">
+        
+        <div  class="container">
+            <h3>Danh sách câu hỏi khảo sát</h3>
             <h3>Tạo khảo sát </h3>
             @if(session('thongbao'))
 
-            <div class="alert alert-success">
+            <div class="alert alert-success" style="width: 50%">
                 {{session('thongbao')}}
             </div>
 
-            @endif
+        @endif
 
-            @if(count($errors) > 0)
-                <div class="alert alert-danger">
-                
-                    @foreach ($errors -> all() as $err)
-                        {{$err}}<br>
-                    @endforeach
-                
-                </div>
-            @endif
+        @if(count($errors) > 0)
+            <div class="alert alert-danger" style="width: 50%">
+                    
+                @foreach ($errors -> all() as $err)
+                    {{$err}}<br>
+                @endforeach
+                    
+            </div>
+        @endif
+
 
             <form method="post" action="{{url("admin/question/add_ques_choice")}}">
                 <h4>Tạo câu hỏi chọn/đáp án</h4>
-                <div class="form-group">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>    
-                    <textarea type="text" rows="2" name="question" class="form-control" placeholder="Nội dung câu hỏi" ></textarea>
-                    <br><input type="text" name="choice1" class="form-control" placeholder="Đáp án 1">
-                    <br><input type="text" name="choice2" class="form-control" placeholder="Đáp án 2">
-                    <br><input type="text" name="choice3" class="form-control" placeholder="Đáp án 3">
-                    <br><input type="text" name="choice4" class="form-control" placeholder="Đáp án 4">
+                    <textarea type="text" rows="2" cols="50" name="question"  
+                  placeholder="Nội dung câu hỏi" ></textarea>
+                    <div class="row">
+                        <div class="left col-sm-3" >
+                            <input type="text" name="choice1" placeholder="Đáp án 1" class="form-control" >
+                            <br><input type="text" name="choice2"  placeholder="Đáp án 2" class="form-control" >
+                        </div>
+                        <div class="col-sm-3 right" style="margin-top: 26px;">
+                            <input type="text" name="choice3" placeholder="Đáp án 3" class="form-control" >
+                            <br><input type="text" name="choice4"  placeholder="Đáp án 4" class="form-control" >
+                        </div>
+                    </div>
                 </div>
-                <input type="submit" name="submit" value="Tạo" class="btn btn-primary" style="background-color: #737373"/>
+                <br><input type="submit" name="submit" value="Tạo" class="btn btn-primary" style="background-color: #737373"/>
             </form>
 
-        </div>  
 
-    <button type="submit"  class="btn btn-primary" style="background-color: #737373;margin-top: 10px">
+    <br><button type="submit"  class="btn btn-primary" style="background-color: #737373;margin-top: 10px">
         <a href="{{url("admin/question/layout_opinion")}}" style="color: #ffffff;text-decoration: none;">Tạo phiếu lấy ý kiến phản hồi</a></button>
     <div style="width: 90%;margin-top: 20px;">
         <table border="2" class="table table-striped" style="width: 90%">
@@ -63,6 +70,6 @@
         </table>
         
         </div>
-
+    </div>
 @endsection
 
