@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Question;
-
+use App\Answer;
 
 use App\Question_YesNo;
 use App\Answer_YesNo;
@@ -30,25 +30,34 @@ class manageSurveyController extends Controller
     //hiển thị câu hỏi khảo sát có không
     public function getListSurveyYesNo(){
 
-        $list1 = DB::table('questions_yesno')->paginate(10);
+        $list1 = DB::table('questions_yesno')->paginate(5);
 
-        // $countYes = DB::table('answers_yesno')
-        //                     ->select(array('answers_yesno.*',DB::raw('COUNT(answers_yesno.question_id)')))
-        //                     ->where('answers_yesno.answer','=',1)
-        //                     ->join('questions_yesno','questions_yesno.id','=','answers_yesno.question_id')
-        //                     ->groupBy('answers_yesno.question_id')
-        //                     ->get();
-                            
-      
-        // $countNo = DB::table('answers_yesno')
-        //                     ->select(DB::raw('count(*), question_id'))
-        //                     ->where("answer","=","0")
-        //                     ->groupBy('question_id')
-        //                     ->get();   
+        $list2 = DB::table('questions')->whereNull('session_id')->get();
         
         return view('admin.question.list_survey',
-        ['ques_yesno'=>$list1]);
+        ['ques_yesno'=>$list1,'question'=>$list2]);
     }
+
+    public function getListQuestionAnswer($id){
+
+        $question = Question::find($id);
+
+        $list = DB::table('answers')->where('answers.question_id',$id)->get();
+
+        return view('admin.question.answer',['list'=>$list,'question'=>$question]);
+    }
+
+    public function deleteQuestion($id){
+
+        $question = Question::find($id);
+        $question ->delete();
+
+        $answer = Answer::where('question_id',$id)->delete();
+
+        return redirect('admin/question/list_survey')->with('thongbao','Xóa thành công');
+
+    }
+
 
     //tạo câu hỏi khảo sát có không
     public function postAddQuestionYesNo(Request $request){
@@ -75,13 +84,6 @@ class manageSurveyController extends Controller
 
 //hiển thị câu hỏi khảo sát lựa chọn trong 4 đáp án
     public function getAddSurvey(){
-
-
-        // $list['choices'] = DB::table('question_choice')
-        // ->join('question_survey','question_choice.question_id','=','question_survey.id')
-        // ->select('question_choice.choice',
-        // 'question_survey.question','question_survey.id','question_survey.user_id')
-        // ->get();
 
         $list['choices'] = DB::table('question_survey')->get();
         return view('admin.question.add_survey',$list);
