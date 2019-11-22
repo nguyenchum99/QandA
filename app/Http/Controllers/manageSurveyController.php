@@ -301,36 +301,52 @@ class manageSurveyController extends Controller
 
         $question = QuestionSurvey::find($id);
 
-        $question_choice = QuestionChoice::where('question_id',$id)
-        ->pluck('choice');
+        // $question_choice = QuestionChoice::where('question_id',$id)
+        // ->pluck('choice');
 
+        // $arr = array();
+        // foreach( $question_choice as $q){
+        //     array_push($arr,(string)$q);
+        // }   
+
+        $count = UserResponse::where('question_survey.id',$id)
+        ->rightJoin('question_choice','question_choice.id','=','user_response.question_choice')
+        ->join('question_survey','question_survey.id','=','question_choice.question_id')
+        ->select('question_choice.choice as choice',DB::raw('COUNT(user_response.question_choice) as cnt'))
+        ->groupBy('question_choice.choice')
+        ->get()
+       ;
+        
+        $question_choice = $count->pluck('choice');
         $arr = array();
         foreach( $question_choice as $q){
             array_push($arr,(string)$q);
         }   
 
-        $count = DB::table('user_response')
-        ->join('question_choice','question_choice.id','=','user_response.question_choice')
-        ->join('question_survey','question_survey.id','=','question_choice.question_id')
-        ->where('question_survey.id',$id)
-        ->select(DB::raw('COUNT(user_response.question_choice) as cnt'))
-        ->groupBy('question_choice.choice')
-        ->pluck('cnt');
+        $cnt = $count ->pluck('cnt');
 
-        
-        // $count = DB::table('user_response')->where('question_choice','18')->select(
-        //     ->pluck(DB::raw('.question_choice)')));
 
         $array = array();
-        foreach( $count as $c){
-            array_push($array,(int)$c);
-        } 
+        $index = 0;
 
+        if($cnt->isEmpty()){
+            $array[0] = 0;
+            $array[1] = 0;
+            $array[2] = 0;
+            $array[3] = 0;
+        }
+        {
+           
+            foreach( $cnt as $c){
+                array_push($array,(int)$c);
+            } 
+
+        }
         
         $pie  =	 Charts::create('pie', 'highcharts')
         ->title('Biểu đồ khảo sát')
         ->labels([$arr[0], $arr[1],$arr[2],$arr[3]])
-        ->values([$array[0], $array[1],$array[2],$array[3]])
+        ->values([$array[0], $array[1], $array[2], $array[3]])
         ->dimensions(500,300)
         ->responsive(false);
        
