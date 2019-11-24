@@ -187,37 +187,28 @@ class manageSurveyController extends Controller
         return redirect('admin/question/edit_yesno/'.$id) -> with('thongbao','Sửa thành công');
     }
 
-    public function getLayoutOpinion(Request $request){
-        $number = $request->input('number');
-        return view('admin.question.create_opinion',['number'=>$number]);
+    public function getLayoutOpinion(){
+
+        return view('admin.question.create_opinion');
 
     }
 
-    public function postNumber(Request $request){
-        $number = $request->input('number');
-        return redirect('admin/question/layout_opinion');
-    }
-   
 
 
     public function postCreateOpinion(Request $request){
         $this->validate($request,
         [
             'question' => 'required|min:3|max:100',
-             'choice1' => 'required',
-             'choice2' => 'required',
-             'choice3' => 'required',
-             'choice4' => 'required',
+             'choice' => 'required|array|min:1',
+             'choice.*'=>'required|min:3',
+            
 
         ],
         [
             'question.required' => 'Bạn chưa nhập nội dung câu hỏi',
-            'question.min' => 'Câu hỏi phải ít nhất 10 kí tự',
-            'question.max' => 'Câu hỏi  phải từ 10 đến 100 kí tự',
-            'choice1.required' => 'Bạn chưa nhập nội dung đáp án 1',
-            'choice2.required' => 'Bạn chưa nhập nội dung đáp án 2',
-            'choice3.required' => 'Bạn chưa nhập nội dung đáp án 3',
-            'choice4.required' => 'Bạn chưa nhập nội dung đáp án 4',
+            'question.min' => 'Câu hỏi phải ít nhất 3 kí tự',
+            'question.max' => 'Câu hỏi  phải từ 3 đến 100 kí tự',
+            'choice.*.required' =>'Bạn chưa nhập nội dung',
 
         ]);
 
@@ -228,25 +219,33 @@ class manageSurveyController extends Controller
          
         $id_ques = $question -> id;
 
-        $choice = new Choice;
-        $choice ->question_id = $id_ques;
-        $choice ->choice = $request -> choice1;
-        $choice->save();
+        foreach($request->choice as $c){
+            $ch = new Choice;
+            $ch ->question_id = $id_ques;
+            $ch ->choice = $c;
+            $ch->save();
+        }
+        
+        // for($i = 0; $i < count($request -> choice); $i++){
+        //     $ch = new Choice;
+        //     $ch ->question_id = $id_ques;
+        //     $ch ->choice = $request->choice;
+        //     $ch->save();
+        // }
+        // $choice = new Choice;
+        // $choice ->question_id = $id_ques;
+        // $choice ->choice = $request -> choice2;
+        // $choice->save();
 
-        $choice = new Choice;
-        $choice ->question_id = $id_ques;
-        $choice ->choice = $request -> choice2;
-        $choice->save();
+        // $choice = new Choice;
+        // $choice ->question_id = $id_ques;
+        // $choice ->choice = $request -> choice3;
+        // $choice->save();
 
-        $choice = new Choice;
-        $choice ->question_id = $id_ques;
-        $choice ->choice = $request -> choice3;
-        $choice->save();
-
-        $choice = new Choice;
-        $choice ->question_id = $id_ques;
-        $choice ->choice = $request -> choice4;
-        $choice->save();
+        // $choice = new Choice;
+        // $choice ->question_id = $id_ques;
+        // $choice ->choice = $request -> choice4;
+        // $choice->save();
       
         
         return redirect('admin/question/layout_opinion') -> with('thongbao','Thêm thành công');
@@ -269,6 +268,7 @@ class manageSurveyController extends Controller
 
     }
     
+    //hiển thị biểu đồ khảo sát câu hỏi có/không
     public function displayChart($id)
     {
             
@@ -299,17 +299,10 @@ class manageSurveyController extends Controller
            
     }
 
+    //hiển thị biểu đồ khảo sát câu hỏi lựa chọn
     public function displayChartChoice($id){
 
-        $question = QuestionSurvey::find($id);
-
-        // $question_choice = QuestionChoice::where('question_id',$id)
-        // ->pluck('choice');
-
-        // $arr = array();
-        // foreach( $question_choice as $q){
-        //     array_push($arr,(string)$q);
-        // }   
+        $question = QuestionSurvey::find($id); 
 
         $count = UserResponse::where('question_survey.id',$id)
         ->rightJoin('question_choice','question_choice.id','=','user_response.question_choice')
@@ -331,19 +324,19 @@ class manageSurveyController extends Controller
         $array = array();
         $index = 0;
 
-        if($cnt->isEmpty()){
-            $array[0] = 0;
-            $array[1] = 0;
-            $array[2] = 0;
-            $array[3] = 0;
-        }
-        {
+        // if($cnt->isEmpty()){
+        //     $array[0] = 0;
+        //     $array[1] = 0;
+        //     $array[2] = 0;
+        //     $array[3] = 0;
+        // }
+        // {
            
             foreach( $cnt as $c){
                 array_push($array,(int)$c);
             } 
 
-        }
+        // }
         
         $pie  =	 Charts::create('pie', 'highcharts')
         ->title('Biểu đồ khảo sát')

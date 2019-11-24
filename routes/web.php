@@ -80,7 +80,6 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
 
 
         Route::get('layout_opinion','manageSurveyController@getLayoutOpinion');
-        Route::post('layout_opinion','manageSurveyController@postNumber');
 
         Route::post('create_opinion','manageSurveyController@postCreateOpinion');
 
