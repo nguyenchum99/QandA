@@ -186,4 +186,22 @@ class manageUserController extends Controller
         $user->save();
         return redirect('admin/profile')-> with('thongbao','Cập nhật avatar thành công');
     }
+
+    public function getListNotifications(){
+
+        $session = DB::table('session')
+        ->join('users','users.id','=','session.user_id')
+        ->select('users.name','session.id',
+        'users.avatar','session.created_at','users.level')
+        ->get();
+        
+        $answer = DB::table('answers')
+        ->join('questions','questions.id','=','answers.question_id')
+        ->leftJoin('users','users.id','=','answers.user_id')
+        ->select('users.name','answers.created_at','users.avatar','users.level')
+        ->where('questions.user_id','1')
+        ->get();
+
+        return view('admin.layouts.notification',['session'=>$session,'answer'=>$answer]);
+    }
 }

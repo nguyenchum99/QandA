@@ -8,7 +8,13 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
 
+
         @if (Auth::check())
+        <li>
+            <a href="{{url("admin/user/noti")}}"  style="color: #ffffff"
+          role="button" ><span class="glyphicon glyphicon-globe"></span> Thông báo 
+          <span class="badge"></span></a>
+        </li>
             <li>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
               role="button" aria-expanded="false" style="position: relative; 
