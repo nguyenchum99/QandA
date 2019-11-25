@@ -33,6 +33,7 @@
         transition: 0.3s;
         width: 70%;
         border-radius: 5px;
+        background-color: #ffffff;
         }
 
         .card:hover {

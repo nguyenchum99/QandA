@@ -15,7 +15,8 @@
        
     @foreach($list as $l)
 
-        <div class="content" style="background: #ffffff; border-radius: 10px;margin-top: 15px" > <a href="{{url("user/session/list_question_active/{$l->id}")}}" style="text-decoration: none;">
+        <div class="content" style="background: #ffffff; border-radius: 10px;margin-top: 15px" >
+             <a href="{{url("user/session/list_question_active/{$l->id}")}}" style="text-decoration: none;">
 
              {{-- hiện thị thành công --}}
 

@@ -21,7 +21,8 @@
 
         @foreach($list as $l)
 
-        <div class="content"  style="margin-top: 15px;background: #ffffff;border-radius: 10px"><a href="{{url("user/session/create_answer/{$l->id}")}}">
+        <div class="content"  style="margin-top: 15px;background: #ffffff;border-radius: 10px">
+            <a href="{{url("user/session/create_answer/{$l->id}")}}">
                 <div class="row">  
                     <div class="col-sm-2"><center>
                         <img src="{{URL::asset('/img/avatars/'.$l->avatar)}}" alt="image"

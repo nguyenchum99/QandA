@@ -10,10 +10,10 @@
 
           @if (Auth::check())
 
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff"
-              role="button" aria-expanded="false" ><span class="glyphicon glyphicon-globe"></span> Thông báo 
-              <span class="badge">20</span></a>
+            <li >
+            <a href="{{url("user/page/notification")}}"  style="color: #ffffff"
+              role="button" ><span class="glyphicon glyphicon-globe"></span> Thông báo 
+              </a>
             </li>
             
             <li>          

@@ -114,4 +114,30 @@ class pageController extends Controller
     }
 
 
+    public function getListNotification(){
+        Carbon::setLocale('vi');
+
+        $question = DB::table('questions')
+        ->join('session','session.id','questions.session_id')
+        ->leftJoin('users','users.id','=','questions.user_id')
+        ->select('users.name','session.id','users.avatar','questions.created_at','questions.user_id')
+        ->where('session.user_id',Auth::user()->id)
+        ->get();
+
+        $cntQues = $question->count();
+
+        $answer = DB::table('answers')
+        ->join('questions','questions.id','=','answers.question_id')
+        ->leftJoin('users','users.id','=','answers.user_id')
+        ->select('users.name','answers.user_id','answers.created_at','users.avatar','questions.id')
+        ->where('questions.user_id',Auth::user()->id)
+        ->get();
+
+        $cntAnsw = $answer->count();
+        $count = $cntQues + $cntAnsw;
+
+        return view('home.layouts.notification_page',['question'=>$question,'answer'=>$answer]);
+    }
+
+
 }

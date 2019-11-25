@@ -10,8 +10,9 @@ use App\Question;
 use App\Answer;
 use App\User;
 use Image;
-
+use App\Session;
 use DB;
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storege;
@@ -27,7 +28,7 @@ class userController extends Controller
 
     //chuyển đến trang chủ
     public function getUserLogin(){
-        
+
         return view('home.user_login');
     }
 

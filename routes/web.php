@@ -141,6 +141,8 @@ Route::group(['prefix' => 'user','middleware'=> 'userLogin'], function () {
 
         Route::get('question_answer/{id}','pageController@getListQuestionAnswer');
 
+        Route::get('notification','pageController@getListNotification');
+
     });
 
     Route::group(['prefix' => 'session'], function () {
