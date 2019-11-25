@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         
 
@@ -26,8 +27,8 @@
             list-style: none;
         }
         .navbar-inverse {
-    background-color: #dddddd;
-    border-color: #dddddd;
+    background-color: #ebf0fa;
+    border-color: #ebf0fa;
 }
 #menu{
     display: none;
@@ -37,6 +38,7 @@ ul .slide:hover #menu{
 }
 .list-group {
     margin-bottom: 0;
+    background-color: #ebf0fa;
 }
 
 .right{
@@ -70,7 +72,8 @@ ul .slide:hover #menu{
 
 
     .content{    padding: 15px;
-    border: 1px solid #e0e0e0;box-shadow: 0px 0px 14px 0px
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 0px 14px 0px
 }.content ul li{padding: 5px;
     border: 1px solid #1b191933;}
     .content p{margin-left: 40px;}

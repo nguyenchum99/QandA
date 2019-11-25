@@ -4,19 +4,19 @@
 
 
 <div class="main-right">
-    <h3 style="color: #000000"><b>Câu hỏi trong phiên hỏi đáp mở</b></h3>
-    <h4 style="color: red"><b>Phiên hỏi đáp: {{$session ->name_session}}<b></h4>
+    <h3 style="color: #0059b3">Câu hỏi trong phiên hỏi đáp mở</h3>
+    <h4 style="color: red">Phiên hỏi đáp: {{$session ->name_session}}</h4>
 
     <form method="post" action="{{url("user/session/create_question/{$session->id}")}}">
         <div class="form-group" style="color:   #000000">
 
             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-            <h4>Tạo câu hỏi</h4>    
+           
             <textarea type="text" name="question" rows="3"
             class="form-control" placeholder="Nội dung câu hỏi..." ></textarea>
         </div>
         <input type="submit" name="submit" value="Thêm câu hỏi trong phiên" class="btn btn-primary"
-        style="background-color:#a6a6a6; color:#000000" />
+       />
     </form>
 
         @foreach($list as $l)

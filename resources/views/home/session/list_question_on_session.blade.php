@@ -4,7 +4,7 @@
 
 
 <div class="top" >
-    <h3><b>Câu hỏi trong phiên đã đóng</b></h3>
+    <h3 style="color:#0059b3">Câu hỏi trong phiên đã đóng</h3>
   
         @foreach($list as $l)
 
@@ -17,7 +17,7 @@
                     
                     <div class="col-sm-7 right"  style="background-color: #ffffff">
                         <p class="title" style="color:#e63900">Câu hỏi: {{$l->question}} ?</p>
-                        <p><font size="2" color=" #000000">Phiên hỏi-đáp: {{$l->name_session}}</p>
+                        <p><font size="2">Phiên hỏi-đáp: {{$l->name_session}}</p>
                         <p >Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($l->created_at))
                                 ->diffForHumans()
                             }}</p>

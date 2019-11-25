@@ -980,3 +980,7 @@ otification_page.blade.php) at C:\\xampp\\htdocs\\QandA\\storage\\framework\\vie
 #57 C:\\xampp\\htdocs\\QandA\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #58 {main}
 "} 
+[2019-11-25 20:26:32] local.ERROR: Maximum execution time of 30 seconds exceeded {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 30 seconds exceeded at C:\\xampp\\htdocs\\QandA\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\EloquentUserProvider.php:11)
+[stacktrace]
+#0 {main}
+"} 

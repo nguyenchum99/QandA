@@ -2,9 +2,9 @@
 @section('content')
 
 <div class="top" >
-        <div class="form-group" style="color:#000000"> 
+        <div class="form-group" > 
             
-                <h3 ><b>Câu hỏi khảo sát</b></h3>
+                <h3 style="color:#0059b3" >Câu hỏi khảo sát</h3>
                 @if(session('thongbao'))
                         
                 <div class="alert alert-success" style="width: 60%">
@@ -36,7 +36,7 @@
                 </div>
             @endforeach
             <input type="submit"  value="Trả lời" 
-            style="background-color:#a6a6a6; color:#000000;margin-left: 35px" class="btn btn-primary"/>
+            style="margin-left: 35px" class="btn btn-primary"/>
            
             </form>   
     </div>

@@ -1,6 +1,6 @@
 
 
-<nav class="navbar navbar-inverse" style="background-color:#a6a6a6" >
+<nav class="navbar navbar-inverse" style="background-color: #0059b3" >
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#" style="margin-left: 70px;color: #ffffff">Trang chủ</a>

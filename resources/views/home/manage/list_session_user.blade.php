@@ -4,7 +4,7 @@
 
 
 <div class="main-right" >
-    <h3 style="color:#000000"><b>Phiên hỏi đáp của tôi</b></h3>
+    <h3 style="color:#0059b3">Phiên hỏi đáp của tôi</h3>
     @if(session('thongbao'))
 
     <div class="alert alert-success">
@@ -27,9 +27,9 @@
                         
                     </div>
                     <div class="col-sm-7 right" 
-                    style="background-color: #ffffff;margin-left: 10px;color:#000000;">
+                    style="background-color: #ffffff;margin-left: 10px;color:#0059b3;">
                         <p class="title">Phiên hỏi đáp: {{$l ->name_session}}</p>
-                        <p> <a href="{{url("user/manage/edit/{$l->id}")}}">Sửa phiên</a>
+                        <p style="color: #000000"> <a href="{{url("user/manage/edit/{$l->id}")}}">Sửa phiên</a>
                             <a href="{{url("user/manage/delete/{$l->id}")}}" onclick="return xacnhanxoa('Bạn có chắc muốn xóa trạng thái phiên hay không?')"
                                 style="margin-left: 10px;">Xóa phiên</a>
                             <a href="{{url("user/manage/create_question/{$l->id}")}}" style="margin-left: 10px;">Tạo câu hỏi</a>

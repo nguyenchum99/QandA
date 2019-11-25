@@ -2,9 +2,9 @@
 @section('content')
 
 <div class="top" >
-        <div class="form-group" style="color:#000000"> 
+        <div class="form-group" > 
             
-                <h3 ><b>Phiếu lấy ý kiến phản hồi</b></h3>
+                <h3 style="color:#0059b3">Phiếu lấy ý kiến phản hồi</h3>
                 <h5> Đề nghị cho biết ý kiến đánh giá của bạn bằng cách Tích chọn vào 
                      giá trị tương ứng (1..5)
                      về từng vấn đề trong quá trình tham gia khảo sát này.
@@ -59,7 +59,7 @@
                                 @endforeach                                           
                             </div>
                             <input type="submit"  value="Trả lời"   
-                            style="background-color:#a6a6a6; color:#000000;margin-left: 35px" class="btn btn-primary"/>
+                            style="margin-left: 35px" class="btn btn-primary"/>
                         </form> 
                     </div>  
                     

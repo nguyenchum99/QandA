@@ -3,8 +3,8 @@
 
 @section('content')
 
-        <div style ="width: 40%; padding-left: 30px;color:#000000">
-            <h3><b>Tạo phiên hỏi đáp</b></h3>
+        <div style ="width: 50%; padding-left: 30px">
+            <h3 style="color:#0059b3">Tạo phiên hỏi đáp</h3>
         	 {{-- thông báo lỗi --}}
              @if(count($errors) > 0)
              <div class="alert alert-danger">
@@ -23,17 +23,17 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
 
                 <div class="form-group">
-                	<label>Tên phiên</label>
-                    <input type="text" name="name" class="form-control" placeholder="Tên phiên"  />
+                	<h5>Tên phiên</h5>
+                    <input type="text" name="name" class="form-control" placeholder="..."  />
                 </div>
 
                 <div class="form-group">
-                    <label>Mật khẩu phiên</label>
-                    <input type="password" name="password" class="form-control" placeholder="Mật khẩu"  />
+                    <h5>Mật khẩu phiên</h5>
+                    <input type="password" name="password" class="form-control" placeholder="..."  />
                 </div>
 
                 <input type="submit" name="submit" value="Thêm mới" class="btn btn-primary" 
-                style="background-color: #a6a6a6;color:#000000"/>
+               />
             </form>
         </div>
     <div>

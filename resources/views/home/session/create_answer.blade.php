@@ -3,10 +3,10 @@
 
 
         <div class="main-right">
-            <div class="form-group" style="margin-left: 30x;color: #000000">
-                <h3><b>Danh sách câu trả lời </b></h3>
-                <p style="color: #e63900;font-size: 16px;"><b>
-                Câu hỏi: {{$question->question}}?</b></p>
+            <div class="form-group" style="margin-left: 30x">
+                <h3 style="color:#0059b3">Danh sách câu trả lời </h3>
+                <h4 style="color: red;">
+                Câu hỏi: {{$question->question}}?</h4>
                 <p>Thời gian tạo: {{ \Carbon\Carbon::createFromTimeStamp(strtotime($question->created_at))
                                 ->diffForHumans()
                             }}</p>
@@ -14,14 +14,13 @@
 
             <form method="post" action="{{url("user/session/create_answer/{$question->id}")}}">
                 <div class="form-group">
-                    <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                    <h4>Tạo câu trả lời </h4>    
+                    <input type="hidden" name="_token" value="{{csrf_token()}}"/> 
                     <textarea type="text" name="answer" rows="3"
                     class="form-control" placeholder="Nội dung câu trả lời..." ></textarea>
                 </div>
    
                 <input type="submit" name="submit" value="Trả lời" class="btn btn-primary" 
-                style="background-color:#a6a6a6; color:#000000"/>
+                />
             </form>
       
 
