@@ -51,16 +51,13 @@ span{
     border-top:5px solid white;
 }
 form{
-    height: 300px;
+    height: 350px;
     padding-top: 20px;
-    background-color:#cccccc;
+    background-color:#ffffff;
      
 }
 .main-head{
-    width: 500px;
-    background-color:  #a6a6a6;
-    height: 380px;
-    margin-bottom: 10px;
+    background-color:  #ffffff;
 }
 .form-group{
    padding: 5px 100px;
@@ -74,7 +71,21 @@ button{
     padding: 12px 0 12px 15px;
 }
 
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 10px;
+    background-color: #ffffff;    
+    border-radius: 10px;
+    margin: 0 auto; /* Added */
+    float: none;
 
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
 </style>
 <body  style=" background-image: url({{ asset('img/bg2.jpg') }});
@@ -82,68 +93,49 @@ height: 100%;background-position: center;
   background-repeat: no-repeat;
   background-size: cover;">
 
-    {{-- thông báo lỗi --}}
-{{-- 
-<nav class="navbar navbar-default" >
-  <div class="container-fluid">
-    <div class="navbar-header" >
-      <a class="navbar-brand" >HỆ THỐNG HỎI ĐÁP Q-A</a>
-    </div>
-
-    <ul class="nav navbar-nav">
-
-        <li><a href="{{url("user/login")}}">ĐĂNG NHẬP</a></li>
-        <li><a href="{{url("user/register")}}">ĐĂNG KÍ</a></li>
-      
-    </ul>
-  </div>
-</nav>  --}}
-<div class="container">
-    <center>
+<div class="card">
     <div class="login">
         <div class="main-head">
             <div class="head">
                 <h3><b>HỆ THỐNG HỎI ĐÁP Q-A</b></h3>
                 <h4><b>ĐĂNG NHẬP</b></h4>
             </div>
+            @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                
+                    @foreach ($errors -> all() as $err)
+                        {{$err}}<br>
+                    @endforeach
+                
+            </div>
+            @endif
+        
+            {{-- hiện thị sửa thành công --}}
+            @if(session('thongbao'))
+        
+            <div class="alert alert-success">
+                {{session('thongbao')}}
+            </div>
             
+            @endif
                 <form action="{{url("user/login")}}"  method="post" id="login">
-                    @if(count($errors) > 0)
-                    <div class="alert alert-danger">
-                        
-                            @foreach ($errors -> all() as $err)
-                                {{$err}}<br>
-                            @endforeach
-                        
-                    </div>
-                    @endif
-                
-                    {{-- hiện thị sửa thành công --}}
-                    @if(session('thongbao'))
-                
-                    <div class="alert alert-success">
-                        {{session('thongbao')}}
-                    </div>
-                    
-                    @endif
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                     <div class="form-group">
-                        <input type="text" class="form-control"  placeholder="Tên đăng nhập" name="name">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
-                    </div>
-                    <p style="color: #000000"><a href="{{url("user/register")}}" >Đăng kí tài khoản</a></p>
-                    <div class="form-group">
-                        <input  type="submit" class="btn btn-primary" value="Đăng nhập" 
-                        style="background-color: #999999;color: #000000">
+                        <label>Tên đăng nhập</label>
+                        <input type="text" class="form-control"  name="name">
+                        <label>Mật khẩu</label>
+                        <input type="password" class="form-control" name="password">
+                        <p style="margin-top:5px"><a href="{{url("user/register")}}" >Đăng kí tài khoản</a></p>
+
+                        <center><input  type="submit" class="btn btn-primary" value="Đăng nhập"  ></center> 
             
                     </div>
                    
                 </form>
         </div> 
     </div>
-</div></center> 
+   
+</div>
 
 
 <script>

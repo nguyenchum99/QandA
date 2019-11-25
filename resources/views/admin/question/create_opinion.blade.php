@@ -4,7 +4,7 @@
 @section('content')
 
         
-        <div style ="width: 40%">
+        <div style ="width: 50%">
             <h3>Tạo phiếu lấy ý kiến phản hồi </h3>
             @if(session('thongbao'))
 

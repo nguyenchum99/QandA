@@ -10,7 +10,7 @@
 
 </head>
 <style>
-     .navbar-nav{
+.navbar-nav{
     float: right !important;   
     color: #ffffff;
 }
@@ -51,16 +51,13 @@ span{
     border-top:5px solid white;
 }
 form{
-    height: 300px;
-    padding-top: 20px;
-    background-color:#cccccc;
+    height: 350px;
+    margin-top: 10px;
+    background-color:#ffffff;
      
 }
 .main-head{
-    width: 500px;
-    background-color:  #a6a6a6;
-    height: 380px;
-    margin-bottom: 10px;
+    background-color:  #ffffff;
 }
 .form-group{
    padding: 5px 100px;
@@ -74,6 +71,21 @@ button{
     padding: 12px 0 12px 15px;
 }
 
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 10px;
+    background-color: #ffffff;    
+    border-radius: 10px;
+    margin: 0 auto; /* Added */
+    float: none;
+
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
         
         </style>
@@ -82,20 +94,7 @@ height: 100%;background-position: center;
   background-repeat: no-repeat;
   background-size: cover;">
 
-{{-- <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">HỆ THỐNG HỎI ĐÁP Q-A</a>
-    </div>
-    <ul class="nav navbar-nav">
-        <li><a href="{{url("user/login")}}">ĐĂNG NHẬP</a></li>
-        <li><a href="{{url("user/register")}}">ĐĂNG KÍ</a></li>
-      
-    </ul>
-  </div>
-</nav> --}}
-<div class="container">
-    <center>
+<div class="card" >
 
     <div class="login">
         <div class="main-head">
@@ -103,51 +102,44 @@ height: 100%;background-position: center;
                     <h3><b>HỆ THỐNG HỎI ĐÁP Q-A</b></h3>
                     <h4><b>ĐĂNG KÝ TÀI KHOẢN </b></h4>
             </div>
+            @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                
+                    @foreach ($errors -> all() as $err)
+                        {{$err}}<br>
+                    @endforeach
+                
+            </div>
+            @endif
+
+            {{-- hiện thị sửa thành công --}}
+            @if(session('thongbao'))
+
+            <div class="alert alert-success">
+                {{session('thongbao')}}
+            </div>
+
+            @endif
                 <form action="{{url("user/register")}}" method="post">
-                                        {{-- thông báo lỗi --}}
-                    @if(count($errors) > 0)
-                    <div class="alert alert-danger">
-                        
-                            @foreach ($errors -> all() as $err)
-                                {{$err}}<br>
-                            @endforeach
-                        
-                    </div>
-                    @endif
-
-                    {{-- hiện thị sửa thành công --}}
-                    @if(session('thongbao'))
-
-                    <div class="alert alert-success">
-                        {{session('thongbao')}}
-                    </div>
-
-                    @endif
 
                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                     <div class="form-group">
-                        <input type="text" class="form-control"  placeholder="Tên đăng nhập" name="name">
+                        <label>Tên đăng nhập</label>
+                        <input type="text" class="form-control"  name="name">
+                        <label>Email</label>
+                        <input type="email" class="form-control"  name="email">
+                        <label>Ngày sinh</label><input type="date" name="bday" class="form-control">
+                        <label>Mật khẩu</label>
+                        <input type="password" class="form-control" name="password">
+                        <label>Nhập lại mật khẩu</label>
+                        <input type="password" class="form-control"  name="cpassword">         
+                        <input  type="submit" class="btn btn-primary" value="Đăng kí" style="margin-top:5px" >
+                        
                     </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="E-mail" name="email">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Nhập lại mật khẩu" name="cpassword">
-                    </div>
-                    <div class="form-group">
-                        <input href="" type="submit" class="btn btn-primary" value="Đăng kí"  
-                        style="background-color:  #999999;color: #000000">
-                    </div>
-                    {{-- <div class="fomr-group">
-                        <input type="submit" class="btn btn-default" value="Đăng kí">
-                    </div> --}}
                 </form>
         </div> 
     </div>
-</div></center>
+</div>
 
 <script>
     function xacnhanxoa (xoa){
