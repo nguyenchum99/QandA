@@ -11,6 +11,8 @@ use App\Question;
 use App\Answer;
 use App\User;
 use App\Session;
+
+use App\Notification;
 use DB;
 use Carbon\Carbon;
 
@@ -136,7 +138,12 @@ class pageController extends Controller
         $cntAnsw = $answer->count();
         $count = $cntQues + $cntAnsw;
 
-        return view('home.layouts.notification_page',['question'=>$question,'answer'=>$answer]);
+        $noti = DB::table('notifi')
+        ->select('notifi.notification','notifi.created_at')
+        ->get();
+
+        return view('home.layouts.notification_page',['question'=>$question,'answer'=>$answer,
+        'noti'=>$noti]);
     }
 
 

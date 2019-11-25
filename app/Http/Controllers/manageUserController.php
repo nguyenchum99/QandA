@@ -14,6 +14,8 @@ use App\Answer_YesNo;
 use App\QuestionSurvey;
 use App\UserResponse;
 
+use App\Notification;
+
 use App\Response;
 use App\Survey;
 
@@ -203,5 +205,29 @@ class manageUserController extends Controller
         ->get();
 
         return view('admin.layouts.notification',['session'=>$session,'answer'=>$answer]);
+    }
+
+    public function postNotifications(Request $request){
+        $this->validate($request,
+
+        [
+            'notification' => 'required|min:3',
+            
+        ],
+        [
+            'notification.required' => 'Bạn chưa nhập thông báo',
+            'notification.min'=>'Thông báo ít nhất 3 kí tự',
+
+        ]);
+
+        $noti = new Notification;
+
+        $noti->user_id = Auth::user()->id;
+        $noti->notification = $request->notification;
+
+        $noti->save();
+
+        return redirect('admin/user/noti')-> with('thongbao','Tạo thông báo thành công');
+
     }
 }

@@ -56,10 +56,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Session');
     }
 
-    public static function get_meta($question_id) {
-        return DB::table('notifications')
-            ->where('data->question_id', '=', $question_id)
-            ->get();
+    public function notification(){
+        return $this->hasMany('App\Notification');
     }
-
 }

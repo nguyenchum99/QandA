@@ -34,6 +34,8 @@ Route::group(['prefix' => 'admin','middleware'=> 'adminLogin'], function () {
         Route::get('delete/{id}', 'manageUserController@deleteUser'); 
 
         Route::get('noti', 'manageUserController@getListNotifications');
+
+        Route::post('notification','manageUserController@postNotifications');
         
     });
 
